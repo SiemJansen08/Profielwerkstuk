@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://5btguj51mep7"]
+[gd_scene load_steps=2 format=3 uid="uid://5btguj51mep7"]
+
+[sub_resource type="TileSet" id="TileSet_evuop"]
 
 [node name="world" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_evuop")
+format = 2
