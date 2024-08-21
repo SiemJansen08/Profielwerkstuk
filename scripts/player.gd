@@ -3,6 +3,9 @@ extends CharacterBody2D
 const speed = 80
 var current_dir = "none"
 
+func _ready():
+	$AnimatedSprite2D.play("front_idle")
+
 func _physics_process(delta):
 	player_movement(delta)
 
