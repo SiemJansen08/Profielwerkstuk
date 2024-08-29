@@ -462,7 +462,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v6fsu"]
-radius = 5.0
+radius = 4.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_8yr5o")
@@ -474,6 +474,6 @@ animation = &"left_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -5)
+position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_v6fsu")
 one_way_collision_margin = 0.0
