@@ -462,7 +462,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v6fsu"]
-radius = 5.09902
+radius = 5.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_8yr5o")
@@ -470,9 +470,10 @@ script = ExtResource("1_8yr5o")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_fu1x2")
-animation = &"front_walk"
+animation = &"left_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_v6fsu")
 one_way_collision_margin = 0.0
