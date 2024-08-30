@@ -12,10 +12,12 @@ config_version=5
 
 config/name="Profielwerkstuk"
 run/main_scene="res://scenes/world.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.3", "Forward Plus")
 
 [display]
 
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 window/stretch/scale=5.0
 
 [rendering]
