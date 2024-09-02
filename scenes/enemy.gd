@@ -7,8 +7,17 @@ var player = null
 func _physics_process(delta):
 	if player_chase: 
 		velocity = (player.get_global_position() - position).normalized() * speed * delta
+	
+		$AnimatedSprite2D.play("walk")
+		
+		if(player.position.x - position.x) < 0:
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
+	
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, 0.05)
+		$AnimatedSprite2D.play("idle")
 	move_and_collide(velocity)
 	move_and_slide()
 		
