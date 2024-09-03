@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://blfg10bysujfr"]
+[gd_scene load_steps=72 format=3 uid="uid://blfg10bysujfr"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_8yr5o"]
 [ext_resource type="Texture2D" uid="uid://dabd6a6glsq52" path="res://art/characters/zelf_player/Up_attack.png" id="2_vcwow"]
@@ -464,6 +464,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_v6fsu"]
 radius = 4.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5aw2"]
+radius = 12.0416
+
 [node name="player" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_8yr5o")
@@ -478,3 +481,16 @@ y_sort_enabled = true
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_v6fsu")
 one_way_collision_margin = 0.0
+
+[node name="player_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_f5aw2")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
