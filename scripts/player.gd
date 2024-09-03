@@ -6,6 +6,7 @@ var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
+var attack_ip = false
 
 
 func _ready():
@@ -59,28 +60,32 @@ func play_anim(movement):
 		if movement == 1:
 			anim.play("right_walk")
 		elif movement == 0:
-			anim.play("right_idle")
+			if attack_ip == false:
+				anim.play("right_idle")
 	
 	if dir == "left":
 		anim.flip_h = false
 		if movement == 1:
 			anim.play("left_walk")
 		elif movement == 0:
-			anim.play("left_idle")
+			if attack_ip == false:
+				anim.play("left_idle")
 	
 	if dir == "down":
 		anim.flip_h = false
 		if movement == 1:
 			anim.play("front_walk")
 		elif movement == 0:
-			anim.play("front_idle")
+			if attack_ip == false:
+				anim.play("front_idle")
 			
 	if dir == "up":
 		anim.flip_h = false
 		if movement == 1:
 			anim.play("back_walk")
 		elif movement == 0:
-			anim.play("back_idle")
+			if attack_ip == false:
+				anim.play("back_idle")
 func player():
 	pass
 
@@ -103,3 +108,15 @@ func enemy_attack():
 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
+
+func attack():
+	var dir = current_dir
+	if Input.is_action_just_pressed("attack"):
+		Global.player_current_attack = true
+		attack_ip = true
+		if dir == "right":
+			$AnimatedSprite2D.flip_h = false
+			# tutorial ep 5 
+			# timestamp: 21:05
+			
+	
