@@ -29,23 +29,39 @@ func player_movement(delta):
 	if Input.is_action_pressed("ui_right"):
 		current_dir = "right"
 		play_anim(1)
-		velocity.x = speed
-		velocity.y = 0
+		if Global.stealth_mode == true:
+			velocity.x = ( 0.7 * speed)
+			velocity.y = 0
+		else:
+			velocity.x = speed
+			velocity.y = 0
 	elif Input.is_action_pressed("ui_left"):
 		current_dir = "left"
 		play_anim(1)
-		velocity.x = -speed
-		velocity.y = 0
+		if Global.stealth_mode == true:
+			velocity.x = ( 0.7 * -speed)
+			velocity.y = 0
+		else:
+			velocity.x = -speed
+			velocity.y = 0
 	elif Input.is_action_pressed("ui_up"):
 		current_dir = "up"
 		play_anim(1)
-		velocity.y = -speed
-		velocity.x = 0
+		if Global.stealth_mode == true:
+			velocity.y = ( 0.7 * -speed)
+			velocity.x = 0
+		else:
+			velocity.y = -speed
+			velocity.x = 0
 	elif Input.is_action_pressed("ui_down"):
 		current_dir = "down"
 		play_anim(1)
-		velocity.y = speed
-		velocity.x = 0
+		if Global.stealth_mode == true:
+			velocity.y = ( 0.7 * speed)
+			velocity.x = 0
+		else:
+			velocity.y = speed
+			velocity.x = 0
 	else:
 		play_anim(0)
 		velocity.x = 0

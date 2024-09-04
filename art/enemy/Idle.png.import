@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vskgy6gg4kqg"
-path="res://.godot/imported/Droplet.png-8ff3949d96b0fc6e52cec3302afb9e37.ctex"
+uid="uid://dfvv368mwn7vv"
+path="res://.godot/imported/Idle.png-68dda4e6a127c0e5641a4a3276298ba4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/enemy/Droplet.png"
-dest_files=["res://.godot/imported/Droplet.png-8ff3949d96b0fc6e52cec3302afb9e37.ctex"]
+source_file="res://art/enemy/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-68dda4e6a127c0e5641a4a3276298ba4.ctex"]
 
 [params]
 

@@ -13,13 +13,11 @@ func _physics_process(delta):
 
 	if player_chase: 
 		velocity = (player.get_global_position() - position).normalized() * speed * delta
-	
-		$AnimatedSprite2D.play("walk")
 		
 		if(player.position.x - position.x) < 0:
-			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("left_walk")
 		else:
-			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.play("right_walk")
 	
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, 0.05)
