@@ -15,6 +15,7 @@ func _ready():
 func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
+	attack()
 	
 	if health <= 0:
 		player_alive = false # terug naar menu of end screen.
@@ -115,8 +116,21 @@ func attack():
 		Global.player_current_attack = true
 		attack_ip = true
 		if dir == "right":
-			$AnimatedSprite2D.flip_h = false
-			# tutorial ep 5 
-			# timestamp: 21:05
+			$AnimatedSprite2D.play("right_attack")
+			$deal_attack_timer.start()
+		if dir == "left":
+			$AnimatedSprite2D.play("left_attack")
+			$deal_attack_timer.start()
+		if dir == "down":
+			$AnimatedSprite2D.play("front_attack")
+			$deal_attack_timer.start()
+		if dir == "up":
+			$AnimatedSprite2D.play("back_attack")
 			
+			
+	
+func _on_deal_attack_timer_timeout():
+	$deal_attack_timer.stop()
+	Global.player_current_attack = false
+	attack_ip = false
 	
