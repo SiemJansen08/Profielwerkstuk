@@ -26,16 +26,19 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("idle")
 	move_and_collide(velocity)
 	move_and_slide()
-		
-
-func _on_detection_area_body_entered(body):
-	player = body
-	player_chase = true
 	
-
+	
+										# functies binnen een if statement?
+										# dan kun je if Global.stealth_mode ==false:
+	
+	
+func _on_detection_area_body_entered(body):
+		player = body
+		player_chase = true
+	
 func _on_detection_area_body_exited(body):
-	player = null
-	player_chase = false
+		player = null
+		player_chase = false
 
 func enemy():
 	pass

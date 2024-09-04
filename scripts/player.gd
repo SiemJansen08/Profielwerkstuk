@@ -16,6 +16,7 @@ func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
 	attack()
+	stealth()
 	
 	if health <= 0:
 		player_alive = false # terug naar menu of end screen.
@@ -57,40 +58,52 @@ func play_anim(movement):
 	var anim = $AnimatedSprite2D
 	
 	if dir == "right":
-		anim.flip_h = false
 		if movement == 1:
 			if Global.stealth_mode == false:
 				anim.play("right_walk")
+			if Global.stealth_mode == true:
+				anim.play("right_walk_stealth")
 		elif movement == 0:
-			if attack_ip == false:
+			if attack_ip == false and Global.stealth_mode == false:
 				anim.play("right_idle")
+			if Global.stealth_mode == true:
+				anim.play("right_idle_stealth")
 	
 	if dir == "left":
-		anim.flip_h = false
 		if movement == 1:
 			if Global.stealth_mode == false:
 				anim.play("left_walk")
+			if Global.stealth_mode == true:
+				anim.play("left_walk_stealth")
 		elif movement == 0:
-			if attack_ip == false:
+			if attack_ip == false and Global.stealth_mode == false:
 				anim.play("left_idle")
+			if Global.stealth_mode == true:
+				anim.play("left_idle_stealth")
 	
 	if dir == "down":
-		anim.flip_h = false
 		if movement == 1:
 			if Global.stealth_mode == false:
 				anim.play("front_walk")
+			if Global.stealth_mode == true:
+				anim.play("front_walk_stealth")
 		elif movement == 0:
-			if attack_ip == false:
+			if attack_ip == false and Global.stealth_mode == false:
 				anim.play("front_idle")
+			if Global.stealth_mode == true:
+				anim.play("front_idle_stealth")
 			
 	if dir == "up":
-		anim.flip_h = false
 		if movement == 1:
 			if Global.stealth_mode == false:
 				anim.play("back_walk")
+			if Global.stealth_mode == true:
+				anim.play("back_walk_stealth")
 		elif movement == 0:
-			if attack_ip == false:
+			if attack_ip == false and Global.stealth_mode == false:
 				anim.play("back_idle")
+			if Global.stealth_mode == true:
+				anim.play("back_idle_stealth")
 func player():
 	pass
 
@@ -137,4 +150,19 @@ func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	Global.player_current_attack = false
 	attack_ip = false
+
+func stealth():
+	var dir = current_dir
+	var anim = $AnimatedSprite2D
+	if Input.is_action_just_pressed("stealth"):
+		Global.stealth_mode= true
+		$stealth_time.start()
+		
+		
+
+
+func _on_stealth_time_timeout():
+	Global.stealth_mode = false
+	$stealth_time.stop()
+	
 	
