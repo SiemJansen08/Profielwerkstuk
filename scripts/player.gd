@@ -145,7 +145,7 @@ func attack():
 			$AnimatedSprite2D.play("back_attack")
 			
 			
-	
+
 func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	Global.player_current_attack = false
