@@ -497,6 +497,12 @@ wait_time = 0.5
 wait_time = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -654
+limit_top = -222
+limit_right = 539
+limit_bottom = 588
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
