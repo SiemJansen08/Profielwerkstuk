@@ -59,7 +59,8 @@ func play_anim(movement):
 	if dir == "right":
 		anim.flip_h = false
 		if movement == 1:
-			anim.play("right_walk")
+			if Global.stealth_mode == false:
+				anim.play("right_walk")
 		elif movement == 0:
 			if attack_ip == false:
 				anim.play("right_idle")
@@ -67,7 +68,8 @@ func play_anim(movement):
 	if dir == "left":
 		anim.flip_h = false
 		if movement == 1:
-			anim.play("left_walk")
+			if Global.stealth_mode == false:
+				anim.play("left_walk")
 		elif movement == 0:
 			if attack_ip == false:
 				anim.play("left_idle")
@@ -75,7 +77,8 @@ func play_anim(movement):
 	if dir == "down":
 		anim.flip_h = false
 		if movement == 1:
-			anim.play("front_walk")
+			if Global.stealth_mode == false:
+				anim.play("front_walk")
 		elif movement == 0:
 			if attack_ip == false:
 				anim.play("front_idle")
@@ -83,7 +86,8 @@ func play_anim(movement):
 	if dir == "up":
 		anim.flip_h = false
 		if movement == 1:
-			anim.play("back_walk")
+			if Global.stealth_mode == false:
+				anim.play("back_walk")
 		elif movement == 0:
 			if attack_ip == false:
 				anim.play("back_idle")
