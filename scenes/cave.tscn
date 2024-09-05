@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjg5wsrsgiioi"]
+[gd_scene load_steps=11 format=3 uid="uid://cjg5wsrsgiioi"]
 
 [ext_resource type="Texture2D" uid="uid://b2mguvrbuqmgj" path="res://art/tilesets/plains.png" id="1_w2k27"]
+[ext_resource type="Script" path="res://scripts/cave.gd" id="1_wm2n1"]
 [ext_resource type="Texture2D" uid="uid://cxvls7tulirsl" path="res://art/tilesets/grass.png" id="2_gmmk5"]
 [ext_resource type="Texture2D" uid="uid://b623fsv38jp75" path="res://art/objects/objects.png" id="3_rr5g3"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/character_body_2d.tscn" id="4_fgyjb"]
@@ -273,9 +274,10 @@ sources/1 = SubResource("TileSetAtlasSource_8h2fr")
 sources/2 = SubResource("TileSetAtlasSource_qdflm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2bm2"]
-size = Vector2(70, 40)
+size = Vector2(23, 8)
 
 [node name="cave" type="Node2D"]
+script = ExtResource("1_wm2n1")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -302,5 +304,8 @@ position = Vector2(2, 312)
 [node name="cave_exit" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cave_exit"]
-position = Vector2(5, 344)
+position = Vector2(0.5, 325)
 shape = SubResource("RectangleShape2D_o2bm2")
+
+[connection signal="body_entered" from="cave_exit" to="." method="_on_cave_exit_body_entered"]
+[connection signal="body_exited" from="cave_exit" to="." method="_on_cave_exit_body_exited"]
