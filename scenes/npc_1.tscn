@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://koucmj2vrhg0"]
+[gd_scene load_steps=31 format=3 uid="uid://koucmj2vrhg0"]
 
 [ext_resource type="Texture2D" uid="uid://bebs6wjl1enaf" path="res://art/characters/player.png" id="1_hunua"]
 [ext_resource type="Script" path="res://scripts/npc_1.gd" id="1_s1fad"]
+[ext_resource type="PackedScene" uid="uid://dit2pvflcn0uu" path="res://dialogue/dialogue.tscn" id="3_u2m5e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l2nr0"]
 atlas = ExtResource("1_hunua")
@@ -220,6 +221,9 @@ shape = SubResource("CircleShape2D_mkwo6")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="dialogue" parent="." instance=ExtResource("3_u2m5e")]
+
 [connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="dialogue_finished" from="dialogue" to="." method="_on_dialogue_dialogue_finished"]
