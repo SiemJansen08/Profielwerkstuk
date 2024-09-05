@@ -766,13 +766,15 @@ wait_time = 0.5
 [node name="deal_attack_timer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="world_camera" type="Camera2D" parent="."]
 limit_left = -654
 limit_top = -222
 limit_right = 539
 limit_bottom = 588
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="cave_camera" type="Camera2D" parent="."]
 
 [node name="stealth_time" type="Timer" parent="."]
 wait_time = 3.0

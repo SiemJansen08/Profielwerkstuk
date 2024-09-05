@@ -656,7 +656,6 @@ y_sort_enabled = true
 script = ExtResource("1_1fvbi")
 
 [node name="TileMap" type="TileMap" parent="."]
-z_index = 1
 y_sort_enabled = true
 tile_set = SubResource("TileSet_evuop")
 format = 2
@@ -671,18 +670,18 @@ layer_3/y_sort_enabled = true
 layer_3/z_index = 1
 layer_3/tile_data = PackedInt32Array(-65539, 655367, 7, 262133, 655367, 7, 131080, 655367, 7, -196603, 7, 5, -65546, 7, 5, 393212, 524295, 6, -458760, 524295, 6, -393218, 524295, 6, -393217, 524295, 6, 131075, 7, 0, 196608, 7, 0, 131066, 393223, 7, -262143, 393223, 7, -196595, 393223, 7, -65542, 7, 1, -196614, 7, 1, 65541, 7, 1, -131070, 7, 5, 327685, 7, 5, -131069, 7, 5, 589825, 7, 5, 1310703, 1, 1, 1376239, 1, 1, 1441775, 1, 1, 1507311, 1, 1, 1572847, 1, 2, 1572850, 1, 2, 1310706, 1, 1, 1376242, 1, 1, 1441778, 1, 1, 1507314, 1, 1, 1245167, 1, 0, 1245170, 1, 0, -24, 524295, 6, -196637, 524295, 6, 262114, 393223, 7, -262169, 393223, 7, -22, 655367, 7, 131042, 7, 1, -131100, 7, 1, -327703, 7, 1, 65511, 327687, 0, -327656, 65538, 0)
 
-[node name="player" parent="TileMap" instance=ExtResource("10_tqxcw")]
-z_index = 1
-position = Vector2(-578, -93)
-
-[node name="enemy" parent="TileMap" instance=ExtResource("11_tjmnn")]
-position = Vector2(-241, 262)
-
 [node name="cave_entrance" type="Area2D" parent="TileMap"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/cave_entrance"]
 position = Vector2(392, -68.5)
 shape = SubResource("RectangleShape2D_sjxbv")
+
+[node name="player" parent="." instance=ExtResource("10_tqxcw")]
+z_index = 1
+position = Vector2(419, 25)
+
+[node name="enemy" parent="." instance=ExtResource("11_tjmnn")]
+position = Vector2(-241, 262)
 
 [connection signal="body_entered" from="TileMap/cave_entrance" to="." method="_on_cave_entrance_body_entered"]
 [connection signal="body_exited" from="TileMap/cave_entrance" to="." method="_on_cave_entrance_body_exited"]

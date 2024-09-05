@@ -18,6 +18,8 @@ func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
 	stealth()
+	current_camera()
+	
 	
 	if health <= 0:
 		player_alive = false # terug naar menu of end screen.
@@ -184,3 +186,12 @@ func _on_stealth_time_timeout():
 	$stealth_time.stop()
 	
 	
+func current_camera():
+	if Global.current_scene == "world":
+		$world_camera.enabled = true
+		$cave_camera.enabled = false
+	elif Global.current_scene == "cave":
+		$world_camera.enabled = false
+		$cave_camera.enabled = true
+		
+		

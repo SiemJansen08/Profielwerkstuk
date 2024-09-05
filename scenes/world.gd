@@ -14,9 +14,7 @@ func _on_cave_entrance_body_entered(body):
 		Global.transition_scene = true
 
 
-func _on_cave_entrance_body_exited(body):
-	if body.has_method("player"):
-		Global.transition_scene = false
+
 		
 		
 func change_scene():

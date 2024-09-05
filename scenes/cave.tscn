@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjg5wsrsgiioi"]
+[gd_scene load_steps=10 format=3 uid="uid://cjg5wsrsgiioi"]
 
 [ext_resource type="Texture2D" uid="uid://b2mguvrbuqmgj" path="res://art/tilesets/plains.png" id="1_w2k27"]
 [ext_resource type="Texture2D" uid="uid://cxvls7tulirsl" path="res://art/tilesets/grass.png" id="2_gmmk5"]
 [ext_resource type="Texture2D" uid="uid://b623fsv38jp75" path="res://art/objects/objects.png" id="3_rr5g3"]
+[ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/character_body_2d.tscn" id="4_fgyjb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7j18w"]
 texture = ExtResource("1_w2k27")
@@ -263,6 +264,9 @@ sources/0 = SubResource("TileSetAtlasSource_7j18w")
 sources/1 = SubResource("TileSetAtlasSource_8h2fr")
 sources/2 = SubResource("TileSetAtlasSource_qdflm")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2bm2"]
+size = Vector2(70, 40)
+
 [node name="cave" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -282,3 +286,13 @@ layer_2/tile_data = PackedInt32Array(327674, 2, 1, -65541, 2, 1, 720902, 2, 1, 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(-174, -99, 161, -98, 163, -38, 193, -34, 195, 81, 184, 85, 179, 92, 178, 132, 179, 224, 175, 228, 169, 228, 163, 236, 164, 258, 153, 261, 149, 266, 147, 274, 142, 276, 121, 276, 117, 281, 115, 286, 115, 322, 42, 324, 42, 365, -31, 366, -31, 323, -62, 324, -66, 320, -66, 283, -70, 278, -73, 275, -111, 276, -114, 272, -114, 237, -119, 228, -176, 228, -178, 224, -178, 172, -182, 166, -183, 163, -193, 163, -194, 15, -189, 14, -179, 13, -177, 9, -179, -97, -180, -145, -325, -93, -338, 193, -292, 384, -171, 428, 160, 429, 267, 320, 344, 91, 310, -98, 196, -201, -58, -174, -162, -159)
+
+[node name="player" parent="." instance=ExtResource("4_fgyjb")]
+z_index = 1
+position = Vector2(2, 312)
+
+[node name="cave_exit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cave_exit"]
+position = Vector2(5, 344)
+shape = SubResource("RectangleShape2D_o2bm2")

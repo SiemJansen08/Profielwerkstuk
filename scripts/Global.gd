@@ -18,4 +18,4 @@ func finish_changescenes():
 			current_scene = "cave"
 		else:
 			current_scene = "world"
-			
+				
