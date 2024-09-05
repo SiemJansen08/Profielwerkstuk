@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const speed = 70
+const speed_stealth = 50
 var current_dir = "none"
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
@@ -13,9 +14,9 @@ func _ready():
 	$AnimatedSprite2D.play("front_idle")
 
 func _physics_process(delta):
+	attack()
 	player_movement(delta)
 	enemy_attack()
-	attack()
 	stealth()
 	
 	if health <= 0:
@@ -30,7 +31,7 @@ func player_movement(delta):
 		current_dir = "right"
 		play_anim(1)
 		if Global.stealth_mode == true:
-			velocity.x = ( 0.7 * speed)
+			velocity.x = speed_stealth
 			velocity.y = 0
 		else:
 			velocity.x = speed
@@ -39,7 +40,7 @@ func player_movement(delta):
 		current_dir = "left"
 		play_anim(1)
 		if Global.stealth_mode == true:
-			velocity.x = ( 0.7 * -speed)
+			velocity.x = -speed_stealth
 			velocity.y = 0
 		else:
 			velocity.x = -speed
@@ -48,7 +49,7 @@ func player_movement(delta):
 		current_dir = "up"
 		play_anim(1)
 		if Global.stealth_mode == true:
-			velocity.y = ( 0.7 * -speed)
+			velocity.y = -speed_stealth
 			velocity.x = 0
 		else:
 			velocity.y = -speed
@@ -57,7 +58,7 @@ func player_movement(delta):
 		current_dir = "down"
 		play_anim(1)
 		if Global.stealth_mode == true:
-			velocity.y = ( 0.7 * speed)
+			velocity.y = speed_stealth
 			velocity.x = 0
 		else:
 			velocity.y = speed
@@ -159,6 +160,7 @@ func attack():
 			$deal_attack_timer.start()
 		if dir == "up":
 			$AnimatedSprite2D.play("back_attack")
+			$deal_attack_timer.start()
 			
 			
 
