@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://5btguj51mep7"]
+[gd_scene load_steps=31 format=3 uid="uid://5btguj51mep7"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_1fvbi"]
 [ext_resource type="Texture2D" uid="uid://fogwkghmyj5y" path="res://art/tilesets/floors/wooden.png" id="1_eeo81"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/character_body_2d.tscn" id="10_tqxcw"]
 [ext_resource type="Texture2D" uid="uid://dqmkfb7a41ie0" path="res://art/ezyZip/Tiles/Water_Tile.png" id="11_i6w6a"]
 [ext_resource type="PackedScene" uid="uid://dmx17t75nylab" path="res://scenes/enemy.tscn" id="11_tjmnn"]
+[ext_resource type="PackedScene" uid="uid://koucmj2vrhg0" path="res://scenes/npc_1.tscn" id="16_ywfqw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kypg6"]
 texture = ExtResource("1_eeo81")
@@ -527,8 +528,10 @@ texture = ExtResource("7_8dd7i")
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.15625, 1.8125, 6.96875, 2.0625, 7.21875, 6.125, -7.09375, 5.9375)
 10:0/size_in_atlas = Vector2i(2, 1)
 10:0/0 = 0
+10:0/0/y_sort_origin = 2
 10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:0/0/physics_layer_0/angular_velocity = 0.0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.5122, -1.76777, 14.8934, -2.12132, 14.8934, 7.15946, 10.6508, 7.33623, 10.5624, 4.41942, -10.7392, 4.15425, -11.0043, 6.89429, -15.4238, 6.98268)
 11:2/size_in_atlas = Vector2i(1, 2)
 11:2/0 = 0
 11:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -682,6 +685,9 @@ position = Vector2(-560, -115)
 
 [node name="enemy" parent="." instance=ExtResource("11_tjmnn")]
 position = Vector2(-241, 262)
+
+[node name="npc1" parent="." instance=ExtResource("16_ywfqw")]
+position = Vector2(374, 234)
 
 [connection signal="body_entered" from="TileMap/cave_entrance" to="." method="_on_cave_entrance_body_entered"]
 [connection signal="body_exited" from="TileMap/cave_entrance" to="." method="_on_cave_entrance_body_exited"]
