@@ -1,19 +1,23 @@
 extends Node
 
-var game_first_load = true
+var game_first_load = true			# for scene transitions
 
-var player_current_attack = false
+var player_current_attack = false		#attack stuff
 var stealth_mode = false
 
-var current_scene = "world"
+var current_scene = "world"			# scene transitions
 var transition_scene = false
 
-var player_exit_cave_posx = 376
+var player_exit_cave_posx = 376			# in and out cords of cave scene
 var player_exit_cave_posy = -49
 var player_start_posx = -578
 var player_start_posy = -108
 
-var bridge_acces = false
+var bridge_acces = false			# level progression
+
+var current_wave: int
+var moving_to_next_wave: bool
+
 
 func finish_changescenes():
 	if transition_scene == true:

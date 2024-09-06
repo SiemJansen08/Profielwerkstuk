@@ -5,7 +5,7 @@ const speed_stealth = 50
 var current_dir = "none"
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = 100
+var health = 800
 var player_alive = true
 var attack_ip = false
 
