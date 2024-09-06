@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var inkling_scene: PackedScene
+
 func _ready():
 	if Global.game_first_load == true:
 		$player.position.x = Global.player_start_posx
@@ -14,15 +16,10 @@ func _process(delta):
 	change_scene()
 	level_progression()
 
-
-
 func _on_cave_entrance_body_entered(body):
 	if body.has_method("player"):
 		Global.transition_scene = true
 
-
-
-		
 		
 func change_scene():
 	if Global.transition_scene == true:

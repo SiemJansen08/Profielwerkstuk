@@ -761,7 +761,7 @@ position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_f5aw2")
 
 [node name="attack_cooldown" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.8
 
 [node name="deal_attack_timer" type="Timer" parent="."]
 wait_time = 0.5

@@ -1,5 +1,12 @@
 extends Node2D
 
+@export var inkling_scene: PackedScene
+var current_wave: int
+var starting_nodes: int
+var current_nodes: int
+var wave_spawn_ended 
+
+
 func _start():
 	pass
 	
