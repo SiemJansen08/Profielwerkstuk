@@ -13,6 +13,8 @@ var player_exit_cave_posy = -49
 var player_start_posx = -578
 var player_start_posy = -108
 
+var bridge_acces = false
+
 func finish_changescenes():
 	if transition_scene == true:
 		transition_scene = false
