@@ -42,12 +42,13 @@ func position_to_next_wave():
 		#anim? 10:25 "how to spawn enemies in godot4" - devworm
 		current_wave += 1
 		Global.current_wave = current_wave
+		await get_tree().create_timer(0.5).timeout
 		prepare_spawn("inklings", 5.0, 5.0 ) #type , multiplier, spawns
 		print("wave ", current_wave)
 		
 func prepare_spawn(type, multiplier, mob_spawns):
 	var mob_amount = float(current_wave) * multiplier
-	var mob_wait_time: float = 2.0
+	var mob_wait_time: float = 3.0
 	print("mob_amount: ", mob_amount)
 	var mob_spawn_rounds = mob_amount / mob_spawns
 	spawn_type(type, mob_spawn_rounds, mob_wait_time)
