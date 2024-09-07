@@ -24,9 +24,14 @@ func start():
 	
 	
 func load_dialogue():
-	var file = FileAccess.open("res://dialogue/Lip_dialogue1.json", FileAccess.READ)
-	var content = JSON.parse_string(file.get_as_text())
-	return content
+	if Global.cave_win == false:
+		var file = FileAccess.open("res://dialogue/Lip_dialogue1.json", FileAccess.READ)
+		var content = JSON.parse_string(file.get_as_text())
+		return content
+	elif Global.cave_win == true:
+		var file = FileAccess.open("res://dialogue/Lip_dialogue2.json", FileAccess.READ)
+		var content = JSON.parse_string(file.get_as_text())
+		return content
 	
 func _input(event):
 	if !d_active:
