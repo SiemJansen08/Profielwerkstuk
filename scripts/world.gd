@@ -32,9 +32,10 @@ func change_scene():
 func level_progression():
 	if Global.cave_acces == true:
 		$TileMap/cave_entrance/cave_entrance/cave_entrance_col.set_deferred("disabled", true)
-		
 	if Global.cave_win == true:
-		Global.bridge_acces = true
+		$TileMap/cave_entrance/cave_entrance/cave_entrance_col.set_deferred("disabled", false)
+	#if Global.cave_win == true:
+		#Global.bridge_acces = true
 	
 	if Global.bridge_acces == true:
 		$TileMap/bridge_entrance/bridge_entrance_col.set_deferred("disabled", true)

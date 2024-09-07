@@ -31,6 +31,8 @@ func load_dialogue():
 	elif Global.cave_win == true:
 		var file = FileAccess.open("res://dialogue/Lip_dialogue2.json", FileAccess.READ)
 		var content = JSON.parse_string(file.get_as_text())
+		Global.bridge_acces = true
+		Global.cave_acces = false
 		return content
 	
 func _input(event):
