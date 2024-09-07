@@ -81,4 +81,5 @@ func _on_timer_timeout():
 func _on_dialogue_dialogue_finished():
 	is_chatting = false
 	is_roaming = true
-	Global.bridge_acces = true
+	Global.cave_acces = true
+	

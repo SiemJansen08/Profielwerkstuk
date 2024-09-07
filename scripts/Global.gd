@@ -14,6 +14,8 @@ var player_start_posx = -578
 var player_start_posy = -108
 
 var bridge_acces = false			# level progression
+var cave_acces = false
+var cave_win = false
 
 var current_wave: int
 var moving_to_next_wave: bool

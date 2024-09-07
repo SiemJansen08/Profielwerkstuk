@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://5btguj51mep7"]
+[gd_scene load_steps=37 format=3 uid="uid://5btguj51mep7"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_1fvbi"]
 [ext_resource type="Texture2D" uid="uid://fogwkghmyj5y" path="res://art/tilesets/floors/wooden.png" id="1_eeo81"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dbd8xek0t1jfs" path="res://art/gebouwen/museun.png" id="10_5g1ts"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/player.tscn" id="10_tqxcw"]
 [ext_resource type="Texture2D" uid="uid://dqmkfb7a41ie0" path="res://art/ezyZip/Tiles/Water_Tile.png" id="11_i6w6a"]
-[ext_resource type="PackedScene" uid="uid://dmx17t75nylab" path="res://scenes/inkling_enemy.tscn" id="11_tjmnn"]
+[ext_resource type="PackedScene" uid="uid://dmx17t75nylab" path="res://scenes/cave_inkling.tscn" id="11_tjmnn"]
 [ext_resource type="Texture2D" uid="uid://dfa0xk0e2j55k" path="res://art/gebouwen/Untitled 4.png" id="12_drfjs"]
 [ext_resource type="PackedScene" uid="uid://koucmj2vrhg0" path="res://scenes/npc_1.tscn" id="16_ywfqw"]
 
@@ -674,6 +674,9 @@ sources/5 = SubResource("TileSetAtlasSource_bpu35")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjxbv"]
 size = Vector2(14, 21)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifdcm"]
+size = Vector2(20, 15)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kp7k3"]
 size = Vector2(38, 5)
 
@@ -703,6 +706,12 @@ layer_3/tile_data = PackedInt32Array(1310703, 1, 1, 1376239, 1, 1, 1441775, 1, 1
 position = Vector2(392, -68.5)
 shape = SubResource("RectangleShape2D_sjxbv")
 
+[node name="cave_entrance" type="StaticBody2D" parent="TileMap/cave_entrance"]
+
+[node name="cave_entrance_col" type="CollisionShape2D" parent="TileMap/cave_entrance/cave_entrance"]
+position = Vector2(392, -61.5)
+shape = SubResource("RectangleShape2D_ifdcm")
+
 [node name="bridge_entrance" type="StaticBody2D" parent="TileMap"]
 
 [node name="bridge_entrance_col" type="CollisionShape2D" parent="TileMap/bridge_entrance"]
@@ -712,10 +721,6 @@ shape = SubResource("RectangleShape2D_kp7k3")
 [node name="player" parent="." instance=ExtResource("10_tqxcw")]
 z_index = 1
 position = Vector2(-560, -115)
-
-[node name="enemy" parent="." instance=ExtResource("11_tjmnn")]
-z_index = 1
-position = Vector2(-464, 389)
 
 [node name="npc1" parent="." instance=ExtResource("16_ywfqw")]
 z_index = 1

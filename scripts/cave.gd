@@ -41,10 +41,16 @@ func position_to_next_wave():
 		wave_spawn_ended = false
 		#anim? 10:25 "how to spawn enemies in godot4" - devworm
 		current_wave += 1
-		Global.current_wave = current_wave
-		await get_tree().create_timer(0.5).timeout
-		prepare_spawn("inklings", 5.0, 5.0 ) #type , multiplier, spawns
-		print("wave ", current_wave)
+		if current_wave <= 3:
+			Global.current_wave = current_wave
+			await get_tree().create_timer(0.5).timeout
+			prepare_spawn("inklings", 5.0, 5.0 ) #type , multiplier, spawns
+			print("wave ", current_wave)
+		else:
+			if current_nodes == starting_nodes:
+				Global.cave_win = true
+				print("all enemies killed")
+			
 		
 func prepare_spawn(type, multiplier, mob_spawns):
 	var mob_amount = float(current_wave) * multiplier
@@ -55,23 +61,18 @@ func prepare_spawn(type, multiplier, mob_spawns):
 	
 func spawn_type(type, mob_spawn_rounds, mob_wait_time):
 	if type == "inklings":
-		var inkling_spawn1 = $inkling_spawn_1
-		var inkling_spawn2 = $inkling_spawn_2
-		var inkling_spawn3 = $inkling_spawn_3
-		var inkling_spawn4 = $inkling_spawn_4
-		var inkling_spawn5 = $inkling_spawn_5
 		if mob_spawn_rounds >= 1:
 			for i in mob_spawn_rounds:
 				var inkling1 = inkling_scene.instantiate()
-				inkling1.global_position = inkling_spawn1.global_position
+				inkling1.global_position = $inkling_spawn_1.global_position
 				var inkling2 = inkling_scene.instantiate()
-				inkling2.global_position = inkling_spawn2.global_position
+				inkling2.global_position = $inkling_spawn_2.global_position
 				var inkling3 = inkling_scene.instantiate()
-				inkling3.global_position = inkling_spawn3.global_position
+				inkling3.global_position = $inkling_spawn_3.global_position
 				var inkling4 = inkling_scene.instantiate()
-				inkling4.global_position = inkling_spawn4.global_position
+				inkling4.global_position = $inkling_spawn_4.global_position
 				var inkling5 = inkling_scene.instantiate()
-				inkling5.global_position = inkling_spawn5.global_position
+				inkling5.global_position = $inkling_spawn_5.global_position
 				add_child(inkling1)
 				add_child(inkling2)
 				add_child(inkling3)

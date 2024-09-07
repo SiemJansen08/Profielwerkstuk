@@ -5,7 +5,7 @@ const speed_stealth = 50
 var current_dir = "none"
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = 800
+var health = 1500
 var player_alive = true
 var attack_ip = false
 
@@ -138,7 +138,7 @@ func _on_player_hitbox_body_exited(body):
 		
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 20
+		health = health - 5
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print(health)
