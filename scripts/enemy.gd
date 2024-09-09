@@ -10,7 +10,7 @@ var can_take_damage = true
 
 func _physics_process(delta):
 	deal_with_damage()
-
+	
 	if player_chase: 
 		velocity = (player.get_global_position() - position).normalized() * speed * delta
 		

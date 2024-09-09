@@ -20,6 +20,9 @@ var cave_win = false
 var current_wave: int
 var moving_to_next_wave: bool
 
+@onready var questbox: CanvasLayer = Global.get_node("questbox")
+
+
 
 func finish_changescenes():
 	if transition_scene == true:
