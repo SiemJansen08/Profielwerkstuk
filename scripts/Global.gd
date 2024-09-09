@@ -1,5 +1,9 @@
 extends Node
 
+func _physics_process(delta):
+	questlevels()
+	questvis()
+
 var game_first_load = true			# for scene transitions
 
 var player_current_attack = false		#attack stuff
@@ -20,9 +24,31 @@ var cave_win = false
 var current_wave: int
 var moving_to_next_wave: bool
 
-@onready var questbox: CanvasLayer = Global.get_node("questbox")
+var questlevel = 1
+var current_quest_title
+var current_quest_desc
 
+func questlevels():
+	if questlevel == 1:
+		current_quest_title = "Lip"
+		current_quest_desc = "Find Lip and speak with him"
+	elif questlevel == 2:
+		current_quest_title = "Cave"
+		current_quest_desc = "Explore the cave inthe North"
+	elif questlevel == 3:
+		current_quest_title = "Inklings"
+		current_quest_desc = "Kill all the Inklings"
+	elif questlevel == 4:
+		current_quest_title = "Lip"
+		current_quest_desc = "Leave the cave and speak to Lip"
+	elif questlevel == 5:
+		current_quest_title = "Museum"
+		current_quest_desc = "Look for the museum"
 
+func questvis():
+	$QuestBox/QuestTitle.set_text(current_quest_title) 
+	$QuestBox/QuestDescription.set_text(current_quest_desc)
+	
 
 func finish_changescenes():
 	if transition_scene == true:

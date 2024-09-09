@@ -27,6 +27,7 @@ func change_scene():
 		if Global.current_scene == "world":
 			get_tree().change_scene_to_file("res://scenes/cave.tscn")
 			Global.game_first_load = false
+			Global.questlevel = 3
 			Global.finish_changescenes()
 			
 func level_progression():

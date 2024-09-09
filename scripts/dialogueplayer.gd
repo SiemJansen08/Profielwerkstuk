@@ -33,6 +33,7 @@ func load_dialogue():
 		var content = JSON.parse_string(file.get_as_text())
 		Global.bridge_acces = true
 		Global.cave_acces = false
+		Global.questlevel = 5
 		return content
 	
 func _input(event):
