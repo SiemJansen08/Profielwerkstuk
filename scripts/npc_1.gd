@@ -82,4 +82,5 @@ func _on_dialogue_dialogue_finished():
 	is_chatting = false
 	is_roaming = true
 	Global.cave_acces = true
+	Global.questlevel = 2
 	

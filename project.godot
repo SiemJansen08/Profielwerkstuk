@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]
 
-Global="*res://scripts/Global.gd"
+Global="*res://scenes/Global.tscn"
 
 [display]
 

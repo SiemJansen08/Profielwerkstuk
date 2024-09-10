@@ -49,6 +49,7 @@ func position_to_next_wave():
 		else:
 			if current_nodes == starting_nodes:
 				Global.cave_win = true
+				Global.questlevel = 4
 				print("all enemies killed")
 			
 		
