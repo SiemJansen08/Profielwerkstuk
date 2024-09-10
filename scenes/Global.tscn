@@ -17,10 +17,11 @@ texture = SubResource("CanvasTexture_vecjp")
 offset = Vector2(0, 5)
 
 [node name="QuestTitle" type="RichTextLabel" parent="QuestBox"]
-offset_left = 3.0
-offset_top = 18.0
-offset_right = 27.0
-offset_bottom = 22.0
+offset_left = 2.0
+offset_top = 17.0
+offset_right = 92.0
+offset_bottom = 42.0
+scale = Vector2(0.2, 0.2)
 
 [node name="QuestDescription" type="RichTextLabel" parent="QuestBox"]
 anchors_preset = -1
@@ -28,7 +29,8 @@ anchor_left = 0.005
 anchor_top = 0.005
 anchor_right = 0.005
 anchor_bottom = 0.005
-offset_left = -2.76
-offset_top = 21.76
-offset_right = 37.24
-offset_bottom = 33.76
+offset_left = 1.24
+offset_top = 22.76
+offset_right = 191.24
+offset_bottom = 87.76
+scale = Vector2(0.2, 0.2)

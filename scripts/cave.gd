@@ -39,7 +39,6 @@ func position_to_next_wave():
 		if current_wave != 0:
 			Global.moving_to_next_wave = true
 		wave_spawn_ended = false
-		#anim? 10:25 "how to spawn enemies in godot4" - devworm
 		current_wave += 1
 		if current_wave <= 3:
 			Global.current_wave = current_wave

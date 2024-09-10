@@ -44,7 +44,9 @@ func _process(delta):
 				dir = choose([Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN ])
 			MOVE: 
 				move()
-	if Input.is_action_just_pressed("chat"):
+	if player_in_chatzone == true and Global.questlevel == 1 or Global.questlevel == 4 and player_in_chatzone:
+		Global.questlevel = 1.1
+	if Input.is_action_just_pressed("chat") and player_in_chatzone:
 		print("chatting with npc")
 		$dialogue.start()
 		is_roaming = false
@@ -82,5 +84,5 @@ func _on_dialogue_dialogue_finished():
 	is_chatting = false
 	is_roaming = true
 	Global.cave_acces = true
-	Global.questlevel = 2
+	
 	

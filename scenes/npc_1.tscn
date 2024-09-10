@@ -196,10 +196,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ay2sx"]
-radius = 5.0
+radius = 10.0499
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mkwo6"]
-radius = 20.0
+radius = 23.0
 
 [node name="npc1" type="CharacterBody2D"]
 script = ExtResource("1_s1fad")
@@ -209,13 +209,13 @@ sprite_frames = SubResource("SpriteFrames_tfnpf")
 animation = &"side_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 13)
+position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_ay2sx")
 
 [node name="chat_detection_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
-position = Vector2(0, 8)
+position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_mkwo6")
 
 [node name="Timer" type="Timer" parent="."]

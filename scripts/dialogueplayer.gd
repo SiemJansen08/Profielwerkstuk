@@ -27,7 +27,9 @@ func load_dialogue():
 	if Global.cave_win == false:
 		var file = FileAccess.open("res://dialogue/Lip_dialogue1.json", FileAccess.READ)
 		var content = JSON.parse_string(file.get_as_text())
+		Global.questlevel = 2
 		return content
+		
 	elif Global.cave_win == true:
 		var file = FileAccess.open("res://dialogue/Lip_dialogue2.json", FileAccess.READ)
 		var content = JSON.parse_string(file.get_as_text())
@@ -35,6 +37,7 @@ func load_dialogue():
 		Global.cave_acces = false
 		Global.questlevel = 5
 		return content
+		
 	
 func _input(event):
 	if !d_active:

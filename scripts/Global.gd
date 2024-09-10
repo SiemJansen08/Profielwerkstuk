@@ -30,19 +30,22 @@ var current_quest_desc
 
 func questlevels():
 	if questlevel == 1:
-		current_quest_title = "Lip"
+		current_quest_title = "LIP:"
 		current_quest_desc = "Find Lip and speak with him"
+	elif questlevel == 1.1:
+		current_quest_title = "SPEAK:"
+		current_quest_desc = "Press 'D' to speak with Lip, press 'enter' to advance"
 	elif questlevel == 2:
-		current_quest_title = "Cave"
-		current_quest_desc = "Explore the cave inthe North"
+		current_quest_title = "CAVE:"
+		current_quest_desc = "Explore the caves in the North"
 	elif questlevel == 3:
-		current_quest_title = "Inklings"
+		current_quest_title = "INKLINGS:"
 		current_quest_desc = "Kill all the Inklings"
 	elif questlevel == 4:
-		current_quest_title = "Lip"
+		current_quest_title = "LIP"
 		current_quest_desc = "Leave the cave and speak to Lip"
 	elif questlevel == 5:
-		current_quest_title = "Museum"
+		current_quest_title = "MUSEUM"
 		current_quest_desc = "Look for the museum"
 
 func questvis():
