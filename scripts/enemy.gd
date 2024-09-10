@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-@export var speed = 30 #hoger is langzamer
+@export var speed = 25 #hoger is langzamer
 var player_chase = false
 var player = null
 
-var health = 100
+var health = 99
 var player_inattack_range = false
 var can_take_damage = true
 
@@ -53,7 +53,7 @@ func _on_enemy_hitbox_body_exited(body):
 func deal_with_damage():
 	if player_inattack_range and Global.player_current_attack == true:
 		if can_take_damage == true:
-			health = health - 25
+			health = health - 33
 			$take_damage_cooldown.start()
 			can_take_damage = false
 			print("slime", health)
