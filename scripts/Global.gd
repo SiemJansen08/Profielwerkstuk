@@ -4,18 +4,21 @@ func _physics_process(delta):
 	questlevels()
 	questvis()
 
-var game_first_load = true			# for scene transitions
+
 
 var player_current_attack = false		#attack stuff
 var stealth_mode = false
 
 var current_scene = "world"			# scene transitions
 var transition_scene = false
+var game_first_load = true
+var transition_scene_cave = false
+var transition_scene_museum = false
 
 var player_exit_cave_posx = 376			# in and out cords of cave scene
 var player_exit_cave_posy = -49
-var player_start_posx = -578
-var player_start_posy = -108
+var player_start_posx = -572
+var player_start_posy = -57
 
 var bridge_acces = false			# level progression
 var cave_acces = false

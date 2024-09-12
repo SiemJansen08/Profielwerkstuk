@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwu8216omf0c0"]
+
+[ext_resource type="Script" path="res://scripts/museum.gd" id="1_5u64n"]
+
+[node name="museum" type="Node2D"]
+script = ExtResource("1_5u64n")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="museum_exit" type="Area2D" parent="TileMap"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/museum_exit"]
+
+[connection signal="body_entered" from="TileMap/museum_exit" to="." method="_on_museum_exit_body_entered"]

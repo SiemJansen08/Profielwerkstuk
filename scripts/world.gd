@@ -21,7 +21,11 @@ func _on_cave_entrance_body_entered(body):
 	if body.has_method("player"):
 		Global.transition_scene = true
 
-		
+func _on_museum_entrance_body_entered(body):
+	if body.has_method("player"):
+		Global.transition_scene = true
+	
+
 func change_scene():
 	if Global.transition_scene == true:
 		if Global.current_scene == "world":
@@ -42,3 +46,6 @@ func level_progression():
 		$TileMap/bridge_entrance/bridge_entrance_col.set_deferred("disabled", true)
 		
 	
+
+
+
