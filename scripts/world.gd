@@ -46,6 +46,3 @@ func level_progression():
 		$TileMap/bridge_entrance/bridge_entrance_col.set_deferred("disabled", true)
 		
 	
-
-
-
