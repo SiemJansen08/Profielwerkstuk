@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfa0xk0e2j55k"
-path="res://.godot/imported/Untitled 4.png-7c06a153f2865d62a9f204374268c5fb.ctex"
+uid="uid://cu16vksgynkid"
+path="res://.godot/imported/huis_lip.png-1c18b1c264adbb7d3614331c927cc1cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/gebouwen/Untitled 4.png"
-dest_files=["res://.godot/imported/Untitled 4.png-7c06a153f2865d62a9f204374268c5fb.ctex"]
+source_file="res://art/gebouwen/huis_lip.png"
+dest_files=["res://.godot/imported/huis_lip.png-1c18b1c264adbb7d3614331c927cc1cd.ctex"]
 
 [params]
 
