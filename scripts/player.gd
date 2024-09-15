@@ -14,8 +14,8 @@ func _ready():
 	$AnimatedSprite2D.play("front_idle")
 
 func _physics_process(delta):
-	attack()
-	player_movement(delta)
+	attack(delta)
+	input_direction(delta)
 	enemy_attack()
 	stealth()
 	current_camera()
@@ -27,18 +27,10 @@ func _physics_process(delta):
 		print("player has died")
 		self.queue_free()
 
-func player_movement(delta):
-	
-	if Input.is_action_pressed("ui_right"):
-		current_dir = "right"
-		play_anim(1)
-		if Global.stealth_mode == true:
-			velocity.x = speed_stealth
-			velocity.y = 0
-		else:
-			velocity.x = speed
-			velocity.y = 0
-	elif Input.is_action_pressed("ui_left"):
+func input_direction(delta):
+	var side_movement = -int(Input.is_action_pressed("ui_left")) + int(Input.is_action_pressed("ui_right"))
+	var vertical_movement = -int(Input.is_action_pressed("ui_up")) + int(Input.is_action_pressed("ui_down"))
+	if side_movement == -1:
 		current_dir = "left"
 		play_anim(1)
 		if Global.stealth_mode == true:
@@ -47,7 +39,16 @@ func player_movement(delta):
 		else:
 			velocity.x = -speed
 			velocity.y = 0
-	elif Input.is_action_pressed("ui_up"):
+	elif side_movement == 1:
+		current_dir = "right"
+		play_anim(1)
+		if Global.stealth_mode == true:
+			velocity.x = speed_stealth
+			velocity.y = 0
+		else:
+			velocity.x = speed
+			velocity.y = 0
+	elif vertical_movement == -1:
 		current_dir = "up"
 		play_anim(1)
 		if Global.stealth_mode == true:
@@ -56,7 +57,7 @@ func player_movement(delta):
 		else:
 			velocity.y = -speed
 			velocity.x = 0
-	elif Input.is_action_pressed("ui_down"):
+	elif vertical_movement == 1:
 		current_dir = "down"
 		play_anim(1)
 		if Global.stealth_mode == true:
@@ -69,9 +70,8 @@ func player_movement(delta):
 		play_anim(0)
 		velocity.x = 0
 		velocity.y = 0
-	
 	move_and_slide()
-
+	
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
@@ -146,7 +146,7 @@ func enemy_attack():
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 
-func attack():
+func attack(delta):
 	var dir = current_dir
 	if Input.is_action_just_pressed("attack"):
 		Global.player_current_attack = true
