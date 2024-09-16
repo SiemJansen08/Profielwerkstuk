@@ -23,6 +23,8 @@ var player_start_posy = -57
 var bridge_acces = false			# level progression
 var cave_acces = false
 var cave_win = false
+var sword = false
+var cloak = false
 
 var current_wave: int
 var moving_to_next_wave: bool

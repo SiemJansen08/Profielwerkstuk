@@ -33,7 +33,7 @@ func input_direction(delta):
 	if side_movement == -1:
 		current_dir = "left"
 		play_anim(1)
-		if Global.stealth_mode == true:
+		if Global.stealth_mode == true and Global.cloak == true:
 			velocity.x = -speed_stealth
 			velocity.y = 0
 		else:
@@ -42,7 +42,7 @@ func input_direction(delta):
 	elif side_movement == 1:
 		current_dir = "right"
 		play_anim(1)
-		if Global.stealth_mode == true:
+		if Global.stealth_mode == true and Global.cloak == true:
 			velocity.x = speed_stealth
 			velocity.y = 0
 		else:
@@ -51,7 +51,7 @@ func input_direction(delta):
 	elif vertical_movement == -1:
 		current_dir = "up"
 		play_anim(1)
-		if Global.stealth_mode == true:
+		if Global.stealth_mode == true and Global.cloak == true:
 			velocity.y = -speed_stealth
 			velocity.x = 0
 		else:
@@ -60,7 +60,7 @@ func input_direction(delta):
 	elif vertical_movement == 1:
 		current_dir = "down"
 		play_anim(1)
-		if Global.stealth_mode == true:
+		if Global.stealth_mode == true and Global.cloak == true:
 			velocity.y = speed_stealth
 			velocity.x = 0
 		else:
@@ -80,48 +80,48 @@ func play_anim(movement):
 		if movement == 1:
 			if Global.stealth_mode == false:
 				anim.play("right_walk")
-			if Global.stealth_mode == true:
+			if Global.stealth_mode == true and Global.cloak == true:
 				anim.play("right_walk_stealth")
 		elif movement == 0:
 			if attack_ip == false and Global.stealth_mode == false:
 				anim.play("right_idle")
-			if Global.stealth_mode == true:
+			if Global.stealth_mode == true and Global.cloak == true:
 				anim.play("right_idle_stealth")
 	
 	if dir == "left":
 		if movement == 1:
 			if Global.stealth_mode == false:
 				anim.play("left_walk")
-			if Global.stealth_mode == true:
+			if Global.stealth_mode == true and Global.cloak == true:
 				anim.play("left_walk_stealth")
 		elif movement == 0:
 			if attack_ip == false and Global.stealth_mode == false:
 				anim.play("left_idle")
-			if Global.stealth_mode == true:
+			if Global.stealth_mode == true and Global.cloak == true:
 				anim.play("left_idle_stealth")
 	
 	if dir == "down":
 		if movement == 1:
 			if Global.stealth_mode == false:
 				anim.play("front_walk")
-			if Global.stealth_mode == true:
+			if Global.stealth_mode == true and Global.cloak == true:
 				anim.play("front_walk_stealth")
 		elif movement == 0:
 			if attack_ip == false and Global.stealth_mode == false:
 				anim.play("front_idle")
-			if Global.stealth_mode == true:
+			if Global.stealth_mode == true and Global.cloak == true:
 				anim.play("front_idle_stealth")
 			
 	if dir == "up":
 		if movement == 1:
 			if Global.stealth_mode == false:
 				anim.play("back_walk")
-			if Global.stealth_mode == true:
+			if Global.stealth_mode == true and Global.cloak == true:
 				anim.play("back_walk_stealth")
 		elif movement == 0:
 			if attack_ip == false and Global.stealth_mode == false:
 				anim.play("back_idle")
-			if Global.stealth_mode == true:
+			if Global.stealth_mode == true and Global.cloak == true:
 				anim.play("back_idle_stealth")
 func player():
 	pass
@@ -148,21 +148,22 @@ func _on_attack_cooldown_timeout():
 
 func attack(delta):
 	var dir = current_dir
-	if Input.is_action_just_pressed("attack"):
-		Global.player_current_attack = true
-		attack_ip = true
-		if dir == "right":
-			$AnimatedSprite2D.play("right_attack")
-			$deal_attack_timer.start()
-		if dir == "left":
-			$AnimatedSprite2D.play("left_attack")
-			$deal_attack_timer.start()
-		if dir == "down":
-			$AnimatedSprite2D.play("front_attack")
-			$deal_attack_timer.start()
-		if dir == "up":
-			$AnimatedSprite2D.play("back_attack")
-			$deal_attack_timer.start()
+	if Global.sword == true:
+		if Input.is_action_just_pressed("attack"):
+			Global.player_current_attack = true
+			attack_ip = true
+			if dir == "right":
+				$AnimatedSprite2D.play("right_attack")
+				$deal_attack_timer.start()
+			if dir == "left":
+				$AnimatedSprite2D.play("left_attack")
+				$deal_attack_timer.start()
+			if dir == "down":
+				$AnimatedSprite2D.play("front_attack")
+				$deal_attack_timer.start()
+			if dir == "up":
+				$AnimatedSprite2D.play("back_attack")
+				$deal_attack_timer.start()
 			
 			
 
@@ -172,11 +173,12 @@ func _on_deal_attack_timer_timeout():
 	attack_ip = false
 
 func stealth():
-	var dir = current_dir
-	var anim = $AnimatedSprite2D
-	if Input.is_action_just_pressed("stealth"):
-		Global.stealth_mode= true
-		$stealth_time.start()
+	if Global.cloak == true:
+		var dir = current_dir
+		var anim = $AnimatedSprite2D
+		if Input.is_action_just_pressed("stealth"):
+			Global.stealth_mode= true
+			$stealth_time.start()
 		
 		
 

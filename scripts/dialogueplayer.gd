@@ -28,6 +28,7 @@ func load_dialogue():
 		var file = FileAccess.open("res://dialogue/Lip_dialogue1.json", FileAccess.READ)
 		var content = JSON.parse_string(file.get_as_text())
 		Global.questlevel = 2
+		Global.sword = true
 		return content
 		
 	elif Global.cave_win == true:
@@ -36,6 +37,7 @@ func load_dialogue():
 		Global.bridge_acces = true
 		Global.cave_acces = false
 		Global.questlevel = 5
+		Global.cloak = true
 		return content
 		
 	
