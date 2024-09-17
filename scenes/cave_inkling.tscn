@@ -1,35 +1,30 @@
-[gd_scene load_steps=29 format=3 uid="uid://dmx17t75nylab"]
+[gd_scene load_steps=27 format=3 uid="uid://dmx17t75nylab"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_s8s05"]
-[ext_resource type="Texture2D" uid="uid://bsjy14wrkm7xd" path="res://art/enemy/Droplet_damage.png" id="2_f8b03"]
-[ext_resource type="Texture2D" uid="uid://wkkhtu1c3oku" path="res://art/enemy/Droplet_death.png" id="3_4etm3"]
+[ext_resource type="Texture2D" uid="uid://blg5sk0vxxmgj" path="res://art/characters/slime.png" id="2_nsm8o"]
 [ext_resource type="Texture2D" uid="uid://dfvv368mwn7vv" path="res://art/enemy/Idle.png" id="3_fd2in"]
 [ext_resource type="Texture2D" uid="uid://c6ej8lrw3f5ai" path="res://art/enemy/Droplet_left.png" id="4_yd421"]
 [ext_resource type="Texture2D" uid="uid://bo142mqq47chf" path="res://art/enemy/Droplet_right.png" id="5_c1pti"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wgb0e"]
-atlas = ExtResource("2_f8b03")
-region = Rect2(0, 0, 16, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8373"]
+atlas = ExtResource("2_nsm8o")
+region = Rect2(0, 384, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u7hq0"]
-atlas = ExtResource("2_f8b03")
-region = Rect2(16, 0, 16, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_apnwj"]
+atlas = ExtResource("2_nsm8o")
+region = Rect2(32, 384, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gihpq"]
-atlas = ExtResource("3_4etm3")
-region = Rect2(0, 0, 16, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_am0yq"]
+atlas = ExtResource("2_nsm8o")
+region = Rect2(64, 384, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ggdp"]
-atlas = ExtResource("3_4etm3")
-region = Rect2(16, 0, 16, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgtud"]
+atlas = ExtResource("2_nsm8o")
+region = Rect2(96, 384, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ty2m"]
-atlas = ExtResource("3_4etm3")
-region = Rect2(32, 0, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_deu58"]
-atlas = ExtResource("3_4etm3")
-region = Rect2(48, 0, 16, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2yb0"]
+atlas = ExtResource("2_nsm8o")
+region = Rect2(128, 384, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m1qtl"]
 atlas = ExtResource("3_fd2in")
@@ -83,31 +78,23 @@ region = Rect2(48, 0, 16, 24)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wgb0e")
+"texture": SubResource("AtlasTexture_s8373")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u7hq0")
-}],
-"loop": true,
-"name": &"damage",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gihpq")
+"texture": SubResource("AtlasTexture_apnwj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1ggdp")
+"texture": SubResource("AtlasTexture_am0yq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1ty2m")
+"texture": SubResource("AtlasTexture_mgtud")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_deu58")
+"texture": SubResource("AtlasTexture_c2yb0")
 }],
 "loop": true,
 "name": &"death",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -168,22 +155,19 @@ radius = 5.0
 radius = 559.804
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_di3yj"]
-radius = 18.0
+radius = 15.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_s8s05")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1mdon")
-animation = &"death"
-frame = 3
-frame_progress = 0.646473
+animation = &"idle"
 offset = Vector2(0, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_byb66")
-debug_color = Color(0, 1, 1, 0.419608)
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 2
@@ -193,25 +177,18 @@ collision_mask = 2
 z_index = 1
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_uschv")
-debug_color = Color(0.419608, 0.603922, 0, 0.215686)
 
 [node name="enemy_hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_di3yj")
-one_way_collision_margin = 0.0
-debug_color = Color(0.812813, 0.349483, 0.559896, 0.42)
 
 [node name="take_damage_cooldown" type="Timer" parent="."]
 wait_time = 0.8
-
-[node name="knockback_timer_inkling" type="Timer" parent="."]
-wait_time = 0.15
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
 [connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
 [connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]
-[connection signal="timeout" from="knockback_timer_inkling" to="." method="_on_knockback_timer_inkling_timeout"]
