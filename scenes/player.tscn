@@ -384,7 +384,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"back_attack",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -492,7 +492,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"front_attack",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -577,7 +577,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"left_attack",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -662,7 +662,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"right_attack",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -746,7 +746,7 @@ script = ExtResource("1_8yr5o")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_fu1x2")
-animation = &"right_attack"
+animation = &"back_attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
@@ -764,7 +764,7 @@ shape = SubResource("CircleShape2D_f5aw2")
 wait_time = 0.8
 
 [node name="deal_attack_timer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.25
 
 [node name="world_camera" type="Camera2D" parent="."]
 limit_left = -654

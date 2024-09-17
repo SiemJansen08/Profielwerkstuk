@@ -8,21 +8,39 @@ var health = 99
 var player_inattack_range = false
 var can_take_damage = true
 
+var randomizer = RandomNumberGenerator.new()
+var knockback_state = false
+var knockback_direction = 1
+var knockback_speed = 3
+
 func _physics_process(delta):
 	deal_with_damage()
-	
-	if player_chase: 
-		velocity = (player.get_global_position() - position).normalized() * speed * delta
+	if knockback_state == false:
+		if player_chase: 
+			velocity = (player.get_global_position() - position).normalized() * speed * delta
+			
+			if(player.position.x - position.x) < 0:
+				$AnimatedSprite2D.play("left_walk")
+			else:
+				$AnimatedSprite2D.play("right_walk")
 		
-		if(player.position.x - position.x) < 0:
-			$AnimatedSprite2D.play("left_walk")
 		else:
-			$AnimatedSprite2D.play("right_walk")
-	
-	else:
-		velocity = lerp(velocity, Vector2.ZERO, 0.05)
-		$AnimatedSprite2D.play("idle")
+			velocity = lerp(velocity, Vector2.ZERO, 0.05)
+			$AnimatedSprite2D.play("idle")
 	move_and_collide(velocity)
+	if knockback_state == true:
+		if knockback_direction == 1:
+			velocity.x = -knockback_speed
+			velocity.y = knockback_speed
+		elif knockback_direction == 2:
+			velocity.x = -knockback_speed
+			velocity.y = -knockback_speed
+		elif knockback_direction == 3:
+			velocity.x = knockback_speed
+			velocity.y = knockback_speed
+		elif knockback_direction == 4:
+			velocity.x = knockback_speed
+			velocity.y = -knockback_speed
 	move_and_slide()
 
 	
@@ -54,12 +72,23 @@ func deal_with_damage():
 	if player_inattack_range and Global.player_current_attack == true:
 		if can_take_damage == true:
 			health = health - 33
+			$knockback.start()
+			knockback_state = true
+			$AnimatedSprite2D.play("damage")
 			$take_damage_cooldown.start()
 			can_take_damage = false
 			print("slime", health)
 			if health <= 0:
 				self.queue_free()
 		
-	
+
+
+
 func _on_take_damage_cooldown_timeout():
 	can_take_damage = true
+
+
+func _on_knockback_timeout():
+	knockback_direction = randomizer.randi_range(0,3)
+	knockback_state = false
+	$knockback.stop()
