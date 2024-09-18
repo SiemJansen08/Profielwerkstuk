@@ -70,59 +70,61 @@ func input_direction(delta):
 		play_anim(0)
 		velocity.x = 0
 		velocity.y = 0
-	move_and_slide()
+	
+	if attack_ip == false:
+		move_and_slide()
 	
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
-	
-	if dir == "right":
-		if movement == 1:
-			if Global.stealth_mode == false:
-				anim.play("right_walk")
-			if Global.stealth_mode == true and Global.cloak == true:
-				anim.play("right_walk_stealth")
-		elif movement == 0:
-			if attack_ip == false and Global.stealth_mode == false:
-				anim.play("right_idle")
-			if Global.stealth_mode == true and Global.cloak == true:
-				anim.play("right_idle_stealth")
-	
-	if dir == "left":
-		if movement == 1:
-			if Global.stealth_mode == false:
-				anim.play("left_walk")
-			if Global.stealth_mode == true and Global.cloak == true:
-				anim.play("left_walk_stealth")
-		elif movement == 0:
-			if attack_ip == false and Global.stealth_mode == false:
-				anim.play("left_idle")
-			if Global.stealth_mode == true and Global.cloak == true:
-				anim.play("left_idle_stealth")
-	
-	if dir == "down":
-		if movement == 1:
-			if Global.stealth_mode == false:
-				anim.play("front_walk")
-			if Global.stealth_mode == true and Global.cloak == true:
-				anim.play("front_walk_stealth")
-		elif movement == 0:
-			if attack_ip == false and Global.stealth_mode == false:
-				anim.play("front_idle")
-			if Global.stealth_mode == true and Global.cloak == true:
-				anim.play("front_idle_stealth")
-			
-	if dir == "up":
-		if movement == 1:
-			if Global.stealth_mode == false:
-				anim.play("back_walk")
-			if Global.stealth_mode == true and Global.cloak == true:
-				anim.play("back_walk_stealth")
-		elif movement == 0:
-			if attack_ip == false and Global.stealth_mode == false:
-				anim.play("back_idle")
-			if Global.stealth_mode == true and Global.cloak == true:
-				anim.play("back_idle_stealth")
+	if attack_ip == false:
+		if dir == "right":
+			if movement == 1:
+				if Global.stealth_mode == false:
+					anim.play("right_walk")
+				if Global.stealth_mode == true and Global.cloak == true:
+					anim.play("right_walk_stealth")
+			elif movement == 0:
+				if attack_ip == false and Global.stealth_mode == false:
+					anim.play("right_idle")
+				if Global.stealth_mode == true and Global.cloak == true:
+					anim.play("right_idle_stealth")
+		
+		if dir == "left":
+			if movement == 1:
+				if Global.stealth_mode == false:
+					anim.play("left_walk")
+				if Global.stealth_mode == true and Global.cloak == true:
+					anim.play("left_walk_stealth")
+			elif movement == 0:
+				if attack_ip == false and Global.stealth_mode == false:
+					anim.play("left_idle")
+				if Global.stealth_mode == true and Global.cloak == true:
+					anim.play("left_idle_stealth")
+		
+		if dir == "down":
+			if movement == 1:
+				if Global.stealth_mode == false:
+					anim.play("front_walk")
+				if Global.stealth_mode == true and Global.cloak == true:
+					anim.play("front_walk_stealth")
+			elif movement == 0:
+				if attack_ip == false and Global.stealth_mode == false:
+					anim.play("front_idle")
+				if Global.stealth_mode == true and Global.cloak == true:
+					anim.play("front_idle_stealth")
+				
+		if dir == "up":
+			if movement == 1:
+				if Global.stealth_mode == false:
+					anim.play("back_walk")
+				if Global.stealth_mode == true and Global.cloak == true:
+					anim.play("back_walk_stealth")
+			elif movement == 0:
+				if attack_ip == false and Global.stealth_mode == false:
+					anim.play("back_idle")
+				if Global.stealth_mode == true and Global.cloak == true:
+					anim.play("back_idle_stealth")
 func player():
 	pass
 
