@@ -32,6 +32,7 @@ func change_scenes():
 		if Global.current_scene == "cave":
 			get_tree().change_scene_to_file("res://scenes/world.tscn")
 			Global.finish_changescenes()
+			Global.go_to_scene = "museum"
 			
 
 func position_to_next_wave():

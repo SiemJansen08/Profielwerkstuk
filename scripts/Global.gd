@@ -14,6 +14,7 @@ var transition_scene = false
 var game_first_load = true
 var transition_scene_cave = false
 var transition_scene_museum = false
+var go_to_scene = "cave" 
 
 var player_exit_cave_posx = 376			# in and out cords of cave scene
 var player_exit_cave_posy = -49
@@ -61,8 +62,8 @@ func questvis():
 func finish_changescenes():
 	if transition_scene == true:
 		transition_scene = false
-		if current_scene == "world":
+		if current_scene == "world" and go_to_scene == "cave":
 			current_scene = "cave"
-		else:
+		elif current_scene != "world":
 			current_scene = "world"
 				

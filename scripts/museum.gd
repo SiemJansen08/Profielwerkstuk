@@ -4,7 +4,7 @@ func _ready():
 	pass 
 
 func _process(delta):
-	pass
+	change_scenes()
 
 func change_scenes():
 	if Global.transition_scene == true:
