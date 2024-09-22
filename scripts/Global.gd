@@ -64,6 +64,8 @@ func finish_changescenes():
 		transition_scene = false
 		if current_scene == "world" and go_to_scene == "cave":
 			current_scene = "cave"
+		elif current_scene == "world" and go_to_scene == "museum":
+			current_scene = "cave"
 		elif current_scene != "world":
 			current_scene = "world"
 				

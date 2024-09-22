@@ -15,3 +15,4 @@ func change_scenes():
 func _on_museum_exit_body_entered(body):
 	if body.has_method("player"):
 		Global.transition_scene = true
+		change_scenes()
