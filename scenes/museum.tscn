@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwu8216omf0c0"]
+[gd_scene load_steps=8 format=3 uid="uid://bwu8216omf0c0"]
 
 [ext_resource type="Script" path="res://scripts/museum.gd" id="1_5u64n"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/player.tscn" id="2_fd7la"]
 [ext_resource type="Texture2D" uid="uid://cs6ox2yc7ww3c" path="res://art/gebouwen/museumint/Museum_02.png" id="2_l5utf"]
+[ext_resource type="Texture2D" uid="uid://c0ekfgocsrrc1" path="res://art/gebouwen/museumint/Museum_room_1_layer_1_32x32.png" id="3_avwj2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ksp37"]
 texture = ExtResource("2_l5utf")
@@ -108,15 +109,42 @@ texture = ExtResource("2_l5utf")
 15:42/size_in_atlas = Vector2i(6, 6)
 15:42/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tkes7"]
+texture = ExtResource("3_avwj2")
+20:12/size_in_atlas = Vector2i(2, 2)
+20:12/0 = 0
+2:12/size_in_atlas = Vector2i(2, 2)
+2:12/0 = 0
+2:0/size_in_atlas = Vector2i(2, 6)
+2:0/0 = 0
+20:0/size_in_atlas = Vector2i(2, 6)
+20:0/0 = 0
+9:0/size_in_atlas = Vector2i(2, 6)
+9:0/0 = 0
+9:16/size_in_atlas = Vector2i(2, 6)
+9:16/0 = 0
+15:16/size_in_atlas = Vector2i(6, 6)
+15:16/0 = 0
+8:8/size_in_atlas = Vector2i(2, 2)
+8:8/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_cxf1f"]
 sources/0 = SubResource("TileSetAtlasSource_ksp37")
+sources/1 = SubResource("TileSetAtlasSource_tkes7")
 
 [node name="museum" type="Node2D"]
 script = ExtResource("1_5u64n")
 
 [node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(0.3, 0.3)
 tile_set = SubResource("TileSet_cxf1f")
 format = 2
+layer_0/name = "ground"
+layer_0/tile_data = PackedInt32Array(-196609, 524289, 8, -262143, 524289, 8, -393215, 524289, 8, -327681, 524289, 8, -458753, 524289, 8, -524287, 524289, 8, -524285, 524289, 8, -393213, 524289, 8, -262141, 524289, 8, -131069, 524289, 8, 3, 524289, 8, 131075, 524289, 8, 262147, 524289, 8, 262149, 524289, 8, 131077, 524289, 8, 5, 524289, 8, -131067, 524289, 8, -131065, 524289, 8, 7, 524289, 8, 131079, 524289, 8, 262151, 524289, 8, 262153, 524289, 8, 131081, 524289, 8, 9, 524289, 8, -131063, 524289, 8, -262135, 524289, 8, -262137, 524289, 8, -262139, 524289, 8, -393211, 524289, 8, -524283, 524289, 8, -524281, 524289, 8, -393209, 524289, 8, -393207, 524289, 8, -524279, 524289, 8, -65537, 524289, 8, -131071, 524289, 8, 1, 524289, 8, 65535, 524289, 8, 196607, 524289, 8, 131073, 524289, 8, 262145, 524289, 8, 327679, 524289, 8)
+layer_1/name = "walls"
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "ysort"
+layer_2/tile_data = PackedInt32Array()
 
 [node name="museum_exit" type="Area2D" parent="TileMap"]
 
