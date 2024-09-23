@@ -28,6 +28,10 @@ func _physics_process(delta):
 		health = 0
 		print("player has died")
 		self.queue_free()
+	'''if health == 100:			#healthbar verdwijnt bij 100 hp
+		$Healthbar.hide()
+	else:
+		$Healthbar.show()'''
 
 func input_direction(delta):
 	var side_movement = -int(Input.is_action_pressed("ui_left")) + int(Input.is_action_pressed("ui_right"))
