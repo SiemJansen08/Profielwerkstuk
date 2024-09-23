@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://blfg10bysujfr"]
+[gd_scene load_steps=113 format=3 uid="uid://blfg10bysujfr"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_8yr5o"]
 [ext_resource type="Texture2D" uid="uid://dabd6a6glsq52" path="res://art/characters/zelf_player/Up_attack.png" id="2_vcwow"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bkh5prouecsf" path="res://art/karakter/Stealth/Left_walk_stealth.png" id="17_mlqli"]
 [ext_resource type="Texture2D" uid="uid://bmtrf6c4nbxlh" path="res://art/karakter/Stealth/Right_idle_stealth.png" id="20_wu2uq"]
 [ext_resource type="Texture2D" uid="uid://dg1as4ncfi33v" path="res://art/karakter/Stealth/Right_walk_stealth.png" id="22_ojht3"]
+[ext_resource type="PackedScene" uid="uid://j8drylpqnsxg" path="res://scenes/healthbar.tscn" id="23_5b4cd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gcowf"]
 atlas = ExtResource("2_vcwow")
@@ -778,6 +779,12 @@ drag_vertical_enabled = true
 
 [node name="stealth_time" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="Healthbar" parent="." instance=ExtResource("23_5b4cd")]
+offset_left = -14.0
+offset_top = -30.0
+offset_right = 14.0
+offset_bottom = -27.0
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]

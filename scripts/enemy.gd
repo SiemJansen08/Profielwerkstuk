@@ -8,10 +8,15 @@ var health = 99
 var player_inattack_range = false
 var can_take_damage = true
 
+@onready var healthbar = $Healthbar
+
 var randomizer = RandomNumberGenerator.new()
 var knockback_state = false
 var knockback_direction = 1
 var knockback_speed = 3
+
+func _ready():
+	healthbar.init_health(health)
 
 func _physics_process(delta):
 	deal_with_damage()
@@ -72,6 +77,7 @@ func deal_with_damage():
 	if player_inattack_range and Global.player_current_attack == true:
 		if can_take_damage == true:
 			health = health - 50
+			healthbar.health = health
 			$knockback.start()
 			knockback_state = true
 			$AnimatedSprite2D.play("damage")

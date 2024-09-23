@@ -5,13 +5,15 @@ const speed_stealth = 50
 var current_dir = "none"
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = 1500
+var health = 100
+@onready var healthbar = $Healthbar
 var player_alive = true
 var attack_ip = false
 
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
+	healthbar.init_health(health)
 
 func _physics_process(delta):
 	attack(delta)
@@ -141,6 +143,7 @@ func _on_player_hitbox_body_exited(body):
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
 		health = health - 5
+		healthbar.health = health
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print(health)
