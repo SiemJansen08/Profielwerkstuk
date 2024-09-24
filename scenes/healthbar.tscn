@@ -20,7 +20,7 @@ shadow_offset = Vector2(0, 1)
 bg_color = Color(1, 1, 1, 1)
 
 [node name="Healthbar" type="ProgressBar"]
-z_index = 1
+z_index = 2
 offset_right = 240.0
 offset_bottom = 4.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_vjqtm")
