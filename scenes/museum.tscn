@@ -143,8 +143,8 @@ texture = ExtResource("3_avwj2")
 texture = ExtResource("4_kmn0x")
 0:0/size_in_atlas = Vector2i(4, 6)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20.0625, -7.78125, -19.8874, 48.3926, -32.085, 48.3042, -31.9082, -47.6855, -21.2132, -47.8623)
-0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(20.0642, 48.1275, 20.1525, -48.2158, 31.9966, -48.481, 32.1734, 48.8346)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, 18.2812, -19.8874, 48.3926, -32.085, 48.3042, -32.1734, 38.5373, -30.1875, 18.2812)
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(20.0642, 48.1275, 20.0625, 17.8438, 31.4375, 17.9688, 32.1734, 48.8346)
 
 [sub_resource type="TileSet" id="TileSet_cxf1f"]
 physics_layer_0/collision_layer = 1
@@ -159,7 +159,7 @@ script = ExtResource("1_5u64n")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_cxf1f")
 format = 2
 layer_0/name = "ground"
