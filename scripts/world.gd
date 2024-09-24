@@ -36,6 +36,7 @@ func change_scene():
 				Global.finish_changescenes()
 			if Global.go_to_scene == "museum":
 				get_tree().change_scene_to_file("res://scenes/museum.tscn")
+				Global.questlevel = 6
 				Global.finish_changescenes()
 
 			

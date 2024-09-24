@@ -53,6 +53,15 @@ func questlevels():
 	elif questlevel == 5:
 		current_quest_title = "MUSEUM"
 		current_quest_desc = "Look for the museum"
+	elif questlevel == 6:
+		current_quest_title = "MUSEUM"
+		current_quest_desc = "Kill the Inklinks and secure the art"
+	elif questlevel == 7:
+		current_quest_title = "KEY"
+		current_quest_desc = "Find the key to open the door"
+	elif questlevel == 8:
+		current_quest_title = "Door"
+		current_quest_desc = "Press '...' to open the door" # van 'D' de interact button maken?
 
 func questvis():
 	$QuestBox/QuestTitle.set_text(current_quest_title) 
