@@ -1,9 +1,12 @@
 extends Node2D
 
 var key_door_1 = false
+@onready var healthbar = $player/Healthbar
+
 
 func _ready():
 	$TileMap/door_1/door_1_col.set_deferred("disabled", false)
+	healthbar.init_health(Global.player_health)
 
 func _process(delta):
 	change_scenes()
@@ -28,4 +31,5 @@ func _on_acces_door_1_body_entered(body):
 
 func _on_lasers_body_entered(body):
 	Global.player_health = Global.player_health - 20
+	healthbar.health = Global.player_health
 	print(Global.player_health)
