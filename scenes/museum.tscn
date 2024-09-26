@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwu8216omf0c0"]
+[gd_scene load_steps=17 format=3 uid="uid://bwu8216omf0c0"]
 
 [ext_resource type="Script" path="res://scripts/museum.gd" id="1_5u64n"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/player.tscn" id="2_fd7la"]
@@ -472,6 +472,21 @@ size = Vector2(40, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sxaq"]
 size = Vector2(22, 17)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn6ck"]
+size = Vector2(96, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqln6"]
+size = Vector2(6, 38.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cppmi"]
+size = Vector2(48, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgnvy"]
+size = Vector2(48, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3dxc"]
+size = Vector2(6, 38)
+
 [node name="museum" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_5u64n")
@@ -491,7 +506,7 @@ layer_2/tile_data = PackedInt32Array(-720899, 131073, 0, -720897, 589825, 0, -78
 layer_3/name = "ysort"
 layer_3/y_sort_enabled = true
 layer_3/z_index = 1
-layer_3/tile_data = PackedInt32Array(524298, 589825, 16, 524300, 589825, 16, 524302, 589825, 16, 589822, 589825, 16, 589820, 589825, 16, 589818, 589825, 16, -786428, 1966080, 13, 1310730, 589825, 16, 1310732, 589825, 16, 1310734, 589825, 16, 1310736, 589825, 16, 1310738, 589825, 16, 1376254, 589825, 16, 1376252, 589825, 16, 1376250, 589825, 16, 1376248, 589825, 16, 1376246, 589825, 16, 524292, 3, 0, 1310724, 3, 0, 1310720, 589825, 16, 1310721, 589825, 16, 1310727, 589825, 16, 1310728, 589825, 16, 524295, 589825, 16, 524296, 589825, 16, 524289, 589825, 16, 524288, 589825, 16, 1376244, 589825, 16, 1376242, 589825, 16, 1376240, 589825, 16, 1376238, 589825, 16, 1376237, 589825, 16, 983031, 1966080, 1610612764, 196603, 851968, 10, 851950, 1703936, 25, 851955, 1900544, 25, 851951, 1835008, 25, 851952, 1835008, 25, 851953, 1835008, 25, 851954, 1835008, 25, 720886, 1900544, 25, 720884, 1703936, 25)
+layer_3/tile_data = PackedInt32Array(524298, 589825, 16, 524300, 589825, 16, 524302, 589825, 16, 589822, 589825, 16, 589820, 589825, 16, 589818, 589825, 16, -786428, 1966080, 13, 1310730, 589825, 16, 1310732, 589825, 16, 1310734, 589825, 16, 1310736, 589825, 16, 1310738, 589825, 16, 1376254, 589825, 16, 1376252, 589825, 16, 1376250, 589825, 16, 1376248, 589825, 16, 1376246, 589825, 16, 524292, 3, 0, 1310724, 3, 0, 1310720, 589825, 16, 1310721, 589825, 16, 1310727, 589825, 16, 1310728, 589825, 16, 524295, 589825, 16, 524296, 589825, 16, 524289, 589825, 16, 524288, 589825, 16, 1376244, 589825, 16, 1376242, 589825, 16, 1376240, 589825, 16, 1376238, 589825, 16, 1376237, 589825, 16, 983031, 1966080, 1610612764, 851958, 1900544, 25, 851957, 1835008, 25, 851956, 1835008, 25, 851955, 1835008, 25, 851954, 1835008, 25, 851953, 1703936, 25, 851952, 1638400, 19, 917488, 1638400, 22, 983024, 1638400, 22, 1048560, 1835008, 20, 1048561, 1703936, 25, 1048563, 1900544, 25, 720879, 1703936, 25, 720881, 1900544, 25, 589812, 1638400, 19, 720884, 1638400, 22, 655348, 1638400, 22, 786420, 1835008, 20)
 
 [node name="door_1" type="StaticBody2D" parent="TileMap"]
 
@@ -505,9 +520,32 @@ shape = SubResource("RectangleShape2D_lkkys")
 position = Vector2(120, 191.5)
 shape = SubResource("RectangleShape2D_2sxaq")
 
+[node name="lasers" type="Area2D" parent="TileMap"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/lasers"]
+position = Vector2(-192, 201)
+shape = SubResource("RectangleShape2D_kn6ck")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMap/lasers"]
+position = Vector2(-249, 220.75)
+shape = SubResource("RectangleShape2D_gqln6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TileMap/lasers"]
+position = Vector2(-216, 249)
+shape = SubResource("RectangleShape2D_cppmi")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="TileMap/lasers"]
+position = Vector2(-248, 169)
+shape = SubResource("RectangleShape2D_jgnvy")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="TileMap/lasers"]
+position = Vector2(-185, 157)
+shape = SubResource("RectangleShape2D_i3dxc")
+
 [node name="player" parent="." instance=ExtResource("2_fd7la")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(36, 186)
 
 [connection signal="body_entered" from="TileMap/acces_door_1" to="." method="_on_acces_door_1_body_entered"]
+[connection signal="body_entered" from="TileMap/lasers" to="." method="_on_lasers_body_entered"]

@@ -5,7 +5,7 @@ func _physics_process(delta):
 	questvis()
 
 
-
+var player_health = 100
 var player_current_attack = false		#attack stuff
 var stealth_mode = false
 

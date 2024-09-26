@@ -24,3 +24,8 @@ func _on_acces_door_1_body_entered(body):
 		Global.questlevel = 8
 	else:
 		Global.questlevel = 7 
+
+
+func _on_lasers_body_entered(body):
+	Global.player_health = Global.player_health - 20
+	print(Global.player_health)

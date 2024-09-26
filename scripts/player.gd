@@ -5,7 +5,7 @@ const speed_stealth = 50
 var current_dir = "none"
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = 100
+#var health = 100
 @onready var healthbar = $Healthbar
 var player_alive = true
 var attack_ip = false
@@ -13,7 +13,7 @@ var attack_ip = false
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
-	healthbar.init_health(health)
+	healthbar.init_health(Global.player_health)
 
 func _physics_process(delta):
 	attack(delta)
@@ -23,9 +23,9 @@ func _physics_process(delta):
 	current_camera()
 	
 	
-	if health <= 0:
+	if Global.player_health <= 0:
 		player_alive = false # terug naar menu of end screen.
-		health = 0
+		Global.player_health = 0
 		print("player has died")
 		self.queue_free()
 	'''if health == 100:			#healthbar verdwijnt bij 100 hp
@@ -146,11 +146,11 @@ func _on_player_hitbox_body_exited(body):
 		
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 5
-		healthbar.health = health
+		Global.player_health = Global.player_health - 5
+		healthbar.health = Global.player_health
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print(health)
+		print(Global.player_health)
 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
