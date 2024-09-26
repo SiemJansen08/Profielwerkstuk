@@ -137,15 +137,15 @@ texture = ExtResource("3_avwj2")
 2:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.75, -15.9062, 15.6875, -16.0312, 15.75, 15.7188, -15.8125, 16.0938)
 2:0/size_in_atlas = Vector2i(2, 6)
 2:0/0 = 0
-<<<<<<< HEAD
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.2028, -47.4645, 16.2635, -47.111, 16.2635, 47.4645, -15.7331, 47.9949)
-=======
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.2028, -47.4645, 16.2635, -47.111, 16.2635, 47.4645, -15.7331, 47.9949)
 2:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_1/angular_velocity = 0.0
 >>>>>>> 61f795862d739595140fdf45cf15cd4e08909a74
+=======
+>>>>>>> parent of 996fcec (Update museum.tscn)
 20:0/size_in_atlas = Vector2i(2, 6)
 20:0/0 = 0
 20:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.2028, -47.4645, 16.2635, -47.111, 16.2635, 47.4645, -15.7331, 47.9949)
