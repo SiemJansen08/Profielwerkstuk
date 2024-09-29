@@ -66,7 +66,7 @@ func questlevels():
 		current_quest_desc = "Kill the Inklinks and secure the art"
 	elif questlevel == 7:
 		current_quest_title = "KEY"
-		current_quest_desc = "Find the key to open the door"
+		current_quest_desc = "Find the keycard to open the door"
 	elif questlevel == 8:
 		current_quest_title = "Door"
 		current_quest_desc = "Press '...' to open the door" # van 'D' de interact button maken?
