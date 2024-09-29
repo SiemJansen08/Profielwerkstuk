@@ -544,7 +544,7 @@ shape = SubResource("RectangleShape2D_i3dxc")
 [node name="player" parent="." instance=ExtResource("2_fd7la")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(36, 186)
+position = Vector2(35, 130)
 
 [connection signal="body_entered" from="TileMap/acces_door_1" to="." method="_on_acces_door_1_body_entered"]
 [connection signal="body_entered" from="TileMap/lasers" to="." method="_on_lasers_body_entered"]
