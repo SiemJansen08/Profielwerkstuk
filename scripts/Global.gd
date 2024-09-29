@@ -4,12 +4,16 @@ func _physics_process(delta):
 	questlevels()
 	questvis()
 
+func _ready():
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	current_scene = "menu"
 
+var current_scene = "menu"
 var player_health = 100
 var player_current_attack = false		#attack stuff
 var stealth_mode = false
 
-var current_scene = "world"			# scene transitions
+		# scene transitions
 var transition_scene = false
 var game_first_load = true
 var transition_scene_cave = false
@@ -38,6 +42,10 @@ func questlevels():
 	if questlevel == 1:
 		current_quest_title = "LIP:"
 		current_quest_desc = "Find Lip and speak with him"
+		if current_scene == "menu":
+			$QuestBox.visible = false
+		else:
+			$QuestBox.visible = true
 	elif questlevel == 1.1:
 		current_quest_title = "SPEAK:"
 		current_quest_desc = "Press 'D' to speak with Lip, press 'enter' to advance"

@@ -27,7 +27,7 @@ func _physics_process(delta):
 		player_alive = false # terug naar menu of end screen.
 		Global.player_health = 0
 		print("player has died")
-		self.queue_free()
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	'''if health == 100:			#healthbar verdwijnt bij 100 hp
 		$Healthbar.hide()
 	else:

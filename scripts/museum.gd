@@ -7,6 +7,8 @@ var key_door_1 = false
 func _ready():
 	$TileMap/door_1/door_1_col.set_deferred("disabled", false)
 	healthbar.init_health(Global.player_health)
+	Global.player_health = Global.player_health + 20
+	Global.questlevel = 6
 
 func _process(delta):
 	change_scenes()
