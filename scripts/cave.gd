@@ -25,6 +25,7 @@ func _process(delta):
 
 func _on_cave_exit_body_entered(body):
 	if body.has_method("player"):
+		Global.player_health = 100
 		Global.transition_scene = true
 
 func change_scenes():
