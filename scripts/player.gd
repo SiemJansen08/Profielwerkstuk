@@ -157,7 +157,7 @@ func _on_attack_cooldown_timeout():
 
 func attack(delta):
 	var dir = current_dir
-	if Global.sword == true:
+	if Global.sword == true and Global.stealth_mode == false:
 		if Input.is_action_just_pressed("attack"):
 			Global.player_current_attack = true
 			attack_ip = true
