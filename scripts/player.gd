@@ -151,6 +151,12 @@ func enemy_attack():
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print(Global.player_health)
+	elif enemy_inattack_range and enemy_attack_cooldown == true and Global.hard_difficulty == true:
+		Global.player_health = Global.player_health - 8
+		healthbar.health = Global.player_health
+		enemy_attack_cooldown = false
+		$attack_cooldown.start()
+		print(Global.player_health)
 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true

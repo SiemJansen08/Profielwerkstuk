@@ -3,6 +3,7 @@ extends Node
 func _physics_process(delta):
 	questlevels()
 	questvis()
+	pause()
 
 func _ready():
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
@@ -38,6 +39,10 @@ var questlevel = 1
 var current_quest_title
 var current_quest_desc
 
+var hard_difficulty = false		# menu settings
+var sound_on = true
+var music_on = true
+
 func questlevels():
 	if questlevel == 1:
 		current_quest_title = "LIP:"
@@ -69,7 +74,7 @@ func questlevels():
 		current_quest_desc = "Find the keycard to open the door"
 	elif questlevel == 8:
 		current_quest_title = "Door"
-		current_quest_desc = "Press '...' to open the door" # van 'D' de interact button maken?
+		current_quest_desc = "Press '...' to open the doors" # van 'D' de interact button maken?
 
 func questvis():
 	$QuestBox/QuestTitle.set_text(current_quest_title) 
@@ -86,3 +91,8 @@ func finish_changescenes():
 		elif current_scene != "world":
 			current_scene = "world"
 				
+
+func pause():
+	if Input.is_action_just_pressed("pause"):
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		current_scene = "menu"
