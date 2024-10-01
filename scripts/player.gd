@@ -207,8 +207,14 @@ func current_camera():
 	if Global.current_scene == "world":
 		$world_camera.enabled = true
 		$cave_camera.enabled = false
+		$museum_camera.enabled = false
 	elif Global.current_scene == "cave":
 		$world_camera.enabled = false
 		$cave_camera.enabled = true
+		$museum_camera.enabled = false
+	elif Global.current_scene == "museum":
+		$world_camera.enabled = false
+		$cave_camera.enabled = false
+		$museum_camera.enabled = true
 		
 		
