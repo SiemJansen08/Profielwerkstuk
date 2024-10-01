@@ -7,6 +7,7 @@ var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 #var health = 100
 @onready var healthbar = $Healthbar
+@onready var lip_camera = $npc1/lip_camera
 var player_alive = true
 var attack_ip = false
 
@@ -205,9 +206,15 @@ func _on_stealth_time_timeout():
 	
 func current_camera():
 	if Global.current_scene == "world":
+		if Global.chatting == true:
+			$world_camera.enabled = false
+			$cave_camera.enabled = false
+			$museum_camera.enabled = false
+			
 		$world_camera.enabled = true
 		$cave_camera.enabled = false
 		$museum_camera.enabled = false
+		
 	elif Global.current_scene == "cave":
 		$world_camera.enabled = false
 		$cave_camera.enabled = true

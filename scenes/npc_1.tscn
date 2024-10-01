@@ -223,6 +223,8 @@ autostart = true
 
 [node name="dialogue" parent="." instance=ExtResource("3_u2m5e")]
 
+[node name="lip_camera" type="Camera2D" parent="."]
+
 [connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

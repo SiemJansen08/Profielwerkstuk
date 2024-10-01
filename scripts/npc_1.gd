@@ -3,7 +3,6 @@ extends CharacterBody2D
 var speed = 30
 var current_state =IDLE
 var is_roaming = true
-var is_chatting = false
 var player
 var player_in_chatzone = false
 var dir = Vector2.RIGHT
@@ -23,7 +22,7 @@ func ready():
 func _process(delta):
 	if current_state == 0 or current_state == 1:
 		$AnimatedSprite2D.play("idle")
-	elif current_state == 2 and !is_chatting:
+	elif current_state == 2 and !Global.chatting:
 		if dir.x == -1:
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("side_walk")
@@ -50,7 +49,7 @@ func _process(delta):
 		print("chatting with npc")
 		$dialogue.start()
 		is_roaming = false
-		is_chatting = true
+		Global.chatting = true
 		$AnimatedSprite2D.play("idle")
 		
 
@@ -59,7 +58,7 @@ func choose(array):
 	return array.front()
 	
 func move():
-	if !is_chatting:
+	if !Global.chatting:
 		velocity = dir * speed
 		move_and_slide()
 
@@ -81,7 +80,8 @@ func _on_timer_timeout():
 
 
 func _on_dialogue_dialogue_finished():
-	is_chatting = false
+	Global.chatting = false
+	$lip_camera.enabled = false
 	is_roaming = true
 	Global.cave_acces = true
 	

@@ -38,6 +38,7 @@ var moving_to_next_wave: bool
 var questlevel = 1
 var current_quest_title
 var current_quest_desc
+var chatting = false
 
 var hard_difficulty = false		# menu settings
 var sound_on = true
