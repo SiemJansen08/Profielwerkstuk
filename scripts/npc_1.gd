@@ -51,7 +51,7 @@ func _process(delta):
 		is_roaming = false
 		Global.chatting = true
 		$AnimatedSprite2D.play("idle")
-		
+
 
 func choose(array):
 	array.shuffle()
@@ -84,5 +84,4 @@ func _on_dialogue_dialogue_finished():
 	$lip_camera.enabled = false
 	is_roaming = true
 	Global.cave_acces = true
-	
 	
