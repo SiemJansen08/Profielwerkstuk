@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bwu8216omf0c0"]
+[gd_scene load_steps=29 format=3 uid="uid://bwu8216omf0c0"]
 
 [ext_resource type="Script" path="res://scripts/museum.gd" id="1_5u64n"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/player.tscn" id="2_fd7la"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://p4kkcqy2hut1" path="res://art/gebouwen/museumint/doorgang_rechts.png" id="7_4fjw4"]
 [ext_resource type="Texture2D" uid="uid://j16u11ejg8vt" path="res://art/gebouwen/museumint/doorgng_links.png" id="8_k6peg"]
 [ext_resource type="Texture2D" uid="uid://dhj2nk3slesym" path="res://art/gebouwen/museumint/Untitled 4.png" id="9_c3qc6"]
+[ext_resource type="Texture2D" uid="uid://c1vdbd6inguek" path="res://art/ezyZip/Tiles/FarmLand_Tile.png" id="10_vs7tg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ksp37"]
 texture = ExtResource("2_l5utf")
@@ -555,6 +556,9 @@ size = Vector2(48, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3dxc"]
 size = Vector2(6, 38)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rco1w"]
+radius = 57.9922
+
 [node name="museum" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_5u64n")
@@ -583,7 +587,7 @@ layer_4/tile_data = PackedInt32Array(983031, 4, 0, 917521, 65538, 0, -2097145, 4
 [node name="door_1" type="StaticBody2D" parent="TileMap"]
 
 [node name="door_1_col" type="CollisionShape2D" parent="TileMap/door_1"]
-position = Vector2(24.1109, 199.987)
+position = Vector2(72.0954, 171.96)
 shape = SubResource("RectangleShape2D_lkkys")
 
 [node name="acces_door_1" type="Area2D" parent="TileMap"]
@@ -614,6 +618,16 @@ shape = SubResource("RectangleShape2D_jgnvy")
 position = Vector2(-185, 157)
 shape = SubResource("RectangleShape2D_i3dxc")
 
+[node name="keycard1" type="Sprite2D" parent="TileMap"]
+position = Vector2(-73.9789, 38.041)
+scale = Vector2(0.172437, 0.329342)
+texture = ExtResource("10_vs7tg")
+
+[node name="keycardpickup1" type="Area2D" parent="TileMap/keycard1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/keycard1/keycardpickup1"]
+shape = SubResource("CircleShape2D_rco1w")
+
 [node name="player" parent="." instance=ExtResource("2_fd7la")]
 z_index = 1
 y_sort_enabled = true
@@ -621,3 +635,4 @@ position = Vector2(35, 130)
 
 [connection signal="body_entered" from="TileMap/acces_door_1" to="." method="_on_acces_door_1_body_entered"]
 [connection signal="body_entered" from="TileMap/lasers" to="." method="_on_lasers_body_entered"]
+[connection signal="body_entered" from="TileMap/keycard1/keycardpickup1" to="." method="_on_keycardpickup_1_body_entered"]

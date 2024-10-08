@@ -1,6 +1,8 @@
 extends Node2D
 
 var key_door_1 = false
+var player_pickup = false
+var acces_door_1 = false
 @onready var healthbar = $player/Healthbar
 
 
@@ -12,7 +14,14 @@ func _ready():
 
 func _process(delta):
 	change_scenes()
-
+	if Input.is_action_just_pressed("chat") and player_pickup:
+		key_door_1 = true
+		$TileMap/keycard1.queue_free()
+		player_pickup = false
+		Global.questlevel = 7
+	if Input.is_action_just_pressed("chat") and acces_door_1 == true:
+			$TileMap/door_1/door_1_col.set_deferred("disabled", true)
+			
 func change_scenes():
 	if Global.transition_scene == true:
 		if Global.current_scene == "museum":
@@ -26,12 +35,18 @@ func _on_museum_exit_body_entered(body):
 
 func _on_acces_door_1_body_entered(body):
 	if key_door_1 == true:
-		Global.questlevel = 8
-	else:
-		Global.questlevel = 7 
+		Global.questlevel = 9
+		acces_door_1 = true
+	elif key_door_1 == false:
+		Global.questlevel = 7
+
 
 
 func _on_lasers_body_entered(body):
 	Global.player_health = Global.player_health - 20
 	healthbar.health = Global.player_health
 	print(Global.player_health)
+
+func _on_keycardpickup_1_body_entered(body):
+	Global.questlevel = 8
+	player_pickup = true

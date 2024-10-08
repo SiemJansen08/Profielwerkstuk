@@ -6,7 +6,7 @@ func _physics_process(delta):
 	pause()
 
 func _ready():
-	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/museum.tscn")
 	current_scene = "menu"
 
 var current_scene = "menu"
@@ -74,9 +74,11 @@ func questlevels():
 		current_quest_title = "KEY"
 		current_quest_desc = "Find the keycard to open the door"
 	elif questlevel == 8:
+		current_quest_title = "KEY"
+		current_quest_desc = "Press 'D' to pick up the keycard" # van 'D' de interact button maken?
+	elif questlevel == 9:
 		current_quest_title = "Door"
-		current_quest_desc = "Press '...' to open the doors" # van 'D' de interact button maken?
-
+		current_quest_desc = "Press 'D' to swipe the keycard and open the door"
 func questvis():
 	$QuestBox/QuestTitle.set_text(current_quest_title) 
 	$QuestBox/QuestDescription.set_text(current_quest_desc)
