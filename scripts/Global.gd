@@ -6,7 +6,7 @@ func _physics_process(delta):
 	pause()
 
 func _ready():
-	get_tree().change_scene_to_file("res://scenes/museum.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	current_scene = "menu"
 
 var current_scene = "menu"
