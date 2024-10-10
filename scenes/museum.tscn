@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bwu8216omf0c0"]
+[gd_scene load_steps=36 format=3 uid="uid://bwu8216omf0c0"]
 
 [ext_resource type="Script" path="res://scripts/museum.gd" id="1_5u64n"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/player.tscn" id="2_fd7la"]
@@ -10,7 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://p4kkcqy2hut1" path="res://art/gebouwen/museumint/doorgang_rechts.png" id="7_4fjw4"]
 [ext_resource type="Texture2D" uid="uid://j16u11ejg8vt" path="res://art/gebouwen/museumint/doorgng_links.png" id="8_k6peg"]
 [ext_resource type="Texture2D" uid="uid://dhj2nk3slesym" path="res://art/gebouwen/museumint/Untitled 4.png" id="9_c3qc6"]
-[ext_resource type="Texture2D" uid="uid://c1vdbd6inguek" path="res://art/ezyZip/Tiles/FarmLand_Tile.png" id="10_vs7tg"]
+[ext_resource type="Texture2D" uid="uid://doft8ja7e1lk4" path="res://art/objects/keycard.png" id="10_84fdg"]
+[ext_resource type="Texture2D" uid="uid://bhhmlpefyall6" path="res://art/objects/deur.png" id="10_snpvp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ksp37"]
 texture = ExtResource("2_l5utf")
@@ -223,6 +224,44 @@ sources/7 = SubResource("TileSetAtlasSource_knamc")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lkkys"]
 size = Vector2(40, 20)
 
+[sub_resource type="Animation" id="Animation_mr6hx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dmib2"]
+resource_name = "new_animation"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1pata"]
+_data = {
+"RESET": SubResource("Animation_mr6hx"),
+"new_animation": SubResource("Animation_dmib2")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sxaq"]
 size = Vector2(22, 17)
 
@@ -242,7 +281,45 @@ size = Vector2(48, 6)
 size = Vector2(6, 38)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rco1w"]
-radius = 57.9922
+radius = 20.2041
+
+[sub_resource type="Animation" id="Animation_ovvwc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fweev"]
+resource_name = "keycard"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6u26e"]
+_data = {
+"RESET": SubResource("Animation_ovvwc"),
+"keycard": SubResource("Animation_fweev")
+}
 
 [node name="museum" type="Node2D"]
 y_sort_enabled = true
@@ -269,11 +346,25 @@ layer_4/name = "bovenop"
 layer_4/z_index = 3
 layer_4/tile_data = PackedInt32Array(983031, 4, 0, 917521, 65538, 0, -2097145, 4, 0, -2097131, 65538, 0, -393205, 65538, 0, -2162703, 4, 0)
 
-[node name="door_1" type="StaticBody2D" parent="TileMap"]
+[node name="hekje_1" type="Sprite2D" parent="TileMap"]
+position = Vector2(72, 164)
+scale = Vector2(2, 2)
+texture = ExtResource("10_snpvp")
+hframes = 4
 
-[node name="door_1_col" type="CollisionShape2D" parent="TileMap/door_1"]
-position = Vector2(72.0954, 171.96)
+[node name="door_1" type="StaticBody2D" parent="TileMap/hekje_1"]
+
+[node name="door_1_col" type="CollisionShape2D" parent="TileMap/hekje_1/door_1"]
+position = Vector2(-0.954521, -0.0194397)
 shape = SubResource("RectangleShape2D_lkkys")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/hekje_1"]
+libraries = {
+"": SubResource("AnimationLibrary_1pata")
+}
+
+[node name="Timer" type="Timer" parent="TileMap/hekje_1"]
+wait_time = 1.2
 
 [node name="acces_door_1" type="Area2D" parent="TileMap"]
 
@@ -304,20 +395,28 @@ position = Vector2(-185, 157)
 shape = SubResource("RectangleShape2D_i3dxc")
 
 [node name="keycard1" type="Sprite2D" parent="TileMap"]
-position = Vector2(-73.9789, 38.041)
-scale = Vector2(0.172437, 0.329342)
-texture = ExtResource("10_vs7tg")
+position = Vector2(-77.98, 36.0433)
+scale = Vector2(2, 2)
+texture = ExtResource("10_84fdg")
+hframes = 2
 
 [node name="keycardpickup1" type="Area2D" parent="TileMap/keycard1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/keycard1/keycardpickup1"]
+position = Vector2(0.999998, -0.000549316)
 shape = SubResource("CircleShape2D_rco1w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/keycard1"]
+libraries = {
+"": SubResource("AnimationLibrary_6u26e")
+}
 
 [node name="player" parent="." instance=ExtResource("2_fd7la")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(35, 130)
 
+[connection signal="timeout" from="TileMap/hekje_1/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="TileMap/acces_door_1" to="." method="_on_acces_door_1_body_entered"]
 [connection signal="body_entered" from="TileMap/lasers" to="." method="_on_lasers_body_entered"]
 [connection signal="body_entered" from="TileMap/keycard1/keycardpickup1" to="." method="_on_keycardpickup_1_body_entered"]

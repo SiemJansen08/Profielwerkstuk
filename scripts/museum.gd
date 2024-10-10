@@ -7,10 +7,11 @@ var acces_door_1 = false
 
 
 func _ready():
-	$TileMap/door_1/door_1_col.set_deferred("disabled", false)
+	$TileMap/hekje_1/door_1/door_1_col.set_deferred("disabled", false)
 	healthbar.init_health(Global.player_health)
 	#Global.player_health = Global.player_health + 20
 	Global.questlevel = 6
+	$TileMap/keycard1/AnimationPlayer.play("keycard")
 
 func _process(delta):
 	change_scenes()
@@ -20,7 +21,8 @@ func _process(delta):
 		player_pickup = false
 		Global.questlevel = 7
 	if Input.is_action_just_pressed("chat") and acces_door_1 == true:
-			$TileMap/door_1/door_1_col.set_deferred("disabled", true)
+			$TileMap/hekje_1/AnimationPlayer.play("new_animation")
+			$TileMap/hekje_1/Timer.start()
 			
 func change_scenes():
 	if Global.transition_scene == true:
@@ -50,3 +52,9 @@ func _on_lasers_body_entered(body):
 func _on_keycardpickup_1_body_entered(body):
 	Global.questlevel = 8
 	player_pickup = true
+
+
+
+func _on_timer_timeout():
+	$TileMap/hekje_1/door_1/door_1_col.set_deferred("disabled", true)
+	$TileMap/hekje_1/AnimationPlayer.pause()
