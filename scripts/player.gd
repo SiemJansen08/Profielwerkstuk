@@ -205,7 +205,7 @@ func _on_stealth_time_timeout():
 	
 	
 func current_camera():
-	if Global.current_scene == "world" or Global.current_scene == "museum":
+	if Global.current_scene == "world":
 		if Global.chatting == true:
 			$world_camera.enabled = false
 			$cave_camera.enabled = false
@@ -219,9 +219,13 @@ func current_camera():
 		$world_camera.enabled = false
 		$cave_camera.enabled = true
 		$museum_camera.enabled = false
+	
 	elif Global.current_scene == "museum":
+		if Global.chatting == true:
+			$world_camera.enabled = false
+			$cave_camera.enabled = false
+			$museum_camera.enabled = false
+		
 		$world_camera.enabled = false
 		$cave_camera.enabled = false
 		$museum_camera.enabled = true
-		
-		
