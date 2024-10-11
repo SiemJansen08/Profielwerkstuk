@@ -80,6 +80,9 @@ func questlevels():
 	elif questlevel == 9:
 		current_quest_title = "Door"
 		current_quest_desc = "Press 'D' to swipe the keycard and open the door"
+	elif questlevel == 10:
+		current_quest_title = "Lip"
+		current_quest_desc = "Speak with Lip"
 func questvis():
 	$QuestBox/QuestTitle.set_text(current_quest_title) 
 	$QuestBox/QuestDescription.set_text(current_quest_desc)
