@@ -43,7 +43,7 @@ func _process(delta):
 				dir = choose([Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN ])
 			MOVE: 
 				move()
-	if player_in_chatzone == true and Global.questlevel == 1 or Global.questlevel == 4 and player_in_chatzone:
+	if player_in_chatzone == true and Global.questlevel == 1 or Global.questlevel == 4 and player_in_chatzone or Global.questlevel == 10 and player_in_chatzone:
 		Global.questlevel = 1.1
 	if Input.is_action_just_pressed("chat") and player_in_chatzone:
 		print("chatting with npc")

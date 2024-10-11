@@ -24,14 +24,14 @@ func start():
 	
 	
 func load_dialogue():
-	if Global.cave_win == false:
+	if Global.cave_win == false and Global.current_scene == "world":
 		var file = FileAccess.open("res://dialogue/Lip_dialogue1.json", FileAccess.READ)
 		var content = JSON.parse_string(file.get_as_text())
 		Global.questlevel = 2
 		Global.sword = true
 		return content
 		
-	elif Global.cave_win == true:
+	elif Global.cave_win == true and Global.current_scene == "world":
 		var file = FileAccess.open("res://dialogue/Lip_dialogue2.json", FileAccess.READ)
 		var content = JSON.parse_string(file.get_as_text())
 		Global.bridge_acces = true
@@ -40,6 +40,11 @@ func load_dialogue():
 		Global.cloak = true
 		return content
 		
+	elif Global.current_scene == "museum":
+		var file = FileAccess.open("res://dialogue/Lip_dialogue3.json", FileAccess.READ)
+		var content = JSON.parse_string(file.get_as_text())
+		Global.questlevel = 11
+		return content
 	
 func _input(event):
 	if !d_active:

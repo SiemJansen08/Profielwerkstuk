@@ -24,6 +24,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("chat") and acces_door_1 == true:
 			$TileMap/hekje_1/AnimationPlayer.play("new_animation")
 			$TileMap/hekje_1/Timer.start()
+			Global.questlevel = 10
 			
 func change_scenes():
 	if Global.transition_scene == true:
