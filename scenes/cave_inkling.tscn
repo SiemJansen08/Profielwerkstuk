@@ -152,6 +152,7 @@ radius = 559.804
 radius = 15.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_s8s05")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
