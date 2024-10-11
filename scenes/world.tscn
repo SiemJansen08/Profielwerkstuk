@@ -540,7 +540,7 @@ z_index = 1
 position = Vector2(374, 234)
 
 [node name="Vogels" parent="." instance=ExtResource("27_lwk0p")]
-position = Vector2(752, 6)
+position = Vector2(754, 4)
 
 [connection signal="body_entered" from="TileMap/cave_entrance" to="." method="_on_cave_entrance_body_entered"]
 [connection signal="body_exited" from="TileMap/cave_entrance" to="." method="_on_cave_entrance_body_exited"]
