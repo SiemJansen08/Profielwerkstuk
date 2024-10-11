@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqbw60y486hqd"]
+
+[ext_resource type="PackedScene" uid="uid://ds3oui1oc7vhm" path="res://scenes/eend.tscn" id="1_ch7ig"]
+[ext_resource type="PackedScene" uid="uid://liwbx0sx5r7" path="res://scenes/eekhoorn.tscn" id="2_aax0d"]
+
+[node name="Vogels" type="Node2D"]
+
+[node name="Eend" parent="." instance=ExtResource("1_ch7ig")]
+position = Vector2(-1300, 122)
+
+[node name="Eend2" parent="." instance=ExtResource("1_ch7ig")]
+position = Vector2(-716, -102)
+
+[node name="Eend3" parent="." instance=ExtResource("1_ch7ig")]
+position = Vector2(-1041, 0)
+
+[node name="Eend4" parent="." instance=ExtResource("1_ch7ig")]
+position = Vector2(-908, 130)
+
+[node name="Eend5" parent="." instance=ExtResource("1_ch7ig")]
+z_index = 1
+position = Vector2(-555, 84)
+
+[node name="eekhoorn" parent="." instance=ExtResource("2_aax0d")]
+position = Vector2(-548, -89)
+
+[node name="eekhoorn2" parent="." instance=ExtResource("2_aax0d")]
+position = Vector2(-367, 58)
+
+[node name="eekhoorn3" parent="." instance=ExtResource("2_aax0d")]
+position = Vector2(-436, 268)
+
+[node name="eekhoorn4" parent="." instance=ExtResource("2_aax0d")]
+position = Vector2(-843, 291)
+
+[node name="eekhoorn5" parent="." instance=ExtResource("2_aax0d")]
+position = Vector2(-1157, 260)
+
+[node name="Eend6" parent="." instance=ExtResource("1_ch7ig")]
+position = Vector2(-662, 22)
+
+[node name="Eend7" parent="." instance=ExtResource("1_ch7ig")]
+position = Vector2(-661, 154)
