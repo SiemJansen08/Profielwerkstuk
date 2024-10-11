@@ -6,8 +6,8 @@ func _physics_process(delta):
 	pause()
 
 func _ready():
-	get_tree().change_scene_to_file("res://scenes/menu.tscn")
-	current_scene = "menu"
+	get_tree().change_scene_to_file("res://scenes/cave.tscn")
+	current_scene = "cave"
 
 var current_scene = "menu"
 var player_health = 100
