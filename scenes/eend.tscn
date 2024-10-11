@@ -1,0 +1,112 @@
+[gd_scene load_steps=15 format=3 uid="uid://ds3oui1oc7vhm"]
+
+[ext_resource type="Script" path="res://scripts/eend.gd" id="1_q58fw"]
+[ext_resource type="Texture2D" uid="uid://cqx14ydmcwcbr" path="res://art/vogels/eend_idle.png" id="2_ixmia"]
+[ext_resource type="Texture2D" uid="uid://dmyaqb1q7cyr3" path="res://art/vogels/eend_vliegen.png" id="3_wlqni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itm0v"]
+atlas = ExtResource("2_ixmia")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sr30"]
+atlas = ExtResource("2_ixmia")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bnp8"]
+atlas = ExtResource("2_ixmia")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8sni"]
+atlas = ExtResource("2_ixmia")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2uwm"]
+atlas = ExtResource("3_wlqni")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyp5c"]
+atlas = ExtResource("3_wlqni")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b40vr"]
+atlas = ExtResource("3_wlqni")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex6pb"]
+atlas = ExtResource("3_wlqni")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5olxi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itm0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sr30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bnp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8sni")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2uwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyp5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b40vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ex6pb")
+}],
+"loop": true,
+"name": &"vliegen",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3r16p"]
+radius = 4.0
+height = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q033c"]
+radius = 29.0172
+
+[node name="Eend" type="CharacterBody2D"]
+z_index = 2
+script = ExtResource("1_q58fw")
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5olxi")
+animation = &"vliegen"
+frame_progress = 0.598368
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_3r16p")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="detection" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_q033c")
+debug_color = Color(0.656283, 0.464829, 0.606759, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

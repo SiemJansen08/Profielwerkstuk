@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://5btguj51mep7"]
+[gd_scene load_steps=55 format=3 uid="uid://5btguj51mep7"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_1fvbi"]
 [ext_resource type="Texture2D" uid="uid://fogwkghmyj5y" path="res://art/tilesets/floors/wooden.png" id="1_eeo81"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dt0874jh1xkpw" path="res://art/gebouwen/Untitled.png" id="16_kfjy3"]
 [ext_resource type="PackedScene" uid="uid://koucmj2vrhg0" path="res://scenes/npc_1.tscn" id="16_ywfqw"]
 [ext_resource type="Texture2D" uid="uid://dwqkk1u5fkupn" path="res://art/ezyZip/Outdoor decoration/Outdoor_Decor_Free.png" id="17_k88v5"]
+[ext_resource type="PackedScene" uid="uid://dqbw60y486hqd" path="res://scenes/vogels.tscn" id="27_lwk0p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kypg6"]
 texture = ExtResource("1_eeo81")
@@ -532,11 +533,14 @@ shape = SubResource("RectangleShape2D_pyv02")
 
 [node name="player" parent="." instance=ExtResource("10_tqxcw")]
 z_index = 1
-position = Vector2(-572, -57)
+position = Vector2(-582, -57)
 
 [node name="npc1" parent="." instance=ExtResource("16_ywfqw")]
 z_index = 1
 position = Vector2(374, 234)
+
+[node name="Vogels" parent="." instance=ExtResource("27_lwk0p")]
+position = Vector2(752, 6)
 
 [connection signal="body_entered" from="TileMap/cave_entrance" to="." method="_on_cave_entrance_body_entered"]
 [connection signal="body_exited" from="TileMap/cave_entrance" to="." method="_on_cave_entrance_body_exited"]

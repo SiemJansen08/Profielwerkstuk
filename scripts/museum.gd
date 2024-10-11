@@ -9,7 +9,8 @@ var acces_door_1 = false
 func _ready():
 	$TileMap/hekje_1/door_1/door_1_col.set_deferred("disabled", false)
 	healthbar.init_health(Global.player_health)
-	#Global.player_health = Global.player_health + 20
+	Global.player_health = Global.player_health + 20
+	print(Global.player_health)
 	Global.questlevel = 6
 	$TileMap/keycard1/AnimationPlayer.play("keycard")
 
