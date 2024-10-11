@@ -32,6 +32,7 @@ var cave_acces = false
 var cave_win = false
 var sword = false
 var cloak = false
+var paintings = 0
 
 var current_wave: int
 var moving_to_next_wave: bool
@@ -83,6 +84,13 @@ func questlevels():
 	elif questlevel == 10:
 		current_quest_title = "Lip"
 		current_quest_desc = "Speak with Lip"
+	elif questlevel == 11:
+		current_quest_title = "Museum"
+		current_quest_desc = "Artpieces secured: " + str(paintings) + "/8"
+	elif questlevel == 11.1:
+		current_quest_title = "Secure"
+		current_quest_desc = "Press 'W' to secure this artpiece"
+		
 func questvis():
 	$QuestBox/QuestTitle.set_text(current_quest_title) 
 	$QuestBox/QuestDescription.set_text(current_quest_desc)

@@ -60,3 +60,7 @@ func _on_keycardpickup_1_body_entered(body):
 func _on_timer_timeout():
 	$TileMap/hekje_1/door_1/door_1_col.set_deferred("disabled", true)
 	$TileMap/hekje_1/AnimationPlayer.pause()
+
+
+func _on_starttimer_timeout():
+	Global.questlevel = 6
