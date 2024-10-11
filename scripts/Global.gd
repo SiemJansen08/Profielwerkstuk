@@ -4,6 +4,7 @@ func _physics_process(delta):
 	questlevels()
 	questvis()
 	pause()
+	debug()
 
 func _ready():
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
@@ -99,3 +100,19 @@ func pause():
 	if Input.is_action_just_pressed("pause"):
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 		current_scene = "menu"
+
+func debug():
+	if Input.is_action_just_pressed("debug1"):
+		get_tree().change_scene_to_file("res://scenes/world.tscn")
+		current_scene = "world"
+		questlevel = 1
+	if Input.is_action_just_pressed("debug2"):
+		get_tree().change_scene_to_file("res://scenes/cave.tscn")
+		current_scene = "cave"
+		questlevel = 3
+	if Input.is_action_just_pressed("debug3"):
+		get_tree().change_scene_to_file("res://scenes/museum.tscn")
+		current_scene = "museum"
+		questlevel = 6
+	
+	
