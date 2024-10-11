@@ -7,8 +7,8 @@ func _physics_process(delta):
 	debug()
 
 func _ready():
-	get_tree().change_scene_to_file("res://scenes/cave.tscn")
-	current_scene = "cave"
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	current_scene = "menu"
 
 var current_scene = "menu"
 var player_health = 100
@@ -106,13 +106,19 @@ func debug():
 		get_tree().change_scene_to_file("res://scenes/world.tscn")
 		current_scene = "world"
 		questlevel = 1
+		sword = false
+		cloak = false
 	if Input.is_action_just_pressed("debug2"):
 		get_tree().change_scene_to_file("res://scenes/cave.tscn")
 		current_scene = "cave"
 		questlevel = 3
+		sword = true
+		cloak = false
 	if Input.is_action_just_pressed("debug3"):
 		get_tree().change_scene_to_file("res://scenes/museum.tscn")
 		current_scene = "museum"
 		questlevel = 6
+		sword = true
+		cloak = true
 	
 	
