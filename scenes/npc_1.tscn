@@ -202,6 +202,7 @@ radius = 10.0499
 radius = 23.0
 
 [node name="npc1" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_s1fad")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
