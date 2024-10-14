@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bwu8216omf0c0"]
+[gd_scene load_steps=76 format=3 uid="uid://bwu8216omf0c0"]
 
 [ext_resource type="Script" path="res://scripts/museum.gd" id="1_5u64n"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/player.tscn" id="2_fd7la"]
@@ -27,6 +27,13 @@
 [ext_resource type="Texture2D" uid="uid://b5fba23dfs2wl" path="res://art/kunst/kunst6.png" id="19_im8eo"]
 [ext_resource type="Texture2D" uid="uid://behmi6q7gw8ct" path="res://art/kunst/kunst1.png" id="20_76pbm"]
 [ext_resource type="Texture2D" uid="uid://bpuiqcvsvwnwk" path="res://art/kunst/kunst2.png" id="21_dwfpq"]
+[ext_resource type="Script" path="res://scripts/paintings/painting2.gd" id="22_uct5o"]
+[ext_resource type="Script" path="res://scripts/paintings/painting3.gd" id="24_cwcrp"]
+[ext_resource type="Script" path="res://scripts/paintings/painting4.gd" id="26_3kyss"]
+[ext_resource type="Script" path="res://scripts/paintings/painting5.gd" id="28_j5kxk"]
+[ext_resource type="Script" path="res://scripts/paintings/painting6.gd" id="30_5hils"]
+[ext_resource type="Script" path="res://scripts/paintings/painting7.gd" id="32_5hqly"]
+[ext_resource type="Script" path="res://scripts/paintings/painting8.gd" id="33_71vqw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ksp37"]
 texture = ExtResource("2_l5utf")
@@ -1306,7 +1313,7 @@ libraries = {
 [node name="player" parent="." instance=ExtResource("2_fd7la")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(35, 130)
+position = Vector2(36, 135)
 
 [node name="paintings" type="Node2D" parent="."]
 
@@ -1327,6 +1334,7 @@ shape = SubResource("RectangleShape2D_hadj8")
 z_index = 2
 position = Vector2(124, -28)
 texture = ExtResource("16_glntn")
+script = ExtResource("22_uct5o")
 
 [node name="Area2D" type="Area2D" parent="paintings/painting2"]
 
@@ -1339,6 +1347,7 @@ z_index = 2
 position = Vector2(164, -28)
 scale = Vector2(1, 0.916667)
 texture = ExtResource("17_3nae2")
+script = ExtResource("24_cwcrp")
 
 [node name="Area2D" type="Area2D" parent="paintings/painting3"]
 
@@ -1351,6 +1360,7 @@ z_index = 2
 position = Vector2(196, -28.25)
 scale = Vector2(1, 1.06522)
 texture = ExtResource("18_jb3w8")
+script = ExtResource("26_3kyss")
 
 [node name="Area2D" type="Area2D" parent="paintings/painting4"]
 
@@ -1362,6 +1372,7 @@ shape = SubResource("RectangleShape2D_rq1wu")
 z_index = 2
 position = Vector2(300, -28)
 texture = ExtResource("19_im8eo")
+script = ExtResource("28_j5kxk")
 
 [node name="Area2D" type="Area2D" parent="paintings/painting5"]
 
@@ -1374,6 +1385,7 @@ z_index = 2
 position = Vector2(244, 52.25)
 scale = Vector2(0.615385, 0.671429)
 texture = ExtResource("20_76pbm")
+script = ExtResource("30_5hils")
 
 [node name="Area2D" type="Area2D" parent="paintings/painting6"]
 
@@ -1386,6 +1398,7 @@ z_index = 2
 position = Vector2(268, 52.25)
 scale = Vector2(1, 1.02174)
 texture = ExtResource("21_dwfpq")
+script = ExtResource("32_5hqly")
 
 [node name="Area2D" type="Area2D" parent="paintings/painting7"]
 
@@ -1398,6 +1411,7 @@ z_index = 2
 position = Vector2(299.75, 52)
 scale = Vector2(1.05172, 1)
 texture = ExtResource("15_ryme7")
+script = ExtResource("33_71vqw")
 
 [node name="Area2D" type="Area2D" parent="paintings/painting8"]
 
@@ -1417,5 +1431,19 @@ position = Vector2(-3, -67)
 [connection signal="body_entered" from="TileMap/keycard1/keycardpickup1" to="." method="_on_keycardpickup_1_body_entered"]
 [connection signal="body_entered" from="paintings/painting1/Area2D" to="paintings/painting1" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="paintings/painting1/Area2D" to="paintings/painting1" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="paintings/painting2/Area2D" to="paintings/painting2" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="paintings/painting3/Area2D" to="paintings/painting3" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="paintings/painting4/Area2D" to="paintings/painting4" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="paintings/painting5/Area2D" to="paintings/painting5" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="paintings/painting6/Area2D" to="paintings/painting6" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="paintings/painting7/Area2D" to="paintings/painting7" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="paintings/painting8/Area2D" to="paintings/painting8" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="start_timer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="start_timer" to="paintings/painting1" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="start_timer" to="paintings/painting2" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="start_timer" to="paintings/painting3" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="start_timer" to="paintings/painting4" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="start_timer" to="paintings/painting5" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="start_timer" to="paintings/painting6" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="start_timer" to="paintings/painting7" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="start_timer" to="paintings/painting8" method="_on_start_timer_timeout"]
