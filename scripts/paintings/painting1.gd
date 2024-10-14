@@ -9,14 +9,14 @@ func _process(delta):
 		self.queue_free()
 		Global.questlevel = 11
 
-func _on_area_2d_body_entered(body):
-	if ready_play:
+func _on_area_2d_body_entered(body): 
+	if body.has_method("player") and ready_play and Global.questlevel >= 11:
 		pickup = true
 		Global.questlevel = 11.1
 
 
 func _on_area_2d_body_exited(body):
-	pass # Replace with function body.
+	pass
 
 
 func _on_start_timer_timeout():
