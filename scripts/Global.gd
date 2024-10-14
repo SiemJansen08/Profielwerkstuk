@@ -131,5 +131,5 @@ func debug():
 		questlevel = 6
 		sword = true
 		cloak = true
-	
+		player_health = 100
 	
