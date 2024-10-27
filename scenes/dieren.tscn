@@ -25,7 +25,7 @@ position = Vector2(-555, 84)
 position = Vector2(-548, -89)
 
 [node name="eekhoorn2" parent="." instance=ExtResource("2_aax0d")]
-position = Vector2(-367, 58)
+position = Vector2(-285, 80)
 
 [node name="eekhoorn3" parent="." instance=ExtResource("2_aax0d")]
 position = Vector2(-436, 268)
