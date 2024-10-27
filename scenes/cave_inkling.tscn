@@ -161,6 +161,7 @@ animation = &"damage"
 offset = Vector2(0, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_byb66")
 

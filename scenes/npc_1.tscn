@@ -210,6 +210,7 @@ sprite_frames = SubResource("SpriteFrames_tfnpf")
 animation = &"side_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_ay2sx")
 

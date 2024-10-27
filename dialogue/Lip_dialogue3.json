@@ -6,8 +6,8 @@
 	{"name": "Lip", "text": "I came to help you, but the Inklings cut me off."},
 	{"name": "Lip", "text": "Anyway, you're here now."},
 	{"name": "You", "text": "Let's take on these monsters together!"},
-	{"name": "Lip", "text": "Unfortunately I dont think I will be of much use"},
-	{"name": "Lip", "text": "I'm too old to fight."},
+	{"name": "Lip", "text": "Unfortunately I dont think I will be of much use."},
+	{"name": "Lip", "text": "The Inklings got to me, i'm injured."},
 	{"name": "Lip", "text": "But I came to tell you something."},
 	{"name": "You", "text": "What is it?"},
 	{"name": "Lip", "text": "The best way to save the art is to take it with us"},
@@ -17,6 +17,4 @@
 	{"name": "You", "text": "I have to..."},
 	{"name": "Lip", "text": "Go now, my friend"},
 	{"name": "Lip", "text": "Don't forget to use 's' to sneak past enemies, it might help you!"},
-	
-
 ]

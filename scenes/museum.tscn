@@ -1297,17 +1297,14 @@ shape = SubResource("RectangleShape2D_hkd5g")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="TileMap/lasers"]
 position = Vector2(-256.975, 41.1486)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1n46l")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="TileMap/lasers"]
 position = Vector2(-168.948, 89.091)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_utgat")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="TileMap/lasers"]
 position = Vector2(-168.972, 45.091)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_dd0x7")
 
 [node name="keycard1" type="Sprite2D" parent="TileMap"]

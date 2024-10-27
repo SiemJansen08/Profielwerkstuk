@@ -8,6 +8,7 @@ var acces_door_1 = false
 
 
 func _ready():
+	Global.current_scene = "museum"
 	$start_timer.start()
 	Global.questlevel = 6
 	
