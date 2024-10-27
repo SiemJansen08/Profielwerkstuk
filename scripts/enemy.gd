@@ -49,7 +49,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 	
-func _on_detection_area_body_entered(body):
+func _on_detection_area_body_entered(body): 
 		player = body
 		if Global.stealth_mode == true:
 			player_chase = false
@@ -76,7 +76,7 @@ func _on_enemy_hitbox_body_exited(body):
 func deal_with_damage():
 	if player_inattack_range and Global.player_current_attack == true:
 		if can_take_damage == true:
-			health = health - 50
+			health = health - 33
 			healthbar.health = health
 			$knockback.start()
 			knockback_state = true
