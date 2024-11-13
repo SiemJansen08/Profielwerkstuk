@@ -5,6 +5,7 @@ signal chase
 @export var speed = 25 #hoger is langzamer
 var player_chase = false
 var player = null
+var nochase = false
 
 var health = 99
 var player_inattack_range = false
@@ -53,6 +54,7 @@ func _physics_process(delta):
 	
 func _on_detection_area_body_entered(body): 
 		player = body
+		nochase = false
 		emit_signal("chase")
 '
 		if Global.stealth_mode == true:
@@ -63,6 +65,7 @@ func _on_detection_area_body_entered(body):
 
 func _on_detection_area_body_exited(body):
 		player_chase = false
+		nochase = true
 		
 func enemy():
 	pass
@@ -105,11 +108,16 @@ func _on_knockback_timeout():
 
 
 func _on_chase():
-	player_chase = true
-	if Global.stealth_mode == true:
-		player_chase = false
-	$stealth_check.start()
+	if nochase == false:
+		player_chase = true
+		if Global.stealth_mode == true:
+			player_chase = false
+		$stealth_check.start()
+
 
 
 func _on_stealth_check_timeout():
 	emit_signal("chase")
+
+
+
