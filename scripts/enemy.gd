@@ -56,12 +56,6 @@ func _on_detection_area_body_entered(body):
 		player = body
 		nochase = false
 		emit_signal("chase")
-'
-		if Global.stealth_mode == true:
-			player_chase = false
-		else:
-			player_chase = true
-'
 
 func _on_detection_area_body_exited(body):
 		player_chase = false
