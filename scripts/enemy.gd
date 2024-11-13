@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal chase
+
 @export var speed = 25 #hoger is langzamer
 var player_chase = false
 var player = null
@@ -21,7 +23,7 @@ func _ready():
 func _physics_process(delta):
 	deal_with_damage()
 	if knockback_state == false:
-		if player_chase: 
+		if player_chase:
 			velocity = (player.get_global_position() - position).normalized() * speed * delta
 			
 			if(player.position.x - position.x) < 0:
@@ -51,10 +53,13 @@ func _physics_process(delta):
 	
 func _on_detection_area_body_entered(body): 
 		player = body
+		emit_signal("chase")
+'
 		if Global.stealth_mode == true:
 			player_chase = false
 		else:
 			player_chase = true
+'
 	
 func _on_detection_area_body_exited(body):
 		player = null
@@ -98,3 +103,14 @@ func _on_knockback_timeout():
 	knockback_direction = randomizer.randi_range(0,3)
 	knockback_state = false
 	$knockback.stop()
+
+
+func _on_chase(s):
+	player_chase = true
+	if Global.stealth_mode == true:
+		player_chase = false
+	$stealth_check.start()
+
+
+func _on_stealth_check_timeout():
+	emit_signal("chase")
