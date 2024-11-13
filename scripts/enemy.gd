@@ -53,21 +53,13 @@ func _physics_process(delta):
 
 	
 func _on_detection_area_body_entered(body): 
-	if Global.current_scene == "museum":
 		player = body
 		nochase = false
 		emit_signal("chase")
-	if Global.current_scene == "cave":
-		player = body
-		player_chase = true
 
 func _on_detection_area_body_exited(body):
-	if Global.current_scene == "musuem":
 		player_chase = false
 		nochase = true
-	if Global.current_scene == "cave":
-		player_chase = false
-		player = null
 		
 func enemy():
 	pass
