@@ -60,11 +60,10 @@ func _on_detection_area_body_entered(body):
 		else:
 			player_chase = true
 '
-	
-func _on_detection_area_body_exited(body):
-		player = null
-		player_chase = false
 
+func _on_detection_area_body_exited(body):
+		player_chase = false
+		
 func enemy():
 	pass
 
@@ -105,7 +104,7 @@ func _on_knockback_timeout():
 	$knockback.stop()
 
 
-func _on_chase(s):
+func _on_chase():
 	player_chase = true
 	if Global.stealth_mode == true:
 		player_chase = false
