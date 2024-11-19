@@ -28,13 +28,13 @@ func _on_museum_entrance_body_entered(body):
 
 func change_scene():
 	if Global.transition_scene == true:
-		if Global.current_scene == "world":
-			if Global.go_to_scene == "cave":
+		if Global.current_scene == "res://scenes/world.tscn":
+			if Global.go_to_scene == "res://scenes/cave.tscn":
 				get_tree().change_scene_to_file("res://scenes/cave.tscn")
 				Global.game_first_load = false
 				Global.questlevel = 3
 				Global.finish_changescenes()
-			if Global.go_to_scene == "museum":
+			if Global.go_to_scene == "res://scenes/museum.tscn":
 				get_tree().change_scene_to_file("res://scenes/museum.tscn")
 				Global.questlevel = 6
 				Global.finish_changescenes()

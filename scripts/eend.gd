@@ -31,7 +31,7 @@ func _physics_process(delta):
 		velocity.y = -35
 		move_and_slide()	
 
-	if Global.current_scene == "museum":
+	if Global.current_scene == "res://scenes/museum.tscn":
 		$Vogels.queue_free()
 
 

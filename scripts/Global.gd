@@ -5,12 +5,12 @@ func _physics_process(delta):
 	questvis()
 	pause()
 	debug()
+	
 
 func _ready():
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
-	current_scene = "menu"
 
-var current_scene = "menu"
+var current_scene = "res://scenes/world.tscn"
 var player_health = 100
 var player_current_attack = false		#attack stuff
 var stealth_mode = false
@@ -20,7 +20,7 @@ var transition_scene = false
 var game_first_load = true
 var transition_scene_cave = false
 var transition_scene_museum = false
-var go_to_scene = "cave" 
+var go_to_scene = "res://scenes/cave.tscn"
 
 var player_exit_cave_posx = 376			# in and out cords of cave scene
 var player_exit_cave_posy = -49
@@ -52,7 +52,7 @@ func questlevels():
 	if questlevel == 1:
 		current_quest_title = "LIP:"
 		current_quest_desc = "Find Lip and speak with him"
-		if current_scene == "menu":
+		if current_scene == "res://scenes/menu.tscn":
 			$QuestBox.visible = false
 		else:
 			$QuestBox.visible = true
@@ -101,35 +101,34 @@ func questvis():
 func finish_changescenes():
 	if transition_scene == true:
 		transition_scene = false
-		if current_scene == "world" and go_to_scene == "cave":
-			current_scene = "cave"
-		elif current_scene == "world" and go_to_scene == "museum":
-			current_scene = "cave"
-		elif current_scene != "world":
-			current_scene = "world"
+		if current_scene == "res://scenes/world.tscn" and go_to_scene == "res://scenes/cave.tscn":
+			current_scene = "res://scenes/cave.tscn"
+		elif current_scene == "res://scenes/world.tscn" and go_to_scene == "res://scenes/museum.tscn":
+			current_scene = "res://scenes/cave.tscn"
+		elif current_scene != "res://scenes/world.tscn":
+			current_scene = "res://scenes/world.tscn"
 				
 
 func pause():
 	if Input.is_action_just_pressed("pause"):
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
-		current_scene = "menu"
 
 func debug():
 	if Input.is_action_just_pressed("debug1"):
 		get_tree().change_scene_to_file("res://scenes/world.tscn")
-		current_scene = "world"
+		current_scene = "res://scenes/world.tscn"
 		questlevel = 1
 		sword = false
 		cloak = false
 	if Input.is_action_just_pressed("debug2"):
 		get_tree().change_scene_to_file("res://scenes/cave.tscn")
-		current_scene = "cave"
+		current_scene = "res://scenes/cave.tscn"
 		questlevel = 3
 		sword = true
 		cloak = false
 	if Input.is_action_just_pressed("debug3"):
 		get_tree().change_scene_to_file("res://scenes/museum.tscn")
-		current_scene = "museum"
+		current_scene = "res://scenes/museum.tscn"
 		questlevel = 6
 		sword = true
 		cloak = true

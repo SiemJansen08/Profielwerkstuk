@@ -30,10 +30,10 @@ func _on_cave_exit_body_entered(body):
 
 func change_scenes():
 	if Global.transition_scene == true:
-		if Global.current_scene == "cave":
+		if Global.current_scene == "res://scenes/cave.tscn":
 			get_tree().change_scene_to_file("res://scenes/world.tscn")
 			Global.finish_changescenes()
-			Global.go_to_scene = "museum"
+			Global.go_to_scene = "res://scenes/museum.tscn"
 			
 
 func position_to_next_wave():

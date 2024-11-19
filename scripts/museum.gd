@@ -8,7 +8,7 @@ var acces_door_1 = false
 
 
 func _ready():
-	Global.current_scene = "museum"
+	Global.current_scene = "res://scenes/museum.tscn"
 	$start_timer.start()
 	Global.questlevel = 6
 	
@@ -33,7 +33,7 @@ func _process(delta):
 			
 func change_scenes():
 	if Global.transition_scene == true:
-		if Global.current_scene == "museum":
+		if Global.current_scene == "res://scenes/museum.tscn":
 			get_tree().change_scene_to_file("res://scenes/world.tscn")
 			Global.finish_changescenes()
 

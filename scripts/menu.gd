@@ -3,8 +3,7 @@ extends Control
 
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
-	Global.current_scene = "world"
+	get_tree().change_scene_to_file(Global.current_scene)
 	print("Deaths: ", Global.deaths)
 	print("Health: ", Global.player_health)
 	if Global.game_first_load == true:
