@@ -5,6 +5,7 @@ extends Control
 func _on_play_pressed():
 	if Global.player_health < 20:
 		Global.player_health = 100
+		Global.paintings = 0
 		get_tree().change_scene_to_file(Global.current_scene)
 		Global.menu = false
 	else:
