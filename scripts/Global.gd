@@ -47,12 +47,13 @@ var chatting = false
 var hard_difficulty = false		# menu settings
 var sound_on = true
 var music_on = true
+var menu = true
 
 func questlevels():
 	if questlevel == 1:
 		current_quest_title = "LIP:"
 		current_quest_desc = "Find Lip and speak with him"
-		if current_scene == "res://scenes/menu.tscn":
+		if menu == true:
 			$QuestBox.visible = false
 		else:
 			$QuestBox.visible = true
@@ -112,6 +113,7 @@ func finish_changescenes():
 func pause():
 	if Input.is_action_just_pressed("pause"):
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		menu = true
 
 func debug():
 	if Input.is_action_just_pressed("debug1"):

@@ -4,6 +4,7 @@ extends Control
 
 func _on_play_pressed():
 	get_tree().change_scene_to_file(Global.current_scene)
+	Global.menu = false
 	print("Deaths: ", Global.deaths)
 	print("Health: ", Global.player_health)
 	if Global.game_first_load == true:
