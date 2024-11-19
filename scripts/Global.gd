@@ -14,7 +14,7 @@ var current_scene = "menu"
 var player_health = 100
 var player_current_attack = false		#attack stuff
 var stealth_mode = false
-
+var deaths = 0
 		# scene transitions
 var transition_scene = false
 var game_first_load = true
@@ -26,6 +26,8 @@ var player_exit_cave_posx = 376			# in and out cords of cave scene
 var player_exit_cave_posy = -49
 var player_start_posx = -572
 var player_start_posy = -57
+var player_posx
+var player_posy
 
 var bridge_acces = false			# level progression
 var cave_acces = false
