@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dit2pvflcn0uu"]
+[gd_scene load_steps=5 format=3 uid="uid://dit2pvflcn0uu"]
 
 [ext_resource type="Texture2D" uid="uid://0hddet2uidx3" path="res://art/particles/inventory-slot.png" id="1_02a6a"]
 [ext_resource type="Script" path="res://scripts/dialogueplayer.gd" id="1_mtf2w"]
+[ext_resource type="AudioStream" uid="uid://c7yks2m31pr61" path="res://audio/gib.mp3" id="3_8nft1"]
 
 [sub_resource type="GDScript" id="GDScript_jckjg"]
 
@@ -44,3 +45,6 @@ offset_right = 190.333
 offset_bottom = 74.6667
 scale = Vector2(0.3, 0.3)
 text = "chatting..."
+
+[node name="gib" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8nft1")
