@@ -198,6 +198,7 @@ func stealth():
 		var anim = $AnimatedSprite2D
 		if Input.is_action_just_pressed("stealth"):
 			Global.stealth_mode= true
+			$stealthsound.play()
 			$stealth_time.start()
 		
 		
@@ -205,6 +206,7 @@ func stealth():
 
 func _on_stealth_time_timeout():
 	Global.stealth_mode = false
+	$stealthsound.play()
 	$stealth_time.stop()
 	
 	
