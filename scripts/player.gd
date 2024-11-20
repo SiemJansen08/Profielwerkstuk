@@ -89,8 +89,10 @@ func play_anim(movement):
 			if movement == 1:
 				if Global.stealth_mode == false:
 					anim.play("right_walk")
-					if !$footsteps.playing:
+					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn":
 						$footsteps.play()
+					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn":
+						$footstepcave.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("right_walk_stealth")
 			elif movement == 0:
@@ -98,6 +100,8 @@ func play_anim(movement):
 					anim.play("right_idle")
 					if $footsteps.playing:
 						$footsteps.stop()
+					elif $footstepcave.playing:
+						$footstepcave.stop()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("right_idle_stealth")
 		
@@ -105,8 +109,10 @@ func play_anim(movement):
 			if movement == 1:
 				if Global.stealth_mode == false:
 					anim.play("left_walk")
-					if !$footsteps.playing:
+					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn":
 						$footsteps.play()
+					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn":
+						$footstepcave.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("left_walk_stealth")
 			elif movement == 0:
@@ -114,6 +120,8 @@ func play_anim(movement):
 					anim.play("left_idle")
 					if $footsteps.playing:
 						$footsteps.stop()
+					elif $footstepcave.playing:
+						$footstepcave.stop()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("left_idle_stealth")
 		
@@ -121,8 +129,10 @@ func play_anim(movement):
 			if movement == 1:
 				if Global.stealth_mode == false:
 					anim.play("front_walk")
-					if !$footsteps.playing:
+					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn":
 						$footsteps.play()
+					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn":
+						$footstepcave.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("front_walk_stealth")
 			elif movement == 0:
@@ -130,6 +140,8 @@ func play_anim(movement):
 					anim.play("front_idle")
 					if $footsteps.playing:
 						$footsteps.stop()
+					elif $footstepcave.playing:
+						$footstepcave.stop()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("front_idle_stealth")
 				
@@ -137,8 +149,10 @@ func play_anim(movement):
 			if movement == 1:
 				if Global.stealth_mode == false:
 					anim.play("back_walk")
-					if !$footsteps.playing:
+					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn":
 						$footsteps.play()
+					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn":
+						$footstepcave.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("back_walk_stealth")
 			elif movement == 0:
@@ -146,6 +160,8 @@ func play_anim(movement):
 					anim.play("back_idle")
 					if $footsteps.playing:
 						$footsteps.stop()
+					elif $footstepcave.playing:
+						$footstepcave.stop()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("back_idle_stealth")
 
