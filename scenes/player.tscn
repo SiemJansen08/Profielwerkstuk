@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dg1as4ncfi33v" path="res://art/karakter/Stealth/Right_walk_stealth.png" id="22_ojht3"]
 [ext_resource type="PackedScene" uid="uid://j8drylpqnsxg" path="res://scenes/healthbar.tscn" id="23_5b4cd"]
 [ext_resource type="AudioStream" uid="uid://whxjimtg7d7v" path="res://audio/swordhit.mp3" id="24_lfkm8"]
-[ext_resource type="AudioStream" uid="uid://djq08jkgqtmh" path="res://audio/stealth.mp3" id="25_puui1"]
+[ext_resource type="AudioStream" uid="uid://dtgo5qf0i6xf" path="res://audio/stealth.mp3" id="25_puui1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gcowf"]
 atlas = ExtResource("2_vcwow")
