@@ -89,11 +89,15 @@ func play_anim(movement):
 			if movement == 1:
 				if Global.stealth_mode == false:
 					anim.play("right_walk")
+					if !$footsteps.playing:
+						$footsteps.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("right_walk_stealth")
 			elif movement == 0:
 				if attack_ip == false and Global.stealth_mode == false:
 					anim.play("right_idle")
+					if $footsteps.playing:
+						$footsteps.stop()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("right_idle_stealth")
 		
@@ -101,11 +105,15 @@ func play_anim(movement):
 			if movement == 1:
 				if Global.stealth_mode == false:
 					anim.play("left_walk")
+					if !$footsteps.playing:
+						$footsteps.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("left_walk_stealth")
 			elif movement == 0:
 				if attack_ip == false and Global.stealth_mode == false:
 					anim.play("left_idle")
+					if $footsteps.playing:
+						$footsteps.stop()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("left_idle_stealth")
 		
@@ -113,11 +121,15 @@ func play_anim(movement):
 			if movement == 1:
 				if Global.stealth_mode == false:
 					anim.play("front_walk")
+					if !$footsteps.playing:
+						$footsteps.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("front_walk_stealth")
 			elif movement == 0:
 				if attack_ip == false and Global.stealth_mode == false:
 					anim.play("front_idle")
+					if $footsteps.playing:
+						$footsteps.stop()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("front_idle_stealth")
 				
@@ -125,13 +137,18 @@ func play_anim(movement):
 			if movement == 1:
 				if Global.stealth_mode == false:
 					anim.play("back_walk")
+					if !$footsteps.playing:
+						$footsteps.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("back_walk_stealth")
 			elif movement == 0:
 				if attack_ip == false and Global.stealth_mode == false:
 					anim.play("back_idle")
+					if $footsteps.playing:
+						$footsteps.stop()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("back_idle_stealth")
+
 func player():
 	pass
 

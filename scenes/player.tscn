@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://blfg10bysujfr"]
+[gd_scene load_steps=116 format=3 uid="uid://blfg10bysujfr"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_8yr5o"]
 [ext_resource type="Texture2D" uid="uid://dabd6a6glsq52" path="res://art/characters/zelf_player/Up_attack.png" id="2_vcwow"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://j8drylpqnsxg" path="res://scenes/healthbar.tscn" id="23_5b4cd"]
 [ext_resource type="AudioStream" uid="uid://whxjimtg7d7v" path="res://audio/swordhit.mp3" id="24_lfkm8"]
 [ext_resource type="AudioStream" uid="uid://dtgo5qf0i6xf" path="res://audio/stealth.mp3" id="25_puui1"]
+[ext_resource type="AudioStream" uid="uid://cimkn03wlpccw" path="res://audio/footsteps.mp3" id="26_vscum"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gcowf"]
 atlas = ExtResource("2_vcwow")
@@ -797,6 +798,10 @@ pitch_scale = 1.53
 [node name="stealthsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_puui1")
 pitch_scale = 0.54
+
+[node name="footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_vscum")
+pitch_scale = 0.91
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
