@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://blfg10bysujfr"]
+[gd_scene load_steps=114 format=3 uid="uid://blfg10bysujfr"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_8yr5o"]
 [ext_resource type="Texture2D" uid="uid://dabd6a6glsq52" path="res://art/characters/zelf_player/Up_attack.png" id="2_vcwow"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bmtrf6c4nbxlh" path="res://art/karakter/Stealth/Right_idle_stealth.png" id="20_wu2uq"]
 [ext_resource type="Texture2D" uid="uid://dg1as4ncfi33v" path="res://art/karakter/Stealth/Right_walk_stealth.png" id="22_ojht3"]
 [ext_resource type="PackedScene" uid="uid://j8drylpqnsxg" path="res://scenes/healthbar.tscn" id="23_5b4cd"]
+[ext_resource type="AudioStream" uid="uid://whxjimtg7d7v" path="res://audio/swordhit.mp3" id="24_lfkm8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gcowf"]
 atlas = ExtResource("2_vcwow")
@@ -787,6 +788,10 @@ offset_right = 14.0
 offset_bottom = -27.0
 
 [node name="museum_camera" type="Camera2D" parent="."]
+
+[node name="swordhit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_lfkm8")
+pitch_scale = 1.53
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]

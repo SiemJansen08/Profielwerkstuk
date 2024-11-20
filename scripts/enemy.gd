@@ -116,6 +116,3 @@ func _on_chase():
 
 func _on_stealth_check_timeout():
 	emit_signal("chase")
-
-
-

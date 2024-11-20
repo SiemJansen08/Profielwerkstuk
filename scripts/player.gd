@@ -171,15 +171,19 @@ func attack(delta):
 			if dir == "right":
 				$AnimatedSprite2D.play("right_attack")
 				$deal_attack_timer.start()
+				$swordhit.play()
 			if dir == "left":
 				$AnimatedSprite2D.play("left_attack")
 				$deal_attack_timer.start()
+				$swordhit.play()
 			if dir == "down":
 				$AnimatedSprite2D.play("front_attack")
 				$deal_attack_timer.start()
+				$swordhit.play()
 			if dir == "up":
 				$AnimatedSprite2D.play("back_attack")
 				$deal_attack_timer.start()
+				$swordhit.play()
 			
 			
 
