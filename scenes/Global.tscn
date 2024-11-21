@@ -34,3 +34,6 @@ offset_top = 22.76
 offset_right = 191.24
 offset_bottom = 87.76
 scale = Vector2(0.2, 0.2)
+
+[node name="backingmusic" type="AudioStreamPlayer2D" parent="."]
+volume_db = -3.284
