@@ -17,3 +17,8 @@ func _on_area_2d_body_entered(body):
 
 func _on_start_timer_timeout():
 	ready_play = true
+
+
+func _on_area_2d_body_exited(body):
+	pickup = false
+	Global.questlevel = 11

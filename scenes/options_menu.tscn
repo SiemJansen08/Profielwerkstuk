@@ -25,19 +25,20 @@ layout_mode = 2
 text = "back
 "
 
-[node name="sound" type="CheckButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Sound off
-"
-
-[node name="music" type="CheckButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Music off"
-
 [node name="difficulty" type="CheckButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Hard difficulty
 "
 
+[node name="music" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music ON/OFF"
+
+[node name="sound" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sound ON/OFF"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/difficulty" to="." method="_on_difficulty_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/sound" to="." method="_on_sound_pressed"]

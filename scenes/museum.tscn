@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://bwu8216omf0c0"]
+[gd_scene load_steps=82 format=3 uid="uid://bwu8216omf0c0"]
 
 [ext_resource type="Script" path="res://scripts/museum.gd" id="1_5u64n"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/player.tscn" id="2_fd7la"]
@@ -34,6 +34,7 @@
 [ext_resource type="Script" path="res://scripts/paintings/painting6.gd" id="30_5hils"]
 [ext_resource type="Script" path="res://scripts/paintings/painting7.gd" id="32_5hqly"]
 [ext_resource type="Script" path="res://scripts/paintings/painting8.gd" id="33_71vqw"]
+[ext_resource type="AudioStream" uid="uid://bgo8bg8kv72kd" path="res://audio/grab.mp3" id="34_clkia"]
 [ext_resource type="PackedScene" uid="uid://budanv1iwgnbl" path="res://scenes/normal_inkling.tscn" id="35_vesjf"]
 [ext_resource type="AudioStream" uid="uid://d2yjnks27aepc" path="res://audio/schuifdeur.mp3" id="36_p433c"]
 [ext_resource type="AudioStream" uid="uid://blend3bn4xa55" path="res://audio/laserhit.mp3" id="37_7wtkg"]
@@ -1436,6 +1437,10 @@ script = ExtResource("33_71vqw")
 position = Vector2(0.713135, 25.5)
 shape = SubResource("RectangleShape2D_njdgu")
 
+[node name="grab" type="AudioStreamPlayer2D" parent="paintings"]
+stream = ExtResource("34_clkia")
+volume_db = 6.568
+
 [node name="npc1" parent="." instance=ExtResource("15_lskp7")]
 y_sort_enabled = true
 position = Vector2(-3, -67)
@@ -1480,7 +1485,9 @@ stream = ExtResource("37_7wtkg")
 [connection signal="body_entered" from="paintings/painting1/Area2D" to="paintings/painting1" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="paintings/painting1/Area2D" to="paintings/painting1" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="paintings/painting2/Area2D" to="paintings/painting2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="paintings/painting2/Area2D" to="paintings/painting2" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="paintings/painting3/Area2D" to="paintings/painting3" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="paintings/painting3/Area2D" to="paintings/painting3" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="paintings/painting4/Area2D" to="paintings/painting4" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="paintings/painting5/Area2D" to="paintings/painting5" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="paintings/painting6/Area2D" to="paintings/painting6" method="_on_area_2d_body_entered"]

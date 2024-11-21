@@ -29,7 +29,8 @@ func load_dialogue():
 		var content = JSON.parse_string(file.get_as_text())
 		Global.questlevel = 2
 		Global.sword = true
-		$gib.play()
+		if Global.sound == true:
+			$gib.play()
 		return content
 		
 	elif Global.cave_win == true and Global.current_scene == "res://scenes/world.tscn":
@@ -39,14 +40,16 @@ func load_dialogue():
 		Global.cave_acces = false
 		Global.questlevel = 5
 		Global.cloak = true
-		$gib.play()
+		if Global.sound == true:
+			$gib.play()
 		return content
 		
 	elif Global.current_scene == "res://scenes/museum.tscn":
 		var file = FileAccess.open("res://dialogue/Lip_dialogue3.json", FileAccess.READ)
 		var content = JSON.parse_string(file.get_as_text())
 		Global.questlevel = 11
-		$gib.play()
+		if Global.sound == true:
+			$gib.play()
 		return content
 	
 func _input(event):

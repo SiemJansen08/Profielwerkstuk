@@ -89,9 +89,9 @@ func play_anim(movement):
 			if movement == 1:
 				if Global.stealth_mode == false:
 					anim.play("right_walk")
-					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn":
+					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn" and Global.sound == true:
 						$footsteps.play()
-					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn" or !$footstepcave.playing and Global.current_scene == "res://scenes/museum.tscn":
+					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn" and Global.sound == true or !$footstepcave.playing and Global.current_scene == "res://scenes/museum.tscn" and Global.sound == true:
 						$footstepcave.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("right_walk_stealth")
@@ -109,9 +109,9 @@ func play_anim(movement):
 			if movement == 1:
 				if Global.stealth_mode == false:
 					anim.play("left_walk")
-					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn":
+					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn" and Global.sound == true:
 						$footsteps.play()
-					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn" or !$footstepcave.playing and Global.current_scene == "res://scenes/museum.tscn":
+					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn" and Global.sound == true or !$footstepcave.playing and Global.current_scene == "res://scenes/museum.tscn" and Global.sound == true:
 						$footstepcave.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("left_walk_stealth")
@@ -129,9 +129,9 @@ func play_anim(movement):
 			if movement == 1:
 				if Global.stealth_mode == false:
 					anim.play("front_walk")
-					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn":
+					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn" and Global.sound == true:
 						$footsteps.play()
-					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn" or !$footstepcave.playing and Global.current_scene == "res://scenes/museum.tscn":
+					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn" and Global.sound == true or !$footstepcave.playing and Global.current_scene == "res://scenes/museum.tscn" and Global.sound == true:
 						$footstepcave.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("front_walk_stealth")
@@ -149,9 +149,9 @@ func play_anim(movement):
 			if movement == 1:
 				if Global.stealth_mode == false:
 					anim.play("back_walk")
-					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn":
+					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn" and Global.sound == true:
 						$footsteps.play()
-					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn" or !$footstepcave.playing and Global.current_scene == "res://scenes/museum.tscn":
+					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn" and Global.sound == true or !$footstepcave.playing and Global.current_scene == "res://scenes/museum.tscn" and Global.sound == true:
 						$footstepcave.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("back_walk_stealth")
@@ -204,19 +204,23 @@ func attack(delta):
 			if dir == "right":
 				$AnimatedSprite2D.play("right_attack")
 				$deal_attack_timer.start()
-				$swordhit.play()
+				if Global.sound == true:
+					$swordhit.play()
 			if dir == "left":
 				$AnimatedSprite2D.play("left_attack")
 				$deal_attack_timer.start()
-				$swordhit.play()
+				if Global.sound == true:
+					$swordhit.play()
 			if dir == "down":
 				$AnimatedSprite2D.play("front_attack")
 				$deal_attack_timer.start()
-				$swordhit.play()
+				if Global.sound == true:
+					$swordhit.play()
 			if dir == "up":
 				$AnimatedSprite2D.play("back_attack")
 				$deal_attack_timer.start()
-				$swordhit.play()
+				if Global.sound == true:
+					$swordhit.play()
 			
 			
 
@@ -231,7 +235,8 @@ func stealth():
 		var anim = $AnimatedSprite2D
 		if Input.is_action_just_pressed("stealth"):
 			Global.stealth_mode= true
-			$stealthsound.play()
+			if Global.sound == true:
+				$stealthsound.play()
 			$stealth_time.start()
 		
 		
@@ -239,7 +244,8 @@ func stealth():
 
 func _on_stealth_time_timeout():
 	Global.stealth_mode = false
-	$stealthsound.play()
+	if Global.sound == true:
+		$stealthsound.play()
 	$stealth_time.stop()
 	
 	

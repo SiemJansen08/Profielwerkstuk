@@ -48,7 +48,8 @@ func _on_timer_timeout():
 func _on_area_2d_body_entered(body):
 	if eerste_countdown == true and error == false:
 		vliegen = true
-		$birdwings.play()
+		if Global.sound == true:
+			$birdwings.play()
 		error = true
 		
 

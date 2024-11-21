@@ -16,7 +16,8 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_area_2d_body_exited(body):
-	pass
+	pickup = false
+	Global.questlevel = 11
 
 
 func _on_start_timer_timeout():

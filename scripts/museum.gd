@@ -28,7 +28,8 @@ func _process(delta):
 		Global.questlevel = 7
 	if Input.is_action_just_pressed("chat") and acces_door_1 == true:
 			$TileMap/hekje_1/AnimationPlayer.play("new_animation")
-			$schuifdeur.play()
+			if Global.sound == true:
+				$schuifdeur.play()
 			$TileMap/hekje_1/Timer.start()
 			acces_door_1 = false
 			Global.questlevel = 10
@@ -57,7 +58,8 @@ func _on_acces_door_1_body_entered(body):
 func _on_lasers_body_entered(body):
 	if ready_play:
 		Global.player_health = Global.player_health - 20
-		$laserhit.play()
+		if Global.sound == true:
+			$laserhit.play()
 		healthbar.health = Global.player_health
 		print(Global.player_health)
 
