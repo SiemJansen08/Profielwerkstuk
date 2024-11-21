@@ -1437,10 +1437,6 @@ script = ExtResource("33_71vqw")
 position = Vector2(0.713135, 25.5)
 shape = SubResource("RectangleShape2D_njdgu")
 
-[node name="grab" type="AudioStreamPlayer2D" parent="paintings"]
-stream = ExtResource("34_clkia")
-volume_db = 6.568
-
 [node name="npc1" parent="." instance=ExtResource("15_lskp7")]
 y_sort_enabled = true
 position = Vector2(-3, -67)
@@ -1478,21 +1474,40 @@ pitch_scale = 1.67
 [node name="laserhit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("37_7wtkg")
 
+[node name="grab" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-285.009, -52)
+scale = Vector2(0.950823, 1)
+stream = ExtResource("34_clkia")
+volume_db = 24.0
+
 [connection signal="timeout" from="TileMap/hekje_1/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="TileMap/acces_door_1" to="." method="_on_acces_door_1_body_entered"]
 [connection signal="body_entered" from="TileMap/lasers" to="." method="_on_lasers_body_entered"]
 [connection signal="body_entered" from="TileMap/keycard1/keycardpickup1" to="." method="_on_keycardpickup_1_body_entered"]
+[connection signal="grab" from="paintings/painting1" to="." method="_on_painting_1_grab"]
 [connection signal="body_entered" from="paintings/painting1/Area2D" to="paintings/painting1" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="paintings/painting1/Area2D" to="paintings/painting1" method="_on_area_2d_body_exited"]
+[connection signal="grab" from="paintings/painting2" to="." method="_on_painting_2_grab"]
 [connection signal="body_entered" from="paintings/painting2/Area2D" to="paintings/painting2" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="paintings/painting2/Area2D" to="paintings/painting2" method="_on_area_2d_body_exited"]
+[connection signal="grab" from="paintings/painting3" to="." method="_on_painting_3_grab"]
 [connection signal="body_entered" from="paintings/painting3/Area2D" to="paintings/painting3" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="paintings/painting3/Area2D" to="paintings/painting3" method="_on_area_2d_body_exited"]
+[connection signal="grab" from="paintings/painting4" to="." method="_on_painting_4_grab"]
 [connection signal="body_entered" from="paintings/painting4/Area2D" to="paintings/painting4" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="paintings/painting4/Area2D" to="paintings/painting4" method="_on_area_2d_body_exited"]
+[connection signal="grab" from="paintings/painting5" to="." method="_on_painting_5_grab"]
 [connection signal="body_entered" from="paintings/painting5/Area2D" to="paintings/painting5" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="paintings/painting5/Area2D" to="paintings/painting5" method="_on_area_2d_body_exited"]
+[connection signal="grab" from="paintings/painting6" to="." method="_on_painting_6_grab"]
 [connection signal="body_entered" from="paintings/painting6/Area2D" to="paintings/painting6" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="paintings/painting6/Area2D" to="paintings/painting6" method="_on_area_2d_body_exited"]
+[connection signal="grab" from="paintings/painting7" to="." method="_on_painting_7_grab"]
 [connection signal="body_entered" from="paintings/painting7/Area2D" to="paintings/painting7" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="paintings/painting7/Area2D" to="paintings/painting7" method="_on_area_2d_body_exited"]
+[connection signal="grab" from="paintings/painting8" to="." method="_on_painting_8_grab"]
 [connection signal="body_entered" from="paintings/painting8/Area2D" to="paintings/painting8" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="paintings/painting8/Area2D" to="paintings/painting8" method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="start_timer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="start_timer" to="paintings/painting1" method="_on_start_timer_timeout"]
 [connection signal="timeout" from="start_timer" to="paintings/painting2" method="_on_start_timer_timeout"]

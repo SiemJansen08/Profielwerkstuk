@@ -23,6 +23,8 @@ func _process(delta):
 	change_scenes()
 	if Input.is_action_just_pressed("chat") and player_pickup:
 		key_door_1 = true
+		if Global.sound == true:
+			$grab.play()
 		$TileMap/keycard1.queue_free()
 		player_pickup = false
 		Global.questlevel = 7
@@ -76,3 +78,43 @@ func _on_timer_timeout():
 
 func _on_start_timer_timeout():
 	ready_play = true
+
+
+func _on_painting_1_grab():
+	if Global.sound == true:
+		$grab.play()
+
+
+func _on_painting_2_grab():
+	if Global.sound == true:
+		$grab.play()
+
+
+func _on_painting_3_grab():
+	if Global.sound == true:
+		$grab.play()
+
+
+func _on_painting_4_grab():
+	if Global.sound == true:
+		$grab.play()
+
+
+func _on_painting_5_grab():
+	if Global.sound == true:
+		$grab.play()
+
+
+func _on_painting_6_grab():
+	if Global.sound == true:
+		$grab.play()
+
+
+func _on_painting_7_grab():
+	if Global.sound == true:
+		$grab.play()
+
+
+func _on_painting_8_grab():
+	if Global.sound == true:
+		$grab.play()
