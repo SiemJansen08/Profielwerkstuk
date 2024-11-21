@@ -47,11 +47,14 @@ func position_to_next_wave():
 			await get_tree().create_timer(0.5).timeout
 			prepare_spawn("inklings", 5.0, 5.0 ) #type , multiplier, spawns
 			print("wave ", current_wave)
+			$gong.play()
 		else:
 			if current_nodes == starting_nodes:
 				Global.cave_win = true
 				Global.questlevel = 4
 				print("all enemies killed")
+				$gong.play()
+				$gong.play()
 			
 		
 func prepare_spawn(type, multiplier, mob_spawns):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://bwu8216omf0c0"]
+[gd_scene load_steps=81 format=3 uid="uid://bwu8216omf0c0"]
 
 [ext_resource type="Script" path="res://scripts/museum.gd" id="1_5u64n"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/player.tscn" id="2_fd7la"]
@@ -35,6 +35,8 @@
 [ext_resource type="Script" path="res://scripts/paintings/painting7.gd" id="32_5hqly"]
 [ext_resource type="Script" path="res://scripts/paintings/painting8.gd" id="33_71vqw"]
 [ext_resource type="PackedScene" uid="uid://budanv1iwgnbl" path="res://scenes/normal_inkling.tscn" id="35_vesjf"]
+[ext_resource type="AudioStream" uid="uid://d2yjnks27aepc" path="res://audio/schuifdeur.mp3" id="36_p433c"]
+[ext_resource type="AudioStream" uid="uid://blend3bn4xa55" path="res://audio/laserhit.mp3" id="37_7wtkg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ksp37"]
 texture = ExtResource("2_l5utf")
@@ -1463,6 +1465,13 @@ position = Vector2(150, 21)
 
 [node name="CharacterBody2D8" parent="." instance=ExtResource("35_vesjf")]
 position = Vector2(320, 51)
+
+[node name="schuifdeur" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("36_p433c")
+pitch_scale = 1.67
+
+[node name="laserhit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("37_7wtkg")
 
 [connection signal="timeout" from="TileMap/hekje_1/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="TileMap/acces_door_1" to="." method="_on_acces_door_1_body_entered"]

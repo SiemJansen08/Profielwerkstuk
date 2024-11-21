@@ -91,7 +91,7 @@ func play_anim(movement):
 					anim.play("right_walk")
 					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn":
 						$footsteps.play()
-					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn":
+					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn" or !$footstepcave.playing and Global.current_scene == "res://scenes/museum.tscn":
 						$footstepcave.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("right_walk_stealth")
@@ -111,7 +111,7 @@ func play_anim(movement):
 					anim.play("left_walk")
 					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn":
 						$footsteps.play()
-					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn":
+					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn" or !$footstepcave.playing and Global.current_scene == "res://scenes/museum.tscn":
 						$footstepcave.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("left_walk_stealth")
@@ -131,7 +131,7 @@ func play_anim(movement):
 					anim.play("front_walk")
 					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn":
 						$footsteps.play()
-					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn":
+					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn" or !$footstepcave.playing and Global.current_scene == "res://scenes/museum.tscn":
 						$footstepcave.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("front_walk_stealth")
@@ -151,7 +151,7 @@ func play_anim(movement):
 					anim.play("back_walk")
 					if !$footsteps.playing and Global.current_scene == "res://scenes/world.tscn":
 						$footsteps.play()
-					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn":
+					elif !$footstepcave.playing and Global.current_scene == "res://scenes/cave.tscn" or !$footstepcave.playing and Global.current_scene == "res://scenes/museum.tscn":
 						$footstepcave.play()
 				if Global.stealth_mode == true and Global.cloak == true:
 					anim.play("back_walk_stealth")

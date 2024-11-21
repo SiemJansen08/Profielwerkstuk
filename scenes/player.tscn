@@ -809,7 +809,7 @@ pitch_scale = 0.91
 [node name="footstepcave" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("27_gha8o")
 volume_db = -30.142
-pitch_scale = 1.3
+pitch_scale = 1.51
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]

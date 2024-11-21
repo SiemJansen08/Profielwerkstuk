@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cjg5wsrsgiioi"]
+[gd_scene load_steps=23 format=3 uid="uid://cjg5wsrsgiioi"]
 
 [ext_resource type="Texture2D" uid="uid://b2mguvrbuqmgj" path="res://art/tilesets/plains.png" id="1_w2k27"]
 [ext_resource type="Script" path="res://scripts/cave.gd" id="1_wm2n1"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bk6f1rv1die0l" path="res://art/tilesets/Untitled 13.png" id="7_vfkgu"]
 [ext_resource type="Texture2D" uid="uid://dwqkk1u5fkupn" path="res://art/ezyZip/Outdoor decoration/Outdoor_Decor_Free.png" id="8_fjuph"]
 [ext_resource type="Texture2D" uid="uid://dbttcrnahq7l0" path="res://art/tilesets/Untitled 14.png" id="9_ut2ht"]
+[ext_resource type="AudioStream" uid="uid://5k06jk0jbegi" path="res://audio/gong.mp3" id="11_328kx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7j18w"]
 texture = ExtResource("1_w2k27")
@@ -848,6 +849,9 @@ scale = Vector2(1, 0.765625)
 color = Color(0.929412, 0.980392, 0.984314, 1)
 energy = 0.3
 texture = SubResource("GradientTexture2D_17mi2")
+
+[node name="gong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_328kx")
 
 [connection signal="body_entered" from="cave_exit" to="." method="_on_cave_exit_body_entered"]
 [connection signal="body_exited" from="cave_exit" to="." method="_on_cave_exit_body_exited"]

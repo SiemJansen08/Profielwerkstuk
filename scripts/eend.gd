@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var dir = 1
+var error = false
 var vliegen = false
 var eerste_countdown = false
 var random_nummer = RandomNumberGenerator.new()
@@ -45,7 +46,10 @@ func _on_timer_timeout():
 
 
 func _on_area_2d_body_entered(body):
-	if eerste_countdown == true:
+	if eerste_countdown == true and error == false:
 		vliegen = true
+		$birdwings.play()
+		error = true
+		
 
 	

@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://ds3oui1oc7vhm"]
+[gd_scene load_steps=16 format=3 uid="uid://ds3oui1oc7vhm"]
 
 [ext_resource type="Script" path="res://scripts/eend.gd" id="1_q58fw"]
 [ext_resource type="Texture2D" uid="uid://cqx14ydmcwcbr" path="res://art/vogels/eend_idle.png" id="2_ixmia"]
 [ext_resource type="Texture2D" uid="uid://dmyaqb1q7cyr3" path="res://art/vogels/eend_vliegen.png" id="3_wlqni"]
+[ext_resource type="AudioStream" uid="uid://pn33oyuwi8pt" path="res://audio/birdwingz.mp3" id="4_bfefe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_itm0v"]
 atlas = ExtResource("2_ixmia")
@@ -104,6 +105,10 @@ debug_color = Color(0.656283, 0.464829, 0.606759, 0.42)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="birdwings" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bfefe")
+volume_db = 1.011
 
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
