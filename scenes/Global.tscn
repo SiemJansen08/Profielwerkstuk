@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://irkve00ix18b"]
+[gd_scene load_steps=4 format=3 uid="uid://irkve00ix18b"]
 
 [ext_resource type="Script" path="res://scripts/Global.gd" id="1_1s4bb"]
+[ext_resource type="AudioStream" uid="uid://hvq5nyioqxvs" path="res://audio/backingmusic kopie.mp3" id="2_3drl0"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vecjp"]
 
@@ -36,4 +37,5 @@ offset_bottom = 87.76
 scale = Vector2(0.2, 0.2)
 
 [node name="backingmusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3drl0")
 volume_db = -3.284

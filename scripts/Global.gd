@@ -9,6 +9,7 @@ func _physics_process(delta):
 
 func _ready():
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	$backingmusic.play()
 
 var current_scene = "res://scenes/world.tscn"
 var player_health = 100
