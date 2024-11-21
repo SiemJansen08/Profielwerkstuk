@@ -1,15 +1,21 @@
 extends Node
 
+var music = true
+var sound = true
+
 func _physics_process(delta):
 	questlevels()
 	questvis()
 	pause()
 	debug()
+	if music == true and !$backingmusic.playing:
+		$backingmusic.play()
+	elif music == false and $backingmusic.playing:
+		$backingmusic.stop()
 	
 
 func _ready():
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
-	$backingmusic.play()
 
 var current_scene = "res://scenes/world.tscn"
 var player_health = 100
