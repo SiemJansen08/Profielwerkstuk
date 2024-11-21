@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://80gl0r4lkl3t"]
+[gd_scene load_steps=3 format=3 uid="uid://80gl0r4lkl3t"]
 
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_8doew"]
+[ext_resource type="AudioStream" uid="uid://daceqe4uok7cl" path="res://audio/select.mp3" id="2_iwal0"]
 
 [node name="options_menu" type="Control"]
 layout_mode = 3
@@ -37,6 +38,9 @@ text = "Music ON/OFF"
 [node name="sound" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sound ON/OFF"
+
+[node name="select" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_iwal0")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/difficulty" to="." method="_on_difficulty_toggled"]
