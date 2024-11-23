@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal chase
 
-@export var speed = 15 #hoger is langzamer
+@export var speed = 35 #hoger is langzamer
 var player_chase = false
 var player = null
 var nochase = false
@@ -16,7 +16,7 @@ var can_take_damage = true
 var randomizer = RandomNumberGenerator.new()
 var knockback_state = false
 var knockback_direction = 1
-var knockback_speed = 0.5
+var knockback_speed = 2
 
 var grootte = 2
 
@@ -46,7 +46,12 @@ func _physics_process(delta):
 		
 		else:
 			velocity = lerp(velocity, Vector2.ZERO, 0.05)
-			$AnimatedSprite2D.play("l_l")
+			if grootte == 2:
+				$AnimatedSprite2D.play("l_l")
+			elif grootte == 1:
+				$AnimatedSprite2D.play("m_l")
+			elif grootte == 0:
+				$AnimatedSprite2D.play("s_l")
 	move_and_collide(velocity)
 	if knockback_state == true:
 		if knockback_direction == 1:
@@ -93,7 +98,7 @@ func _on_enemy_hitbox_body_exited(body):
 func deal_with_damage():
 	if player_inattack_range and Global.player_current_attack == true:
 		if can_take_damage == true:
-			health = health - 30
+			health = health - 20
 			healthbar.health = health
 			$knockback.start()
 			knockback_state = true
@@ -103,6 +108,8 @@ func deal_with_damage():
 			print("slime", health)
 			if health <= 0:
 				grootte = grootte - 1
+				speed = speed + 20
+				knockback_speed = knockback_speed + 0.75 
 				health = 99
 				healthbar.queue_redraw()
 				healthbar.health = health
