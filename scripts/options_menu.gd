@@ -5,7 +5,8 @@ extends Control
 func _on_back_pressed():
 	if Global.sound == true:
 		$select.play()
-	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	$wait_back.start()
+
 	
 
 
@@ -30,3 +31,7 @@ func _on_sound_pressed():
 		Global.sound = false
 	elif Global.sound == false:
 		Global.sound = true
+
+
+func _on_wait_back_timeout():
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")

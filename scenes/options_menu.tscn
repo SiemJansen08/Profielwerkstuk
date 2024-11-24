@@ -41,8 +41,13 @@ text = "Sound ON/OFF"
 
 [node name="select" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_iwal0")
+volume_db = 5.5
+
+[node name="wait_back" type="Timer" parent="."]
+wait_time = 0.104
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/difficulty" to="." method="_on_difficulty_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/sound" to="." method="_on_sound_pressed"]
+[connection signal="timeout" from="wait_back" to="." method="_on_wait_back_timeout"]

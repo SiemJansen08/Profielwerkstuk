@@ -39,9 +39,17 @@ text = "Quit"
 
 [node name="select" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_fnijd")
-volume_db = 24.0
+volume_db = 5.5
+
+[node name="wait_play" type="Timer" parent="."]
+wait_time = 0.104
+
+[node name="wait_options" type="Timer" parent="."]
+wait_time = 0.104
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/story" to="." method="_on_story_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="wait_play" to="." method="_on_wait_timeout"]
+[connection signal="timeout" from="wait_options" to="." method="_on_wait_options_timeout"]
