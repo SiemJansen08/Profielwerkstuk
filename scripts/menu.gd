@@ -1,7 +1,5 @@
 extends Control
 
-
-
 func _on_play_pressed():
 	if Global.sound == true:
 		$select.play()
@@ -23,7 +21,7 @@ func _on_story_pressed():
 func _on_quit_pressed():
 	if Global.sound == true:
 		$select.play()
-	get_tree().quit()
+	$wait_quit.start()
 
 
 func _on_wait_timeout():
@@ -39,3 +37,7 @@ func _on_wait_timeout():
 
 func _on_wait_options_timeout():
 	get_tree().change_scene_to_file("res://scenes/options_menu.tscn")
+
+
+func _on_wait_quit_timeout():
+		get_tree().quit()
