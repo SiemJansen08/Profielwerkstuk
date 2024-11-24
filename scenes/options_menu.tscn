@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://80gl0r4lkl3t"]
 
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_8doew"]
-[ext_resource type="Texture2D" uid="uid://wgqncb61cycq" path="res://art/sky.png" id="2_1wslt"]
+[ext_resource type="Texture2D" path="res://art/sky.png" id="2_1wslt"]
 [ext_resource type="AudioStream" uid="uid://daceqe4uok7cl" path="res://audio/select.mp3" id="2_iwal0"]
-[ext_resource type="FontFile" uid="uid://du2rrxrtj7yaa" path="res://art/ARCADECLASSIC.TTF" id="3_qfxuv"]
+[ext_resource type="FontFile" path="res://art/ARCADECLASSIC.TTF" id="3_qfxuv"]
 
 [node name="options_menu" type="Control"]
 layout_mode = 3
