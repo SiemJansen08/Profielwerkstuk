@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_2sabd"]
 [ext_resource type="AudioStream" uid="uid://daceqe4uok7cl" path="res://audio/select.mp3" id="2_fnijd"]
-[ext_resource type="Texture2D" path="res://art/sky.png" id="2_jvj6o"]
-[ext_resource type="FontFile" path="res://art/ARCADECLASSIC.TTF" id="4_cpx1m"]
+[ext_resource type="Texture2D" uid="uid://wgqncb61cycq" path="res://art/sky.png" id="2_jvj6o"]
+[ext_resource type="FontFile" uid="uid://du2rrxrtj7yaa" path="res://art/ARCADECLASSIC.TTF" id="4_cpx1m"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
