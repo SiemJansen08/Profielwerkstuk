@@ -45,11 +45,10 @@ func _physics_process(delta):
 			velocity.y = -knockback_speed
 		elif knockback_direction == 3:
 			velocity.x = knockback_speed
-			velocity.y = knockback_speed
 		elif knockback_direction == 4:
 			velocity.x = knockback_speed
 			velocity.y = -knockback_speed
-	move_and_slide()
+
 
 	
 func _on_detection_area_body_entered(body): 

@@ -1626,7 +1626,7 @@ libraries = {
 [node name="player" parent="." instance=ExtResource("2_fd7la")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(35, -8)
+position = Vector2(41, 18)
 
 [node name="paintings" type="Node2D" parent="."]
 
@@ -1777,6 +1777,24 @@ volume_db = 24.0
 
 [node name="CharacterBody2D9" parent="." instance=ExtResource("40_ldjpw")]
 position = Vector2(121, -458)
+
+[node name="CharacterBody2D10" parent="." instance=ExtResource("35_vesjf")]
+position = Vector2(215, 61)
+
+[node name="CharacterBody2D11" parent="." instance=ExtResource("35_vesjf")]
+position = Vector2(167, 116)
+
+[node name="CharacterBody2D12" parent="." instance=ExtResource("35_vesjf")]
+position = Vector2(263, 21)
+
+[node name="CharacterBody2D13" parent="." instance=ExtResource("35_vesjf")]
+position = Vector2(258, -137)
+
+[node name="CharacterBody2D14" parent="." instance=ExtResource("35_vesjf")]
+position = Vector2(24, -140)
+
+[node name="CharacterBody2D15" parent="." instance=ExtResource("35_vesjf")]
+position = Vector2(156, -112)
 
 [connection signal="timeout" from="TileMap/hekje_1/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="TileMap/acces_door_1" to="." method="_on_acces_door_1_body_entered"]
