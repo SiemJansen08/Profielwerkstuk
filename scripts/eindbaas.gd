@@ -86,14 +86,35 @@ func enemy():
 	pass
 
 
-func _on_enemy_hitbox_body_entered(body):
-	if body.has_method("player"):
-		player_inattack_range = true
+func _on_enemy_hitbox_l_body_entered(body):
+	if grootte == 2:
+		if body.has_method("player"):
+			player_inattack_range = true
 
+func _on_enemy_hitbox_l_body_exited(body):
+	if grootte == 2:
+		if body.has_method("player"):
+			player_inattack_range = false
+		
+func _on_enemy_hitbox_m_body_entered(body):
+	if grootte == 1:
+		if body.has_method("player"):
+			player_inattack_range = true
 
-func _on_enemy_hitbox_body_exited(body):
-	if body.has_method("player"):
-		player_inattack_range = false
+func _on_enemy_hitbox_m_body_exited(body):
+	if grootte == 1:
+		if body.has_method("player"):
+			player_inattack_range = false
+		
+func _on_enemy_hitbox_s_body_entered(body):
+	if grootte == 0:
+		if body.has_method("player"):
+			player_inattack_range = true
+
+func _on_enemy_hitbox_s_body_exited(body):
+	if grootte == 0:
+		if body.has_method("player"):
+			player_inattack_range = false
 		
 func deal_with_damage():
 	if player_inattack_range and Global.player_current_attack == true:
@@ -102,13 +123,23 @@ func deal_with_damage():
 			healthbar.health = health
 			$knockback.start()
 			knockback_state = true
-			$AnimatedSprite2D.play("damage")
+			if grootte == 2:
+				$AnimatedSprite2D.play("l_d")
+			elif grootte == 1:
+				$AnimatedSprite2D.play("m_d")
+			elif grootte == 0:
+				$AnimatedSprite2D.play("s_d")
 			$take_damage_cooldown.start()
 			can_take_damage = false
 			print("slime", health)
 			if health <= 0:
 				grootte = grootte - 1
-				speed = speed + 20
+				if grootte == 1:
+					$large.queue_free()
+				if grootte == 0:
+					$medium.queue_free()
+				player_inattack_range = false
+				speed = speed + 10
 				knockback_speed = knockback_speed + 0.75 
 				health = 99
 				healthbar.queue_redraw()
