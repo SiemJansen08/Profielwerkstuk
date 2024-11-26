@@ -940,23 +940,20 @@ position = Vector2(205.682, -574.114)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/hekje_2_acces_door"]
 z_index = 1
 position = Vector2(25, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qfiam")
 
 [node name="acces_door_3" type="Area2D" parent="TileMap"]
 position = Vector2(205.682, -200)
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/acces_door_3"]
 z_index = 1
 position = Vector2(28.1416, -118.13)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2xmwp")
 
 [node name="player" parent="." instance=ExtResource("2_fd7la")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(117, -125)
+position = Vector2(33, -42)
 
 [node name="paintings" type="Node2D" parent="."]
 

@@ -22,9 +22,14 @@ var grootte = 2
 
 func _ready():
 	healthbar.init_health(health)
+	healthbar.visible = false
 
 func _physics_process(delta):
 	deal_with_damage()
+	
+	if Global.show_healthbar == true:
+		healthbar.visible = true
+	
 	if knockback_state == false:
 		if player_chase:
 			velocity = (player.get_global_position() - position).normalized() * speed * delta

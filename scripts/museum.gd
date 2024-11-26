@@ -77,7 +77,7 @@ func _on_hekje_2_acces_door_body_entered(body):
 
 func _on_acces_door_3_body_entered(body):
 	if ready_play:
-		if Global.paintings >= 8:
+		if Global.paintings <= 8:
 			acces_door_3 = true
 
 
@@ -102,6 +102,7 @@ func _on_timer_timeout():
 func _on_timer_door_2_timeout():
 	$TileMap/hekje_2/door_1/door_1_col.set_deferred("disabled", true)
 	$TileMap/hekje_2/AnimationPlayer.pause()
+	Global.show_healthbar = true
 
 func _on_timer_door_3_timeout():
 	$TileMap/hekje_3/door_1/door_1_col.set_deferred("disabled", true)

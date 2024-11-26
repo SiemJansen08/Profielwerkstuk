@@ -42,6 +42,7 @@ var cave_win = false
 var sword = false
 var cloak = false
 var paintings = 0
+var show_healthbar = false
 var acces_door_right = false
 var acces_door_left = false
 
