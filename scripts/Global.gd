@@ -42,6 +42,10 @@ var cave_win = false
 var sword = false
 var cloak = false
 var paintings = 0
+var acces_door_right = false
+var acces_door_left = false
+
+
 
 var current_wave: int
 var moving_to_next_wave: bool

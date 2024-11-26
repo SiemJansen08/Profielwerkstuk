@@ -4,8 +4,10 @@ var ready_play = false
 var key_door_1 = false
 var player_pickup = false
 var acces_door_1 = false
-@onready var healthbar = $player/Healthbar
+var acces_door_2 = false
+var acces_door_3 = false
 
+@onready var healthbar = $player/Healthbar
 
 func _ready():
 	Global.current_scene = "res://scenes/museum.tscn"
@@ -37,6 +39,18 @@ func _process(delta):
 			$TileMap/hekje_1/Timer.start()
 			acces_door_1 = false
 			Global.questlevel = 10
+	if Input.is_action_just_pressed("chat") and acces_door_2 == true:
+			$TileMap/hekje_2/AnimationPlayer.play("new_animation")
+			if Global.sound == true:
+				$schuifdeur.play()
+			$TileMap/hekje_2/Timer_door_2.start()
+			acces_door_2 = false
+	if Input.is_action_just_pressed("chat") and acces_door_3 == true:
+			$TileMap/hekje_3/AnimationPlayer.play("new_animation")
+			if Global.sound == true:
+				$schuifdeur.play()
+			$TileMap/hekje_3/Timer_door_3.start()
+			acces_door_2 = false
 			
 func change_scenes():
 	if Global.transition_scene == true:
@@ -56,6 +70,15 @@ func _on_acces_door_1_body_entered(body):
 			acces_door_1 = true
 		elif key_door_1 == false:
 			Global.questlevel = 7
+func _on_hekje_2_acces_door_body_entered(body):
+	if ready_play:
+		if Global.acces_door_left == true and Global.acces_door_right == true:
+			acces_door_2 = true
+
+func _on_acces_door_3_body_entered(body):
+	if ready_play:
+		if Global.paintings >= 8:
+			acces_door_3 = true
 
 
 
@@ -75,6 +98,16 @@ func _on_keycardpickup_1_body_entered(body):
 func _on_timer_timeout():
 	$TileMap/hekje_1/door_1/door_1_col.set_deferred("disabled", true)
 	$TileMap/hekje_1/AnimationPlayer.pause()
+
+func _on_timer_door_2_timeout():
+	$TileMap/hekje_2/door_1/door_1_col.set_deferred("disabled", true)
+	$TileMap/hekje_2/AnimationPlayer.pause()
+
+func _on_timer_door_3_timeout():
+	$TileMap/hekje_3/door_1/door_1_col.set_deferred("disabled", true)
+	$TileMap/hekje_3/AnimationPlayer.pause()
+
+
 
 
 
