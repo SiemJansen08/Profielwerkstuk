@@ -18,6 +18,8 @@ func _ready():
 	print(Global.player_health)
 	Global.questlevel = 6
 	$TileMap/keycard1/AnimationPlayer.play("keycard")
+	$paintings/gouden_kikker/AnimationPlayer.play("new_animation")
+	$paintings/blauwe_kikker/AnimationPlayer.play("new_animation")
 
 func _process(delta):
 	change_scenes()
