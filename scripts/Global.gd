@@ -69,6 +69,9 @@ func questlevels():
 			$QuestBox.visible = false
 		else:
 			$QuestBox.visible = true
+	elif questlevel == 0:
+		current_quest_title = " "
+		current_quest_desc = " "
 	elif questlevel == 1.1:
 		current_quest_title = "SPEAK:"
 		current_quest_desc = "Press 'D' to speak with Lip, press 'enter' to advance"
@@ -105,6 +108,9 @@ func questlevels():
 	elif questlevel == 11.1:
 		current_quest_title = "Secure"
 		current_quest_desc = "Press 'W' to secure this artpiece"
+	elif questlevel == 12:
+		current_quest_title = "Acces"
+		current_quest_desc = "Secure all paintings to open the door"
 		
 func questvis():
 	$QuestBox/QuestTitle.set_text(current_quest_title) 

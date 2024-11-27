@@ -50,7 +50,8 @@ func _process(delta):
 			if Global.sound == true:
 				$schuifdeur.play()
 			$TileMap/hekje_3/Timer_door_3.start()
-			acces_door_2 = false
+			acces_door_3 = false
+			Global.questlevel = 0
 			
 func change_scenes():
 	if Global.transition_scene == true:
@@ -77,10 +78,15 @@ func _on_hekje_2_acces_door_body_entered(body):
 
 func _on_acces_door_3_body_entered(body):
 	if ready_play:
-		if Global.paintings <= 8:
+		if Global.paintings == 8:
+			Global.questlevel = 9
 			acces_door_3 = true
+		elif Global.paintings < 8:
+			Global.questlevel = 12
 
-
+func _on_acces_door_3_body_exited(body):
+	if Global.paintings < 8:
+		Global.questlevel = 11
 
 func _on_lasers_body_entered(body):
 	if ready_play:
@@ -154,3 +160,6 @@ func _on_painting_7_grab():
 func _on_painting_8_grab():
 	if Global.sound == true:
 		$grab.play()
+
+
+
