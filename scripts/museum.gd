@@ -51,7 +51,6 @@ func _process(delta):
 				$schuifdeur.play()
 			$TileMap/hekje_3/Timer_door_3.start()
 			acces_door_3 = false
-			Global.questlevel = 0
 			
 func change_scenes():
 	if Global.transition_scene == true:

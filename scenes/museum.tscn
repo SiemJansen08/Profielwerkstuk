@@ -1768,7 +1768,6 @@ position = Vector2(205.682, -200)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/acces_door_3"]
 z_index = 1
 position = Vector2(58.6407, -118.13)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2xmwp")
 
 [node name="player" parent="." instance=ExtResource("2_fd7la")]
