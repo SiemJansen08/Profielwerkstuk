@@ -2025,6 +2025,7 @@ position = Vector2(-113, -264)
 [connection signal="body_entered" from="TileMap/lasers" to="." method="_on_lasers_body_entered"]
 [connection signal="body_entered" from="TileMap/keycard1/keycardpickup1" to="." method="_on_keycardpickup_1_body_entered"]
 [connection signal="body_entered" from="TileMap/hekje_2_acces_door" to="." method="_on_hekje_2_acces_door_body_entered"]
+[connection signal="body_exited" from="TileMap/hekje_2_acces_door" to="." method="_on_hekje_2_acces_door_body_exited"]
 [connection signal="body_entered" from="TileMap/acces_door_3" to="." method="_on_acces_door_3_body_entered"]
 [connection signal="body_exited" from="TileMap/acces_door_3" to="." method="_on_acces_door_3_body_exited"]
 [connection signal="grab" from="paintings/painting1" to="." method="_on_painting_1_grab"]

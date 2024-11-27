@@ -134,6 +134,9 @@ Right artifact: v"""
 		current_quest_desc = """Left artifact: v
  
 Right artifact: v"""
+	elif questlevel == 13:
+		current_quest_title = "Artifacts"
+		current_quest_desc = "Collect both artifacts to open the door"
 func questvis():
 	$QuestBox/QuestTitle.set_text(current_quest_title) 
 	$QuestBox/QuestDescription.set_text(current_quest_desc)

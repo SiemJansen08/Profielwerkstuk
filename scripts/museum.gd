@@ -73,8 +73,21 @@ func _on_acces_door_1_body_entered(body):
 			Global.questlevel = 7
 func _on_hekje_2_acces_door_body_entered(body):
 	if ready_play:
-		if Global.acces_door_left == true and Global.acces_door_right == true:
+		if Global.acces_door_left == true and Global.acces_door_right == true :
+			Global.questlevel = 9
 			acces_door_2 = true
+		elif Global.questlevel == 13 or Global.questlevel == 13.1 or Global.questlevel == 13.2 or Global.questlevel == 13.3:
+			Global.questlevel = 14
+
+func _on_hekje_2_acces_door_body_exited(body):
+	if Global.acces_door_left == true and Global.acces_door_right == false:
+		Global.questlevel = 13.2
+	elif Global.acces_door_left == false and Global.acces_door_right == true:
+		Global.questlevel = 13.3
+	elif Global.acces_door_left == false and Global.acces_door_right == false:
+		Global.questlevel = 13
+	elif Global.acces_door_left == true and Global.acces_door_right == true:
+		Global.questlevel = 13.4
 
 func _on_acces_door_3_body_entered(body):
 	if ready_play:
@@ -160,3 +173,6 @@ func _on_painting_7_grab():
 func _on_painting_8_grab():
 	if Global.sound == true:
 		$grab.play()
+
+
+
