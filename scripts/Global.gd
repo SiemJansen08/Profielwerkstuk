@@ -111,7 +111,29 @@ func questlevels():
 	elif questlevel == 12:
 		current_quest_title = "Acces"
 		current_quest_desc = "Secure all paintings to open the door"
-		
+	elif questlevel == 13:
+		current_quest_title = "Artifacts"
+		current_quest_desc = """Left artifact: x
+ 
+Right artifact: x"""
+	elif questlevel == 13.1:
+		current_quest_title = "Artifacts"
+		current_quest_desc = "Press 'w' to secure the artifact"
+	elif questlevel == 13.2:
+		current_quest_title = "Artifacts"
+		current_quest_desc = """Left artifact: v
+ 
+Right artifact: x"""
+	elif questlevel == 13.3:
+		current_quest_title = "Artifacts"
+		current_quest_desc = """Left artifact: x
+ 
+Right artifact: v"""
+	elif questlevel == 13.4:
+		current_quest_title = "Artifacts"
+		current_quest_desc = """Left artifact: v
+ 
+Right artifact: v"""
 func questvis():
 	$QuestBox/QuestTitle.set_text(current_quest_title) 
 	$QuestBox/QuestDescription.set_text(current_quest_desc)

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const speed = 70
-const speed_stealth = 50
+const speed_stealth = 90
 var current_dir = "none"
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true

@@ -10,10 +10,10 @@ func _process(delta):
 		Global.acces_door_left = true
 		self.queue_free()
 		emit_signal("grab")
-		Global.questlevel = 11
 
 
 func _on_area_2d_body_entered(body):
+	Global.questlevel = 13.1
 	if body.has_method("player") and ready_play:
 		pickup = true
 
@@ -24,7 +24,11 @@ func _on_start_timer_timeout():
 
 func _on_area_2d_body_exited(body):
 	pickup = false
-	if Global.questlevel == 11.1:
-		Global.questlevel = 11
-	elif Global.questlevel == 10:
-		Global.questlevel = 10
+	if Global.acces_door_left == true and Global.acces_door_right == false:
+		Global.questlevel = 13.2
+	elif Global.acces_door_left == false and Global.acces_door_right == true:
+		Global.questlevel = 13.3
+	elif Global.acces_door_left == false and Global.acces_door_right == false:
+		Global.questlevel = 13
+	elif Global.acces_door_left == true and Global.acces_door_right == true:
+		Global.questlevel = 13.4
