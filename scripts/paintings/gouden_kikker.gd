@@ -14,7 +14,7 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body.has_method("player") and ready_play and Global.questlevel >= 11:
+	if body.has_method("player") and ready_play:
 		pickup = true
 
 

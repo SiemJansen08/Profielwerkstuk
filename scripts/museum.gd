@@ -159,6 +159,3 @@ func _on_painting_7_grab():
 func _on_painting_8_grab():
 	if Global.sound == true:
 		$grab.play()
-
-
-
