@@ -6,6 +6,11 @@ var player_pickup = false
 var acces_door_1 = false
 var acces_door_2 = false
 var acces_door_3 = false
+var laser_puzzle_opgelost = false
+var keypad_toegang = false
+var keypad_voortgang = 0
+var keypad_invoer = 0
+var invoer_mogelijk = true
 
 @onready var healthbar = $player/Healthbar
 
@@ -22,6 +27,12 @@ func _ready():
 	$TileMap/keycard1/AnimationPlayer.play("keycard")
 	$paintings/gouden_kikker/AnimationPlayer.play("new_animation")
 	$paintings/blauwe_kikker/AnimationPlayer.play("new_animation")
+	
+	$lampen/PointLight2D.visible = false
+	$lampen/PointLight2D2.visible = false
+	
+	$keypad_puzzle/keypad_puzzle_groot.visible = false
+	$keypad_puzzle/laser_uit.visible = false
 
 func _process(delta):
 	change_scenes()
@@ -52,7 +63,112 @@ func _process(delta):
 			$TileMap/hekje_3/Timer_door_3.start()
 			acces_door_3 = false
 			Global.questlevel = 13
-			
+	if Global.acces_door_left == true:
+		$lampen/PointLight2D2.visible = true
+	if Global.acces_door_right == true:
+		$lampen/PointLight2D.visible = true
+	if keypad_toegang == true:
+		if Input.is_action_just_pressed("chat"):
+			$keypad_puzzle/keypad_puzzle_groot.visible = true
+			keypad_voortgang = 0
+			keypad_invoer = 0
+			Global.able_to_move = false
+		if Input.is_action_just_pressed("ui_accept"):
+			Global.able_to_move = true
+			if keypad_invoer == 4:
+				laser_puzzle_opgelost = true
+			$keypad_puzzle/keypad_puzzle_groot.visible = false
+	
+	if keypad_toegang == false:
+		$keypad_puzzle/keypad_puzzle_groot.visible = false
+	$keypad_puzzle/keypad_puzzle_groot.set_frame(keypad_voortgang)
+	
+	if laser_puzzle_opgelost == true:
+		$keypad_puzzle/laser_aan.visible = false
+		$keypad_puzzle/laser_uit.visible = true
+	
+	if $keypad_puzzle/keypad_puzzle_groot.visible == true:
+		if keypad_voortgang == 0 and invoer_mogelijk == true:
+			if Input.is_action_just_pressed("ui_up"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+			if Input.is_action_just_pressed("ui_down"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+				keypad_invoer = keypad_invoer + 1
+				print("ja")
+				print(keypad_invoer)
+			if Input.is_action_just_pressed("ui_left"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+			if Input.is_action_just_pressed("ui_right"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+		if keypad_voortgang == 1 and invoer_mogelijk == true:
+			if Input.is_action_just_pressed("ui_up"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+				keypad_invoer = keypad_invoer + 1
+				print("ja")
+				print(keypad_invoer)
+			if Input.is_action_just_pressed("ui_down"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+			if Input.is_action_just_pressed("ui_left"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+			if Input.is_action_just_pressed("ui_right"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+		if keypad_voortgang == 2 and invoer_mogelijk == true:
+			if Input.is_action_just_pressed("ui_up"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+			if Input.is_action_just_pressed("ui_down"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+			if Input.is_action_just_pressed("ui_left"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+				keypad_invoer = keypad_invoer + 1
+				print("ja")
+				print(keypad_invoer)
+			if Input.is_action_just_pressed("ui_right"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+		if keypad_voortgang == 3 and invoer_mogelijk == true:
+			if Input.is_action_just_pressed("ui_up"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+			if Input.is_action_just_pressed("ui_down"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+				keypad_invoer = keypad_invoer + 1
+				print("ja")
+				print(keypad_invoer)
+			if Input.is_action_just_pressed("ui_left"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+			if Input.is_action_just_pressed("ui_right"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+		
 func change_scenes():
 	if Global.transition_scene == true:
 		if Global.current_scene == "res://scenes/museum.tscn":
@@ -108,6 +224,28 @@ func _on_lasers_body_entered(body):
 			$laserhit.play()
 		healthbar.health = Global.player_health
 		print(Global.player_health)
+		
+func _on_laser_level_links_1_body_entered(body):
+	if ready_play and laser_puzzle_opgelost == false:
+		Global.player_health = Global.player_health - 20
+		if Global.sound == true:
+			$laserhit.play()
+		healthbar.health = Global.player_health
+		print(Global.player_health)
+func _on_laser_level_links_2_body_entered(body):
+	if ready_play and laser_puzzle_opgelost == false:
+		Global.player_health = Global.player_health - 20
+		if Global.sound == true:
+			$laserhit.play()
+		healthbar.health = Global.player_health
+		print(Global.player_health)
+func _on_laser_level_links_3_body_entered(body):
+	if ready_play and laser_puzzle_opgelost == false:
+		Global.player_health = Global.player_health - 20
+		if Global.sound == true:
+			$laserhit.play()
+		healthbar.health = Global.player_health
+		print(Global.player_health)
 
 func _on_keycardpickup_1_body_entered(body):
 	if ready_play:
@@ -127,7 +265,15 @@ func _on_timer_door_3_timeout():
 	$TileMap/hekje_3/door_1/door_1_col.set_deferred("disabled", true)
 	$TileMap/hekje_3/AnimationPlayer.pause()
 
-
+func _on_keypad_toegang_collision_body_entered(body):
+	if ready_play:
+		keypad_toegang = true
+	
+	
+func _on_keypad_toegang_collision_body_exited(body):
+	if ready_play:
+		keypad_toegang = false
+		$keypad_puzzle/keypad_puzzle_groot.visible = false
 
 
 
@@ -176,3 +322,6 @@ func _on_painting_8_grab():
 
 
 
+func _on_invoer_timer_timeout():
+	invoer_mogelijk = true
+	print("klaar")

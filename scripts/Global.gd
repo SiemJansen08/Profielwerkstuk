@@ -21,6 +21,7 @@ var current_scene = "res://scenes/world.tscn"
 var player_health = 100
 var player_current_attack = false		#attack stuff
 var stealth_mode = false
+var able_to_move = true
 var deaths = 0
 		# scene transitions
 var transition_scene = false

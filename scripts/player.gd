@@ -37,50 +37,51 @@ func _physics_process(delta):
 func input_direction(delta):
 	var side_movement = -int(Input.is_action_pressed("ui_left")) + int(Input.is_action_pressed("ui_right"))
 	var vertical_movement = -int(Input.is_action_pressed("ui_up")) + int(Input.is_action_pressed("ui_down"))
-	if side_movement == -1:
-		current_dir = "left"
-		play_anim(1)
-		if Global.stealth_mode == true and Global.cloak == true:
-			velocity.x = -speed_stealth
-			velocity.y = 0
+	if Global.able_to_move == true:
+		if side_movement == -1:
+			current_dir = "left"
+			play_anim(1)
+			if Global.stealth_mode == true and Global.cloak == true:
+				velocity.x = -speed_stealth
+				velocity.y = 0
+			else:
+				velocity.x = -speed
+				velocity.y = 0
+		elif side_movement == 1:
+			current_dir = "right"
+			play_anim(1)
+			if Global.stealth_mode == true and Global.cloak == true:
+				velocity.x = speed_stealth
+				velocity.y = 0
+			else:
+				velocity.x = speed
+				velocity.y = 0
+		elif vertical_movement == -1:
+			current_dir = "up"
+			play_anim(1)
+			if Global.stealth_mode == true and Global.cloak == true:
+				velocity.y = -speed_stealth
+				velocity.x = 0
+			else:
+				velocity.y = -speed
+				velocity.x = 0
+		elif vertical_movement == 1:
+			current_dir = "down"
+			play_anim(1)
+			if Global.stealth_mode == true and Global.cloak == true:
+				velocity.y = speed_stealth
+				velocity.x = 0
+			else:
+				velocity.y = speed
+				velocity.x = 0
 		else:
-			velocity.x = -speed
+			play_anim(0)
+			velocity.x = 0
 			velocity.y = 0
-	elif side_movement == 1:
-		current_dir = "right"
-		play_anim(1)
-		if Global.stealth_mode == true and Global.cloak == true:
-			velocity.x = speed_stealth
-			velocity.y = 0
-		else:
-			velocity.x = speed
-			velocity.y = 0
-	elif vertical_movement == -1:
-		current_dir = "up"
-		play_anim(1)
-		if Global.stealth_mode == true and Global.cloak == true:
-			velocity.y = -speed_stealth
-			velocity.x = 0
-		else:
-			velocity.y = -speed
-			velocity.x = 0
-	elif vertical_movement == 1:
-		current_dir = "down"
-		play_anim(1)
-		if Global.stealth_mode == true and Global.cloak == true:
-			velocity.y = speed_stealth
-			velocity.x = 0
-		else:
-			velocity.y = speed
-			velocity.x = 0
-	else:
-		play_anim(0)
-		velocity.x = 0
-		velocity.y = 0
-	
-	if attack_ip == false:
-		move_and_slide()
-	
+		
+		if attack_ip == false:
+			move_and_slide()
+		
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
