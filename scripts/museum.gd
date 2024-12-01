@@ -75,20 +75,25 @@ func _process(delta):
 			Global.able_to_move = false
 		if Input.is_action_just_pressed("ui_accept"):
 			Global.able_to_move = true
-			if keypad_invoer == 4:
-				laser_puzzle_opgelost = true
 			$keypad_puzzle/keypad_puzzle_groot.visible = false
+	
+	if keypad_invoer == 4:
+				laser_puzzle_opgelost = true
 	
 	if keypad_toegang == false:
 		$keypad_puzzle/keypad_puzzle_groot.visible = false
-	$keypad_puzzle/keypad_puzzle_groot.set_frame(keypad_voortgang)
+	
+	if laser_puzzle_opgelost == true:
+		$keypad_puzzle/keypad_puzzle_groot.set_frame(8)
+	if laser_puzzle_opgelost == false:
+		$keypad_puzzle/keypad_puzzle_groot.set_frame(keypad_voortgang)
 	
 	if laser_puzzle_opgelost == true:
 		$keypad_puzzle/laser_aan.visible = false
 		$keypad_puzzle/laser_uit.visible = true
 	
 	if $keypad_puzzle/keypad_puzzle_groot.visible == true:
-		if keypad_voortgang == 0 and invoer_mogelijk == true:
+		if keypad_voortgang == 0 and invoer_mogelijk == true and laser_puzzle_opgelost == false:
 			if Input.is_action_just_pressed("ui_up"):
 				keypad_voortgang = keypad_voortgang + 1
 				$keypad_puzzle/invoer_timer.start()
@@ -98,28 +103,8 @@ func _process(delta):
 				$keypad_puzzle/invoer_timer.start()
 				invoer_mogelijk = false
 				keypad_invoer = keypad_invoer + 1
-				print("ja")
+				print(keypad_voortgang)
 				print(keypad_invoer)
-			if Input.is_action_just_pressed("ui_left"):
-				keypad_voortgang = keypad_voortgang + 1
-				$keypad_puzzle/invoer_timer.start()
-				invoer_mogelijk = false
-			if Input.is_action_just_pressed("ui_right"):
-				keypad_voortgang = keypad_voortgang + 1
-				$keypad_puzzle/invoer_timer.start()
-				invoer_mogelijk = false
-		if keypad_voortgang == 1 and invoer_mogelijk == true:
-			if Input.is_action_just_pressed("ui_up"):
-				keypad_voortgang = keypad_voortgang + 1
-				$keypad_puzzle/invoer_timer.start()
-				invoer_mogelijk = false
-				keypad_invoer = keypad_invoer + 1
-				print("ja")
-				print(keypad_invoer)
-			if Input.is_action_just_pressed("ui_down"):
-				keypad_voortgang = keypad_voortgang + 1
-				$keypad_puzzle/invoer_timer.start()
-				invoer_mogelijk = false
 			if Input.is_action_just_pressed("ui_left"):
 				keypad_voortgang = keypad_voortgang + 1
 				$keypad_puzzle/invoer_timer.start()
@@ -133,6 +118,26 @@ func _process(delta):
 				keypad_voortgang = keypad_voortgang + 1
 				$keypad_puzzle/invoer_timer.start()
 				invoer_mogelijk = false
+				keypad_invoer = keypad_invoer + 1
+				print("ja")
+				print(keypad_invoer)
+			if Input.is_action_just_pressed("ui_down"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+			if Input.is_action_just_pressed("ui_left"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+			if Input.is_action_just_pressed("ui_right"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
+		if keypad_voortgang == 4 and invoer_mogelijk == true:
+			if Input.is_action_just_pressed("ui_up"):
+				keypad_voortgang = keypad_voortgang + 1
+				$keypad_puzzle/invoer_timer.start()
+				invoer_mogelijk = false
 			if Input.is_action_just_pressed("ui_down"):
 				keypad_voortgang = keypad_voortgang + 1
 				$keypad_puzzle/invoer_timer.start()
@@ -148,7 +153,7 @@ func _process(delta):
 				keypad_voortgang = keypad_voortgang + 1
 				$keypad_puzzle/invoer_timer.start()
 				invoer_mogelijk = false
-		if keypad_voortgang == 3 and invoer_mogelijk == true:
+		if keypad_voortgang == 6 and invoer_mogelijk == true:
 			if Input.is_action_just_pressed("ui_up"):
 				keypad_voortgang = keypad_voortgang + 1
 				$keypad_puzzle/invoer_timer.start()
@@ -324,4 +329,8 @@ func _on_painting_8_grab():
 
 func _on_invoer_timer_timeout():
 	invoer_mogelijk = true
+	if keypad_voortgang < 6:
+		keypad_voortgang = keypad_voortgang + 1
+	if keypad_voortgang == 7 and keypad_invoer == 4:
+		keypad_voortgang = 8
 	print("klaar")
