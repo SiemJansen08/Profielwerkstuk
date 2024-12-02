@@ -16,9 +16,9 @@ script = ExtResource("1_2sabd")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = 78.0
+offset_left = 140.0
 offset_top = 10.0
-offset_right = 148.0
+offset_right = 210.0
 offset_bottom = 129.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -65,26 +65,27 @@ texture = ExtResource("2_jvj6o")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 37.0
-offset_right = 77.0
-offset_bottom = 97.0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 143.0
+offset_bottom = 55.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_cpx1m")
-theme_override_font_sizes/normal_font_size = 26
-text = "KUNST
-ROOF"
+theme_override_font_sizes/normal_font_size = 19
+text = "		  SNEAKY
+SHENANIGANS"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 155.0
-offset_top = 43.0
-offset_right = 226.0
-offset_bottom = 89.0
+offset_left = 18.0
+offset_top = 63.0
+offset_right = 129.0
+offset_bottom = 116.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_cpx1m")
-theme_override_font_sizes/normal_font_size = 8
-text = "\"Attack him where he is unprepared, appear where you are not excpected\""
+theme_override_font_sizes/normal_font_size = 10
+text = "\"Attack him where he is unprepared,
+ appear where you are not excpected\""
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
