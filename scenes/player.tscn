@@ -780,6 +780,8 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="cave_camera" type="Camera2D" parent="."]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="stealth_time" type="Timer" parent="."]
 wait_time = 3.0
