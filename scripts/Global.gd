@@ -2,6 +2,7 @@ extends Node
 
 var music = true
 var sound = true
+var controller = false
 
 func _physics_process(delta):
 	questlevels()

@@ -1,6 +1,26 @@
 extends Control
 
+var able_to_toggle = true
 
+func _ready():
+	$RichTextLabel.visible = true
+	$RichTextLabel2.visible = false
+
+func _physics_process(delta):
+	if Input.is_action_just_pressed("button_layout") and Global.controller == false and able_to_toggle == true:
+		Global.controller = true
+		$RichTextLabel.visible = false
+		$RichTextLabel2.visible = true
+		able_to_toggle = false
+		$toggle_timer.start()
+		print("true")
+	if Input.is_action_just_pressed("button_layout") and Global.controller == true and able_to_toggle == true:
+		Global.controller = false
+		$RichTextLabel.visible = true
+		$RichTextLabel2.visible = false
+		able_to_toggle = false
+		$toggle_timer.start()
+		print("false")
 
 func _on_back_pressed():
 	if Global.sound == true:
@@ -35,3 +55,9 @@ func _on_sound_pressed():
 
 func _on_wait_back_timeout():
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+
+
+
+func _on_toggle_timer_timeout():
+	able_to_toggle = true

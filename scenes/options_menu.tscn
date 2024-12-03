@@ -83,8 +83,12 @@ theme_override_fonts/normal_font = ExtResource("3_qfxuv")
 theme_override_font_sizes/normal_font_size = 9
 text = "Press   L3   to   prioritize   Keyboard"
 
+[node name="toggle_timer" type="Timer" parent="."]
+wait_time = 0.4
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/sound" to="." method="_on_sound_pressed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/difficulty" to="." method="_on_difficulty_toggled"]
 [connection signal="timeout" from="wait_back" to="." method="_on_wait_back_timeout"]
+[connection signal="timeout" from="toggle_timer" to="." method="_on_toggle_timer_timeout"]
