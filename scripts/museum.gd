@@ -16,12 +16,12 @@ var invoer_mogelijk = true
 
 func _ready():
 	Global.current_scene = "res://scenes/museum.tscn"
+	$victory.hide()
 	$start_timer.start()
 	Global.questlevel = 6
 	
 	$TileMap/hekje_1/door_1/door_1_col.set_deferred("disabled", false)
 	healthbar.init_health(Global.player_health)
-	#Global.player_health = Global.player_health + 20
 	print(Global.player_health)
 	Global.questlevel = 6
 	$TileMap/keycard1/AnimationPlayer.play("keycard")
@@ -36,6 +36,11 @@ func _ready():
 
 func _process(delta):
 	change_scenes()
+	if Global.won == true:
+		$victory.show()
+		$victory/victorycam.enabled = true
+		
+		
 	if Input.is_action_just_pressed("chat") and player_pickup:
 		key_door_1 = true
 		if Global.sound == true:
@@ -334,3 +339,13 @@ func _on_invoer_timer_timeout():
 	if keypad_voortgang == 7 and keypad_invoer == 4:
 		keypad_voortgang = 8
 	print("klaar")
+
+
+func _on_quit_pressed():
+	if Global.sound == true:
+		$victory/select.play()
+	$victory/wait_quit.start()
+
+
+func _on_wait_quit_timeout():
+	get_tree().quit()
