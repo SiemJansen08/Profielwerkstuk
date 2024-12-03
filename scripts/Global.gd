@@ -76,7 +76,10 @@ func questlevels():
 		current_quest_desc = " "
 	elif questlevel == 1.1:
 		current_quest_title = "SPEAK:"
-		current_quest_desc = "Press 'D' to speak with Lip, press 'enter' to advance"
+		if Global.controller == false:
+			current_quest_desc = "Press 'D' to speak with Lip, press 'enter' to advance"
+		if Global.controller == true:
+			current_quest_desc = "Press TRIANGLE to speak with Lip, press 'enter' to advance"
 	elif questlevel == 2:
 		current_quest_title = "CAVE:"
 		current_quest_desc = "Explore the caves in the North"
@@ -97,10 +100,16 @@ func questlevels():
 		current_quest_desc = "Find the keycard to open the door"
 	elif questlevel == 8:
 		current_quest_title = "KEY"
-		current_quest_desc = "Press 'D' to pick up the keycard" # van 'D' de interact button maken?
+		if Global.controller == false:
+			current_quest_desc = "Press 'D' to pick up the keycard"
+		if Global.controller == true:
+			current_quest_desc = "Press TRIANGLE to pick up the keycard"
 	elif questlevel == 9:
 		current_quest_title = "Door"
-		current_quest_desc = "Press 'D' to swipe the keycard and open the door"
+		if Global.controller == false:
+			current_quest_desc = "Press 'D' to swipe the keycard and open the door"
+		if Global.controller == true:
+			current_quest_desc = "Press TRIANGLE to swipe the keycard and open the door"
 	elif questlevel == 10:
 		current_quest_title = "Lip"
 		current_quest_desc = "Speak with Lip"
@@ -109,7 +118,10 @@ func questlevels():
 		current_quest_desc = "Artpieces secured: " + str(paintings) + "/8"
 	elif questlevel == 11.1:
 		current_quest_title = "Secure"
-		current_quest_desc = "Press 'W' to secure this artpiece"
+		if Global.controller == false:
+			current_quest_desc = "Press 'W' to secure this artpiece"
+		if Global.controller == true:
+			current_quest_desc = "Press R1 to secure this artpiece"
 	elif questlevel == 12:
 		current_quest_title = "Acces"
 		current_quest_desc = "Secure all paintings to open the door"
@@ -120,7 +132,10 @@ func questlevels():
 Right artifact: x"""
 	elif questlevel == 13.1:
 		current_quest_title = "Artifacts"
-		current_quest_desc = "Press 'w' to secure the artifact"
+		if Global.controller == false:
+			current_quest_desc = "Press 'W' to secure the artifact"
+		if Global.controller == true:
+			current_quest_desc = "Press R1 to secure the artifact"
 	elif questlevel == 13.2:
 		current_quest_title = "Artifacts"
 		current_quest_desc = """Left artifact: v

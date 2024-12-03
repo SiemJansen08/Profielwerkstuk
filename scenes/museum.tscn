@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=3 uid="uid://bwu8216omf0c0"]
+[gd_scene load_steps=128 format=3 uid="uid://bwu8216omf0c0"]
 
 [ext_resource type="Script" path="res://scripts/museum.gd" id="1_5u64n"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/player.tscn" id="2_fd7la"]
@@ -52,6 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://cvyhiq4cq7o8p" path="res://art/objects/level_objects/Untitled copy.png" id="51_q6lmd"]
 [ext_resource type="Texture2D" uid="uid://cb10k3foe8ucb" path="res://art/objects/level_objects/Untitled 6 copy copy.png" id="52_dotos"]
 [ext_resource type="Texture2D" uid="uid://cacow6vba6l3b" path="res://art/objects/level_objects/V.....png" id="52_k8awl"]
+[ext_resource type="Texture2D" uid="uid://bit21ruj7bw60" path="res://art/objects/level_objects/camera_afgesneden.png" id="52_ml21c"]
 [ext_resource type="Texture2D" uid="uid://c1t2qojmowftn" path="res://art/objects/level_objects/Untitled 6 copy copy copy copy.png" id="53_kao1g"]
 [ext_resource type="Texture2D" uid="uid://cur4vbsbfl85b" path="res://art/objects/level_objects/Untitled 9.png" id="53_vlipd"]
 [ext_resource type="Texture2D" uid="uid://dul4gqei1c2nk" path="res://art/objects/level_objects/Untitled 6 copy 2.png" id="54_5qt11"]
@@ -1454,11 +1455,12 @@ one_shot = true
 z_index = 1
 y_sort_enabled = true
 position = Vector2(416.5, -167.5)
-texture = ExtResource("52_dotos")
+texture = ExtResource("52_ml21c")
 hframes = 8
 vframes = 2
 
 [node name="camera_area_1" type="Area2D" parent="level_rechts/camera_1"]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_rechts/camera_1/camera_area_1"]
 polygon = PackedVector2Array(35.5, -4.5, 20.5, -18.5, -2.5, -28.5, -25.5, -32.5, -36.5, -27.5, -43.5, -12.5, -44.5, 5.5, -40.5, 20.5, -35.5, 28.5, -28.5, 31.5, -15.5, 32.5, 1.5, 27.5, 18.5, 19.5, 31.5, 8.5, 36.5, 1.5)
