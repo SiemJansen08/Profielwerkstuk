@@ -15,6 +15,8 @@ var invoer_mogelijk = true
 @onready var healthbar = $player/Healthbar
 
 func _ready():
+	$Victory.hide()
+	$Victory/victorycam.enabled = false
 	Global.current_scene = "res://scenes/museum.tscn"
 	$start_timer.start()
 	Global.questlevel = 6
@@ -173,6 +175,9 @@ func _process(delta):
 				keypad_voortgang = keypad_voortgang + 1
 				$keypad_puzzle/invoer_timer.start()
 				invoer_mogelijk = false
+	if Global.won == true:
+		$Victory.show()
+		$Victory/victorycam.enabled = true
 		
 func change_scenes():
 	if Global.transition_scene == true:
@@ -334,3 +339,13 @@ func _on_invoer_timer_timeout():
 	if keypad_voortgang == 7 and keypad_invoer == 4:
 		keypad_voortgang = 8
 	print("klaar")
+
+
+func _on_quit_pressed():
+	if Global.sound == true:
+		$Victory/select.play()
+	$Victory/wait_quit.start()
+
+
+func _on_wait_quit_timeout():
+	get_tree().quit()

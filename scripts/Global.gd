@@ -2,6 +2,7 @@ extends Node
 
 var music = true
 var sound = true
+var won = false
 
 func _physics_process(delta):
 	questlevels()
@@ -12,6 +13,8 @@ func _physics_process(delta):
 		$backingmusic.play()
 	elif music == false and $backingmusic.playing:
 		$backingmusic.stop()
+	if won == true:
+		get_tree().change_scene_to_file("res://scenes/victory.tscn") #victory screen
 	
 
 func _ready():
