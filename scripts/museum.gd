@@ -18,6 +18,8 @@ var camera_3_in_zicht = false
 var camera_4_in_zicht = false
 var camera_5_in_zicht = false
 
+var laser_1_aan = false
+
 @onready var healthbar = $player/Healthbar
 
 func _ready():
@@ -39,6 +41,14 @@ func _ready():
 	
 	$keypad_puzzle/keypad_puzzle_groot.visible = false
 	$keypad_puzzle/laser_uit.visible = false
+	
+	$level_rechts/laser_1_aan.visible = false
+	$level_rechts/laser_2_aan.visible = false
+	$level_rechts/laser_2_aan2.visible = false
+	$level_rechts/laser_3_aan.visible = false
+	$level_rechts/laser_4_aan.visible = false
+	$level_rechts/laser_4_aan2.visible = false
+	
 
 func _process(delta):
 	change_scenes()
