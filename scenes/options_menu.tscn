@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://80gl0r4lkl3t"]
+[gd_scene load_steps=5 format=3 uid="uid://80gl0r4lkl3t"]
 
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_8doew"]
 [ext_resource type="Texture2D" uid="uid://wgqncb61cycq" path="res://art/sky.png" id="2_1wslt"]
 [ext_resource type="AudioStream" uid="uid://daceqe4uok7cl" path="res://audio/select.mp3" id="2_iwal0"]
 [ext_resource type="FontFile" uid="uid://du2rrxrtj7yaa" path="res://art/ARCADECLASSIC.TTF" id="3_qfxuv"]
-[ext_resource type="Script" path="res://scripts/button.gd" id="4_oi4wp"]
 
 [node name="options_menu" type="Control"]
 layout_mode = 3
@@ -35,7 +34,12 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_qfxuv")
 text = "back
 "
-script = ExtResource("4_oi4wp")
+
+[node name="difficulty" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qfxuv")
+text = "Hard difficulty
+"
 
 [node name="music" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -47,13 +51,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_qfxuv")
 text = "Sound ON/OFF"
 
-[node name="difficulty" type="CheckButton" parent="MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_qfxuv")
-text = "Hard difficulty
-"
-
 [node name="select" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_iwal0")
 volume_db = 5.5
@@ -61,32 +58,8 @@ volume_db = 5.5
 [node name="wait_back" type="Timer" parent="."]
 wait_time = 0.104
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="."]
-offset_left = 42.0
-offset_top = 104.0
-offset_right = 254.0
-offset_bottom = 116.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_qfxuv")
-theme_override_font_sizes/normal_font_size = 8
-text = "Press   spacebar  to  prioritize   controller"
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="."]
-offset_left = 59.0
-offset_top = 104.0
-offset_right = 266.0
-offset_bottom = 116.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_qfxuv")
-theme_override_font_sizes/normal_font_size = 8
-text = "Press   L3   to  prioritize   keyboard"
-
-[node name="wait_toggle" type="Timer" parent="."]
-wait_time = 0.4
-
 [connection signal="pressed" from="MarginContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/difficulty" to="." method="_on_difficulty_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/sound" to="." method="_on_sound_pressed"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/difficulty" to="." method="_on_difficulty_toggled"]
 [connection signal="timeout" from="wait_back" to="." method="_on_wait_back_timeout"]
-[connection signal="timeout" from="wait_toggle" to="." method="_on_wait_toggle_timeout"]

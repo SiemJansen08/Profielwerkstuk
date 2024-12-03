@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dstx6cieskepw"]
+[gd_scene load_steps=5 format=3 uid="uid://dstx6cieskepw"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_2sabd"]
 [ext_resource type="AudioStream" uid="uid://daceqe4uok7cl" path="res://audio/select.mp3" id="2_fnijd"]
 [ext_resource type="Texture2D" uid="uid://wgqncb61cycq" path="res://art/sky.png" id="2_jvj6o"]
-[ext_resource type="Script" path="res://scripts/button.gd" id="3_eq8lg"]
 [ext_resource type="FontFile" uid="uid://du2rrxrtj7yaa" path="res://art/ARCADECLASSIC.TTF" id="4_cpx1m"]
 
 [node name="menu" type="Control"]
@@ -30,7 +29,6 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_cpx1m")
 text = "Play"
-script = ExtResource("3_eq8lg")
 
 [node name="options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

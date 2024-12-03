@@ -25,60 +25,32 @@ func start():
 	
 func load_dialogue():
 	if Global.cave_win == false and Global.current_scene == "res://scenes/world.tscn":
-		if Global.controller == true:
-			var file = FileAccess.open("res://dialogue/Lip_dialogue1.2.json", FileAccess.READ)
-			var content = JSON.parse_string(file.get_as_text())
-			Global.questlevel = 2
-			Global.sword = true
-			if Global.sound == true:
-				$gib.play()
-			return content
-		if Global.controller == false:
-			var file = FileAccess.open("res://dialogue/Lip_dialogue1.json", FileAccess.READ)
-			var content = JSON.parse_string(file.get_as_text())
-			Global.questlevel = 2
-			Global.sword = true
-			if Global.sound == true:
-				$gib.play()
-			return content
+		var file = FileAccess.open("res://dialogue/Lip_dialogue1.json", FileAccess.READ)
+		var content = JSON.parse_string(file.get_as_text())
+		Global.questlevel = 2
+		Global.sword = true
+		if Global.sound == true:
+			$gib.play()
+		return content
 		
 	elif Global.cave_win == true and Global.current_scene == "res://scenes/world.tscn":
-		if Global.controller == false:
-			var file = FileAccess.open("res://dialogue/Lip_dialogue2.json", FileAccess.READ)
-			var content = JSON.parse_string(file.get_as_text())
-			Global.bridge_acces = true
-			Global.cave_acces = false
-			Global.questlevel = 5
-			Global.cloak = true
-			if Global.sound == true:
-				$gib.play()
-			return content
-		if Global.controller == true:
-			var file = FileAccess.open("res://dialogue/Lip_dialogue2.2.json", FileAccess.READ)
-			var content = JSON.parse_string(file.get_as_text())
-			Global.bridge_acces = true
-			Global.cave_acces = false
-			Global.questlevel = 5
-			Global.cloak = true
-			if Global.sound == true:
-				$gib.play()
-			return content
+		var file = FileAccess.open("res://dialogue/Lip_dialogue2.json", FileAccess.READ)
+		var content = JSON.parse_string(file.get_as_text())
+		Global.bridge_acces = true
+		Global.cave_acces = false
+		Global.questlevel = 5
+		Global.cloak = true
+		if Global.sound == true:
+			$gib.play()
+		return content
 		
 	elif Global.current_scene == "res://scenes/museum.tscn":
-		if Global.controller == true:
-			var file = FileAccess.open("res://dialogue/Lip_dialogue3.2.json", FileAccess.READ)
-			var content = JSON.parse_string(file.get_as_text())
-			Global.questlevel = 11
-			if Global.sound == true:
-				$gib.play()
-			return content
-		if Global.controller == true:
-			var file = FileAccess.open("res://dialogue/Lip_dialogue3.json", FileAccess.READ)
-			var content = JSON.parse_string(file.get_as_text())
-			Global.questlevel = 11
-			if Global.sound == true:
-				$gib.play()
-			return content
+		var file = FileAccess.open("res://dialogue/Lip_dialogue3.json", FileAccess.READ)
+		var content = JSON.parse_string(file.get_as_text())
+		Global.questlevel = 11
+		if Global.sound == true:
+			$gib.play()
+		return content
 	
 func _input(event):
 	if !d_active:
