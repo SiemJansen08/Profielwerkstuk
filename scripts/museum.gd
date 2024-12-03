@@ -12,6 +12,12 @@ var keypad_voortgang = 0
 var keypad_invoer = 0
 var invoer_mogelijk = true
 
+var camera_1_in_zicht = false
+var camera_2_in_zicht = false
+var camera_3_in_zicht = false
+var camera_4_in_zicht = false
+var camera_5_in_zicht = false
+
 @onready var healthbar = $player/Healthbar
 
 func _ready():
@@ -178,7 +184,13 @@ func _process(delta):
 				keypad_voortgang = keypad_voortgang + 1
 				$keypad_puzzle/invoer_timer.start()
 				invoer_mogelijk = false
-		
+	
+	
+	
+	
+	
+	
+	
 func change_scenes():
 	if Global.transition_scene == true:
 		if Global.current_scene == "res://scenes/museum.tscn":
@@ -287,6 +299,10 @@ func _on_keypad_toegang_collision_body_exited(body):
 
 
 
+
+
+
+
 func _on_start_timer_timeout():
 	ready_play = true
 
@@ -349,3 +365,15 @@ func _on_quit_pressed():
 
 func _on_wait_quit_timeout():
 	get_tree().quit()
+
+
+func _on_camera_area_1_body_entered(body):
+	ready_play
+	if Global.stealth_mode == false:
+		camera_1_in_zicht = true
+		$level_rechts/laser_activatie.start()
+
+func _on_camera_area_1_body_exited(body):
+	ready_play
+	camera_1_in_zicht = false
+	$level_rechts/laser_deactivate.start()
