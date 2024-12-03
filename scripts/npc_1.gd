@@ -54,8 +54,6 @@ func _process(delta):
 	if Global.current_scene == "res://scenes/museum.tscn":
 		is_roaming = false
 		current_state = IDLE
-	if Global.won == true:
-		$lip_camera.enabled = false
 
 
 func choose(array):

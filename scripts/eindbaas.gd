@@ -151,7 +151,6 @@ func deal_with_damage():
 				healthbar.health = health
 				if grootte < 0:
 					self.queue_free()
-					Global.won = true
 		
 
 
