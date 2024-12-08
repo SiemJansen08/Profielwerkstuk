@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://bwu8216omf0c0"]
+[gd_scene load_steps=135 format=3 uid="uid://bwu8216omf0c0"]
 
 [ext_resource type="Script" path="res://scripts/museum.gd" id="1_5u64n"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/player.tscn" id="2_fd7la"]
@@ -870,6 +870,66 @@ tracks/4/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../laser_1_lampje:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../laser_2_lampje:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../laser_2_lampje2:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../laser_4_lampje:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../laser_4_lampje2:frame")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_6xsxk"]
 resource_name = "camera_1"
@@ -959,6 +1019,119 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 }
 
+[sub_resource type="Animation" id="Animation_jwvsu"]
+resource_name = "laser_1_lampje_knipperen"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../laser_1_lampje:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_l8lt4"]
+resource_name = "laser_2_lampje_knipperen"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../laser_2_lampje:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../laser_2_lampje2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_jcrp1"]
+resource_name = "laser_4_lampje_knipperen"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../laser_4_lampje:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_5nb58"]
+resource_name = "laser_4_2_lampje_knipperen"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../laser_4_lampje2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_lrgdm"]
+resource_name = "laser_4_allebei_knipperen"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../laser_4_lampje:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../laser_4_lampje2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u5jdq"]
 _data = {
 "RESET": SubResource("Animation_e0rq4"),
@@ -966,7 +1139,12 @@ _data = {
 "camera_2": SubResource("Animation_mt6xe"),
 "camera_3": SubResource("Animation_4o63s"),
 "camera_4": SubResource("Animation_t11e4"),
-"camera_5": SubResource("Animation_q5gck")
+"camera_5": SubResource("Animation_q5gck"),
+"laser_1_lampje_knipperen": SubResource("Animation_jwvsu"),
+"laser_2_lampje_knipperen": SubResource("Animation_l8lt4"),
+"laser_4_2_lampje_knipperen": SubResource("Animation_5nb58"),
+"laser_4_allebei_knipperen": SubResource("Animation_lrgdm"),
+"laser_4_lampje_knipperen": SubResource("Animation_jcrp1")
 }
 
 [node name="museum" type="Node2D"]
@@ -1642,6 +1820,12 @@ shape = SubResource("RectangleShape2D_xrk3r")
 position = Vector2(6, 7)
 shape = SubResource("RectangleShape2D_xrk3r")
 
+[node name="laser_3_lampje" type="Sprite2D" parent="level_rechts"]
+z_index = 1
+position = Vector2(741, -300)
+texture = ExtResource("53_vlipd")
+hframes = 2
+
 [node name="laser_3_uit" type="Sprite2D" parent="level_rechts"]
 z_index = 1
 y_sort_enabled = true
@@ -1733,16 +1917,7 @@ libraries = {
 wait_time = 0.3
 
 [node name="laser_deactivate" type="Timer" parent="level_rechts"]
-wait_time = 3.0
-
-[node name="CharacterBody2D19" parent="." instance=ExtResource("35_vesjf")]
-position = Vector2(657, -230)
-
-[node name="CharacterBody2D18" parent="." instance=ExtResource("35_vesjf")]
-position = Vector2(328, -251)
-
-[node name="CharacterBody2D21" parent="." instance=ExtResource("35_vesjf")]
-position = Vector2(647, -184)
+wait_time = 1.5
 
 [node name="CharacterBody2D20" parent="." instance=ExtResource("35_vesjf")]
 position = Vector2(272, -239)
@@ -1850,5 +2025,34 @@ text = "QUIT"
 [connection signal="timeout" from="keypad_puzzle/invoer_timer" to="." method="_on_invoer_timer_timeout"]
 [connection signal="body_entered" from="level_rechts/camera_1/camera_area_1" to="." method="_on_camera_area_1_body_entered"]
 [connection signal="body_exited" from="level_rechts/camera_1/camera_area_1" to="." method="_on_camera_area_1_body_exited"]
+[connection signal="body_entered" from="level_rechts/camera_2/camera_area_2" to="." method="_on_camera_area_2_body_entered"]
+[connection signal="body_exited" from="level_rechts/camera_2/camera_area_2" to="." method="_on_camera_area_2_body_exited"]
+[connection signal="body_entered" from="level_rechts/camera_3/camera_area_3" to="." method="_on_camera_area_3_body_entered"]
+[connection signal="body_exited" from="level_rechts/camera_3/camera_area_3" to="." method="_on_camera_area_3_body_exited"]
+[connection signal="body_entered" from="level_rechts/camera_4/camera_area_4" to="." method="_on_camera_area_4_body_entered"]
+[connection signal="body_exited" from="level_rechts/camera_4/camera_area_4" to="." method="_on_camera_area_4_body_exited"]
+[connection signal="body_entered" from="level_rechts/camera_5/camera_area_5" to="." method="_on_camera_area_5_body_entered"]
+[connection signal="body_exited" from="level_rechts/camera_5/camera_area_5" to="." method="_on_camera_area_5_body_exited"]
+[connection signal="body_entered" from="level_rechts/laser_1_aan/laser_1_1" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_1_aan/laser_1_2" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_1_aan/laser_1_3" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_2_aan/laser_2_1" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_2_aan/laser_2_2" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_2_aan/laser_2_3" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_2_aan2/laser_2_2_1" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_2_aan2/laser_2_2_2" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_2_aan2/laser_2_2_3" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_3_aan/laser_3_1" to="." method="_on_laser_blauwe_kikker_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_3_aan/laser_3_2" to="." method="_on_laser_blauwe_kikker_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_3_aan/laser_3_3" to="." method="_on_laser_blauwe_kikker_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_4_aan/laser_4_1" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_4_aan/laser_4_2" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_4_aan/laser_4_3" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_4_aan2/laser_4_2_1" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_4_aan2/laser_4_2_2" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/laser_4_aan2/laser_4_2_3" to="." method="_on_lasers_level_rechts_body_entered"]
+[connection signal="body_entered" from="level_rechts/knop_level_rechts/knop_toegang" to="." method="_on_knop_toegang_body_entered"]
+[connection signal="body_exited" from="level_rechts/knop_level_rechts/knop_toegang" to="." method="_on_knop_toegang_body_exited"]
+[connection signal="timeout" from="level_rechts/laser_deactivate" to="." method="_on_laser_deactivate_timeout"]
 [connection signal="timeout" from="victory/wait_quit" to="." method="_on_wait_quit_timeout"]
 [connection signal="pressed" from="victory/quit" to="." method="_on_quit_pressed"]

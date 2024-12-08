@@ -11,6 +11,7 @@ var keypad_toegang = false
 var keypad_voortgang = 0
 var keypad_invoer = 0
 var invoer_mogelijk = true
+var knop_toegang = false
 
 var camera_1_in_zicht = false
 var camera_2_in_zicht = false
@@ -19,6 +20,11 @@ var camera_4_in_zicht = false
 var camera_5_in_zicht = false
 
 var laser_1_aan = false
+var laser_2_aan = false
+var laser_3_aan = false
+var laser_4_1_aan = false
+var laser_4_2_aan = false
+var laser_lampje_dubbel = false
 
 @onready var healthbar = $player/Healthbar
 
@@ -45,18 +51,21 @@ func _ready():
 	$level_rechts/laser_1_aan.visible = false
 	$level_rechts/laser_2_aan.visible = false
 	$level_rechts/laser_2_aan2.visible = false
-	$level_rechts/laser_3_aan.visible = false
+	$level_rechts/laser_3_aan.visible = true
 	$level_rechts/laser_4_aan.visible = false
 	$level_rechts/laser_4_aan2.visible = false
+	$level_rechts/laser_3_lampje.set_frame(1)
 	
 
 func _process(delta):
 	change_scenes()
+	_laser_process(delta)
+	_laser_visible(delta)
 	if Global.won == true:
 		$victory.show()
 		$victory/victorycam.enabled = true
 		
-		
+	
 	if Input.is_action_just_pressed("chat") and player_pickup:
 		key_door_1 = true
 		if Global.sound == true:
@@ -103,6 +112,11 @@ func _process(delta):
 	
 	if keypad_toegang == false:
 		$keypad_puzzle/keypad_puzzle_groot.visible = false
+		
+	if knop_toegang == true:
+		if Input.is_action_just_pressed("chat"):
+			$level_rechts/laser_3_lampje.set_frame(0)
+			$level_rechts/laser_3_aan.visible = false
 	
 	if laser_puzzle_opgelost == true:
 		$keypad_puzzle/keypad_puzzle_groot.set_frame(8)
@@ -279,6 +293,24 @@ func _on_laser_level_links_3_body_entered(body):
 		healthbar.health = Global.player_health
 		print(Global.player_health)
 
+func _on_lasers_level_rechts_body_entered(body):
+	if ready_play:
+		if $level_rechts/laser_1_aan.visible == true or $level_rechts/laser_2_aan.visible == true or $level_rechts/laser_2_aan2.visible == true or $level_rechts/laser_4_aan.visible == true or $level_rechts/laser_4_aan2.visible == true:
+			Global.player_health = Global.player_health - 20
+			if Global.sound == true:
+				$laserhit.play()
+			healthbar.health = Global.player_health
+			print(Global.player_health)
+
+func _on_laser_blauwe_kikker_body_entered(body):
+	if ready_play:
+		if $level_rechts/laser_3_aan.visible == true:
+			Global.player_health = Global.player_health - 20
+			if Global.sound == true:
+				$laserhit.play()
+			healthbar.health = Global.player_health
+			print(Global.player_health)
+
 func _on_keycardpickup_1_body_entered(body):
 	if ready_play:
 		Global.questlevel = 8
@@ -378,12 +410,173 @@ func _on_wait_quit_timeout():
 
 
 func _on_camera_area_1_body_entered(body):
-	ready_play
-	if Global.stealth_mode == false:
+	if ready_play:
 		camera_1_in_zicht = true
-		$level_rechts/laser_activatie.start()
 
 func _on_camera_area_1_body_exited(body):
-	ready_play
-	camera_1_in_zicht = false
+	if ready_play:
+		camera_1_in_zicht = false
+		
+func _on_camera_area_2_body_entered(body):
+	if ready_play:
+		camera_2_in_zicht = true
+
+func _on_camera_area_2_body_exited(body):
+	if ready_play:
+		camera_2_in_zicht = false
+
+func _on_camera_area_3_body_entered(body):
+	if ready_play:
+		camera_3_in_zicht = true
+
+func _on_camera_area_3_body_exited(body):
+	if ready_play:
+		camera_3_in_zicht = false
+
+func _on_camera_area_4_body_entered(body):
+	if ready_play:
+		camera_4_in_zicht = true
+
+func _on_camera_area_4_body_exited(body):
+	if ready_play:
+		camera_4_in_zicht = false
+
+func _on_camera_area_5_body_entered(body):
+	if ready_play:
+		camera_5_in_zicht = true
+
+func _on_camera_area_5_body_exited(body):
+	if ready_play:
+		camera_5_in_zicht = false
+
+func _laser_process(delta):
+	if camera_1_in_zicht == true and Global.stealth_mode == true:
+		if laser_1_aan == true:
+			laser_deactivate()
+			laser_1_aan = false
+	if camera_1_in_zicht == true and Global.stealth_mode == false:
+		laser_1_aan = true
+		$level_rechts/laser_1_aan.visible = true
+		$level_rechts/AnimationPlayer.play("laser_1_lampje_knipperen")
+	if camera_1_in_zicht == false and Global.stealth_mode == true:
+		if laser_1_aan == true:
+			laser_deactivate()
+			laser_1_aan = false
+	if camera_1_in_zicht == false and Global.stealth_mode == false:
+		if laser_1_aan == true:
+			laser_deactivate()
+			laser_1_aan = false
+	
+	if camera_2_in_zicht == true and Global.stealth_mode == true:
+		if laser_1_aan == true:
+			laser_deactivate()
+			laser_1_aan = false
+	if camera_2_in_zicht == true and Global.stealth_mode == false:
+		laser_1_aan = true
+		$level_rechts/AnimationPlayer.play("laser_1_lampje_knipperen")
+	if camera_2_in_zicht == false and Global.stealth_mode == true:
+		if laser_1_aan == true:
+			laser_deactivate()
+			laser_1_aan = false
+	if camera_2_in_zicht == false and Global.stealth_mode == false:
+		if laser_1_aan == true:
+			laser_deactivate()
+			laser_1_aan = false
+	
+	if camera_3_in_zicht == true and Global.stealth_mode == true:
+		if laser_2_aan == true:
+			laser_deactivate()
+			laser_2_aan = false
+	if camera_3_in_zicht == true and Global.stealth_mode == false:
+		laser_2_aan = true
+		$level_rechts/AnimationPlayer.play("laser_2_lampje_knipperen")
+	if camera_3_in_zicht == false and Global.stealth_mode == true:
+		if laser_2_aan == true:
+			laser_deactivate()
+			laser_2_aan = false
+	if camera_3_in_zicht == false and Global.stealth_mode == false:
+		if laser_2_aan == true:
+			laser_deactivate()
+			laser_2_aan = false
+	
+	if camera_4_in_zicht == true and Global.stealth_mode == true:
+		if laser_4_1_aan == true:
+			laser_deactivate()
+			laser_4_1_aan = false
+	if camera_4_in_zicht == true and Global.stealth_mode == false:
+		laser_4_1_aan = true
+		if laser_4_2_aan == true:
+			laser_lampje_dubbel = true
+		if laser_lampje_dubbel == false:
+			$level_rechts/AnimationPlayer.play("laser_4_lampje_knipperen")
+		if laser_lampje_dubbel == true:
+			$level_rechts/AnimationPlayer.play("laser_4_allebei_knipperen")
+	if camera_4_in_zicht == false and Global.stealth_mode == true:
+		if laser_4_1_aan == true:
+			laser_deactivate()
+			laser_4_1_aan = false
+	if camera_4_in_zicht == false and Global.stealth_mode == false:
+		if laser_4_1_aan == true:
+			laser_deactivate()
+			laser_4_1_aan = false
+
+	if camera_5_in_zicht == true and Global.stealth_mode == true:
+		if laser_4_2_aan == true:
+			laser_deactivate()
+			laser_4_2_aan = false
+	if camera_5_in_zicht == true and Global.stealth_mode == false:
+		laser_4_2_aan = true
+		if laser_4_1_aan == true:
+			laser_lampje_dubbel = true
+		if laser_lampje_dubbel == false:
+			$level_rechts/AnimationPlayer.play("laser_4_2_lampje_knipperen")
+		if laser_lampje_dubbel == true:
+			$level_rechts/AnimationPlayer.play("laser_4_allebei_knipperen")
+	if camera_5_in_zicht == false and Global.stealth_mode == true:
+		if laser_4_2_aan == true:
+			laser_deactivate()
+			laser_4_2_aan = false
+	if camera_5_in_zicht == false and Global.stealth_mode == false:
+		if laser_4_2_aan == true:
+			laser_deactivate()
+			laser_4_2_aan = false
+
+
+func _laser_visible(delta):
+		if laser_1_aan == true:
+			$level_rechts/laser_1_aan.visible = true
+		if laser_2_aan == true:
+			$level_rechts/laser_2_aan.visible = true
+			$level_rechts/laser_2_aan2.visible = true
+		if laser_4_1_aan == true:
+			$level_rechts/laser_4_aan.visible = true
+		if laser_4_2_aan == true:
+			$level_rechts/laser_4_aan2.visible = true
+
+
+func laser_deactivate():
 	$level_rechts/laser_deactivate.start()
+
+func _on_laser_deactivate_timeout():
+	$level_rechts/laser_1_aan.visible = false
+	$level_rechts/laser_2_aan.visible = false
+	$level_rechts/laser_2_aan2.visible = false
+	$level_rechts/laser_4_aan.visible = false
+	$level_rechts/laser_4_aan2.visible = false
+	laser_lampje_dubbel = false
+	$level_rechts/AnimationPlayer.stop()
+	$level_rechts/laser_1_lampje.set_frame(0)
+	$level_rechts/laser_2_lampje.set_frame(0)
+	$level_rechts/laser_2_lampje2.set_frame(0)
+	$level_rechts/laser_4_lampje.set_frame(0)
+	$level_rechts/laser_4_lampje2.set_frame(0)
+
+
+
+func _on_knop_toegang_body_entered(body):
+	if ready_play:
+		knop_toegang = true
+
+func _on_knop_toegang_body_exited(body):
+	if ready_play:
+		knop_toegang = false

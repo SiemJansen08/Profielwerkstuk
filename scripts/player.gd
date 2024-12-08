@@ -11,7 +11,6 @@ var enemy_attack_cooldown = true
 var player_alive = true
 var attack_ip = false
 
-
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 	healthbar.init_health(Global.player_health)
