@@ -31,6 +31,7 @@ var game_first_load = true
 var transition_scene_cave = false
 var transition_scene_museum = false
 var go_to_scene = "res://scenes/cave.tscn"
+var museumcp = 0
 
 var player_exit_cave_posx = 376			# in and out cords of cave scene
 var player_exit_cave_posy = -49
@@ -38,6 +39,12 @@ var player_start_posx = -572
 var player_start_posy = -57
 var player_posx
 var player_posy
+var cp0_posx
+var cp0_posy
+var cp1_posx = 117
+var cp1_posy = -213
+var cp2_posx = 117
+var cp2_posy = -340
 
 var bridge_acces = false			# level progression
 var cave_acces = false

@@ -12,6 +12,7 @@ var keypad_voortgang = 0
 var keypad_invoer = 0
 var invoer_mogelijk = true
 var knop_toegang = false
+var checkpoint = 0
 
 var camera_1_in_zicht = false
 var camera_2_in_zicht = false
@@ -55,6 +56,13 @@ func _ready():
 	$level_rechts/laser_4_aan.visible = false
 	$level_rechts/laser_4_aan2.visible = false
 	$level_rechts/laser_3_lampje.set_frame(1)
+
+	if Global.museumcp == 1:
+		$player.position.x = Global.cp1_posx
+		$player.position.y = Global.cp1_posy
+	elif Global.museumcp == 2:
+		$player.position.x = Global.cp2_posx
+		$player.position.y = Global.cp2_posy
 	
 
 func _process(delta):
@@ -85,12 +93,14 @@ func _process(delta):
 			if Global.sound == true:
 				$schuifdeur.play()
 			$TileMap/hekje_2/Timer_door_2.start()
+			Global.museumcp = 2
 			acces_door_2 = false
 	if Input.is_action_just_pressed("chat") and acces_door_3 == true:
 			$TileMap/hekje_3/AnimationPlayer.play("new_animation")
 			if Global.sound == true:
 				$schuifdeur.play()
 			$TileMap/hekje_3/Timer_door_3.start()
+			Global.museumcp = 1
 			acces_door_3 = false
 			Global.questlevel = 13
 	if Global.acces_door_left == true:
