@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 signal chase
+signal wave1
+signal wave2
 
 @export var speed = 35 #hoger is langzamer
 var player_chase = false
@@ -141,8 +143,10 @@ func deal_with_damage():
 				grootte = grootte - 1
 				if grootte == 1:
 					$large.queue_free()
+					emit_signal("wave1")
 				if grootte == 0:
 					$medium.queue_free()
+					emit_signal("wave2")
 				player_inattack_range = false
 				speed = speed + 10
 				knockback_speed = knockback_speed + 0.75 
@@ -151,7 +155,8 @@ func deal_with_damage():
 				healthbar.health = health
 				if grootte < 0:
 					self.queue_free()
-					Global.won = true
+					Global.won1 = true
+					print("won1")
 		
 
 

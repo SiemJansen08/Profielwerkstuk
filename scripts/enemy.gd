@@ -52,7 +52,7 @@ func _physics_process(delta):
 
 	
 func _on_detection_area_body_entered(body): 
-	if Global.current_scene == "res://scenes/cave.tscn":
+	if Global.current_scene == "res://scenes/cave.tscn" or Global.bossfight == true: 
 		player = body
 		player_chase = true
 	else:

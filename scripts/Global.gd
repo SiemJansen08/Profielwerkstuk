@@ -3,7 +3,8 @@ extends Node
 var music = true
 var sound = true
 var controller = false
-var won = false
+var won1 = false
+var won2 = false
 
 func _physics_process(delta):
 	questlevels()
@@ -32,6 +33,7 @@ var transition_scene_cave = false
 var transition_scene_museum = false
 var go_to_scene = "res://scenes/cave.tscn"
 var museumcp = 0
+var bossfight = false
 
 var player_exit_cave_posx = 376			# in and out cords of cave scene
 var player_exit_cave_posy = -49

@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=3 uid="uid://bwu8216omf0c0"]
+[gd_scene load_steps=136 format=3 uid="uid://bwu8216omf0c0"]
 
 [ext_resource type="Script" path="res://scripts/museum.gd" id="1_5u64n"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/player.tscn" id="2_fd7la"]
@@ -46,6 +46,7 @@
 [ext_resource type="Script" path="res://scripts/paintings/gouden_kikker.gd" id="38_lg02g"]
 [ext_resource type="Script" path="res://scripts/paintings/blauwe_kikker.gd" id="39_g2trq"]
 [ext_resource type="PackedScene" uid="uid://dhshoctkmcwsa" path="res://scenes/eindbaas.tscn" id="40_ldjpw"]
+[ext_resource type="AudioStream" uid="uid://5k06jk0jbegi" path="res://audio/gong.mp3" id="46_74t5x"]
 [ext_resource type="Texture2D" uid="uid://b4pcin2mp8bhh" path="res://art/objects/level_objects/Untitled 8.png" id="47_fgosj"]
 [ext_resource type="Texture2D" uid="uid://bibeb2g2xncd0" path="res://art/objects/level_objects/keypas_s.png" id="48_eb4am"]
 [ext_resource type="Texture2D" uid="uid://c0ejxy1vehcwi" path="res://art/objects/level_objects/keypad_l.png" id="49_gd2ij"]
@@ -2141,7 +2142,7 @@ shape = SubResource("RectangleShape2D_2xmwp")
 [node name="player" parent="." instance=ExtResource("2_fd7la")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(34, 134)
+position = Vector2(125, -250)
 
 [node name="paintings" type="Node2D" parent="."]
 
@@ -2338,6 +2339,9 @@ scale = Vector2(0.950823, 1)
 stream = ExtResource("34_clkia")
 volume_db = 24.0
 
+[node name="gong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("46_74t5x")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("35_vesjf")]
 position = Vector2(264, -57)
 
@@ -2362,7 +2366,7 @@ position = Vector2(150, 21)
 [node name="CharacterBody2D8" parent="." instance=ExtResource("35_vesjf")]
 position = Vector2(320, 51)
 
-[node name="CharacterBody2D9" parent="." instance=ExtResource("40_ldjpw")]
+[node name="eindbaas" parent="." instance=ExtResource("40_ldjpw")]
 position = Vector2(121, -458)
 
 [node name="CharacterBody2D10" parent="." instance=ExtResource("35_vesjf")]
@@ -2832,6 +2836,8 @@ text = "QUIT"
 [connection signal="timeout" from="start_timer" to="paintings/painting8" method="_on_start_timer_timeout"]
 [connection signal="timeout" from="start_timer" to="paintings/gouden_kikker" method="_on_start_timer_timeout"]
 [connection signal="timeout" from="start_timer" to="paintings/blauwe_kikker" method="_on_start_timer_timeout"]
+[connection signal="wave1" from="eindbaas" to="." method="_on_eindbaas_wave_1"]
+[connection signal="wave2" from="eindbaas" to="." method="_on_eindbaas_wave_2"]
 [connection signal="body_entered" from="keypad_puzzle/keypad_puzzle_klein/keypad_toegang_collision" to="." method="_on_keypad_toegang_collision_body_entered"]
 [connection signal="body_exited" from="keypad_puzzle/keypad_puzzle_klein/keypad_toegang_collision" to="." method="_on_keypad_toegang_collision_body_exited"]
 [connection signal="body_entered" from="keypad_puzzle/laser_aan/laser_level_links_1" to="." method="_on_laser_level_links_1_body_entered"]

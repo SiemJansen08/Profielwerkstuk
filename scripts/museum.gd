@@ -14,6 +14,10 @@ var invoer_mogelijk = true
 var knop_toegang = false
 var checkpoint = 0
 
+var boss_inkling = preload("res://scenes/cave_inkling.tscn")
+var starting_nodes: int
+var current_nodes: int
+
 var camera_1_in_zicht = false
 var camera_2_in_zicht = false
 var camera_3_in_zicht = false
@@ -63,13 +67,16 @@ func _ready():
 	elif Global.museumcp == 2:
 		$player.position.x = Global.cp2_posx
 		$player.position.y = Global.cp2_posy
+		
+	starting_nodes = get_child_count()
+	current_nodes = get_child_count()
 	
 
 func _process(delta):
 	change_scenes()
 	_laser_process(delta)
 	_laser_visible(delta)
-	if Global.won == true:
+	if Global.won1 == true and Global.won2 == true:
 		$victory.show()
 		$victory/victorycam.enabled = true
 		
@@ -94,6 +101,8 @@ func _process(delta):
 				$schuifdeur.play()
 			$TileMap/hekje_2/Timer_door_2.start()
 			Global.museumcp = 2
+			Global.bossfight = true
+			Global.cloak = false
 			acces_door_2 = false
 	if Input.is_action_just_pressed("chat") and acces_door_3 == true:
 			$TileMap/hekje_3/AnimationPlayer.play("new_animation")
@@ -228,7 +237,10 @@ func _process(delta):
 				$keypad_puzzle/invoer_timer.start()
 				invoer_mogelijk = false
 	
-	
+	current_nodes = get_child_count()
+	if current_nodes == starting_nodes and Global.won1 == true:
+		Global.won2 = true
+		print("won2")
 	
 	
 	
@@ -617,3 +629,36 @@ func _on_knop_toegang_body_exited(body):
 			Global.questlevel = 13
 		elif Global.acces_door_left == true and Global.acces_door_right == true:
 			Global.questlevel = 13.4
+
+
+func inst(pos):
+	var instance = boss_inkling.instantiate()
+	instance.position = pos
+	add_child(instance)
+
+
+func _on_eindbaas_wave_1():
+	$gong.play()
+	inst(Vector2(39, -381))
+	inst(Vector2(39, -515))
+	inst(Vector2(300, -538))
+	inst(Vector2(151, -468))
+	inst(Vector2(126, -600))
+	inst(Vector2(119, -386))
+
+
+func _on_eindbaas_wave_2():
+	$gong.play()
+	inst(Vector2(39, -381))
+	inst(Vector2(39, -515))
+	inst(Vector2(300, -538))
+	inst(Vector2(151, -468))
+	inst(Vector2(126, -600))
+	inst(Vector2(119, -386))
+	await get_tree().create_timer(3).timeout
+	inst(Vector2(39, -381))
+	inst(Vector2(39, -515))
+	inst(Vector2(300, -538))
+	inst(Vector2(151, -468))
+	inst(Vector2(126, -600))
+	inst(Vector2(119, -386))

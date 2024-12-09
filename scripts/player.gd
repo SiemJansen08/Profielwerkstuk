@@ -274,7 +274,7 @@ func current_camera():
 		$cave_camera.enabled = false
 		$museum_camera.enabled = true
 		
-		if Global.won == true:
+		if Global.won1 == true and Global.won2 == true:
 			$world_camera.enabled = false
 			$cave_camera.enabled = false
 			$museum_camera.enabled = false
