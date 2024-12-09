@@ -10,6 +10,7 @@ func _process(delta):
 		Global.acces_door_right = true
 		self.queue_free()
 		emit_signal("grab")
+		
 
 
 func _on_area_2d_body_entered(body):

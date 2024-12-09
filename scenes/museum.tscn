@@ -2272,6 +2272,12 @@ color = Color(0.905882, 0.945098, 0.25098, 1)
 energy = 0.7
 texture = SubResource("GradientTexture2D_vrlpy")
 
+[node name="grab" type="AudioStreamPlayer2D" parent="paintings/gouden_kikker"]
+position = Vector2(-285.009, -52)
+scale = Vector2(0.950823, 1)
+stream = ExtResource("34_clkia")
+volume_db = 24.0
+
 [node name="blauwe_kikker" type="Sprite2D" parent="paintings"]
 position = Vector2(488, -257)
 texture = ExtResource("36_onela")
@@ -2295,6 +2301,12 @@ position = Vector2(9, 7)
 color = Color(0.247059, 0.85098, 0.976471, 1)
 energy = 0.7
 texture = SubResource("GradientTexture2D_vrlpy")
+
+[node name="grab" type="AudioStreamPlayer2D" parent="paintings/blauwe_kikker"]
+position = Vector2(-285.009, -52)
+scale = Vector2(0.950823, 1)
+stream = ExtResource("34_clkia")
+volume_db = 24.0
 
 [node name="npc1" parent="." instance=ExtResource("15_lskp7")]
 y_sort_enabled = true
@@ -2821,8 +2833,10 @@ text = "QUIT"
 [connection signal="grab" from="paintings/painting8" to="." method="_on_painting_8_grab"]
 [connection signal="body_entered" from="paintings/painting8/Area2D" to="paintings/painting8" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="paintings/painting8/Area2D" to="paintings/painting8" method="_on_area_2d_body_exited"]
+[connection signal="grab" from="paintings/gouden_kikker" to="." method="_on_gouden_kikker_grab"]
 [connection signal="body_entered" from="paintings/gouden_kikker/Area2D" to="paintings/gouden_kikker" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="paintings/gouden_kikker/Area2D" to="paintings/gouden_kikker" method="_on_area_2d_body_exited"]
+[connection signal="grab" from="paintings/blauwe_kikker" to="." method="_on_blauwe_kikker_grab"]
 [connection signal="body_entered" from="paintings/blauwe_kikker/Area2D" to="paintings/blauwe_kikker" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="paintings/blauwe_kikker/Area2D" to="paintings/blauwe_kikker" method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="start_timer" to="." method="_on_start_timer_timeout"]

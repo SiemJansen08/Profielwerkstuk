@@ -429,6 +429,13 @@ func _on_painting_8_grab():
 		$grab.play()
 
 
+func _on_gouden_kikker_grab():
+	if Global.sound == true:
+			$grab.play()
+			
+func _on_blauwe_kikker_grab():
+	if Global.sound == true:
+			$grab.play()
 
 func _on_invoer_timer_timeout():
 	invoer_mogelijk = true
@@ -662,3 +669,8 @@ func _on_eindbaas_wave_2():
 	inst(Vector2(151, -468))
 	inst(Vector2(126, -600))
 	inst(Vector2(119, -386))
+
+
+
+
+
