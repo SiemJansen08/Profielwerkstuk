@@ -155,6 +155,31 @@ Right artifact: v"""
 	elif questlevel == 13:
 		current_quest_title = "Artifacts"
 		current_quest_desc = "Collect both artifacts to open the door"
+	elif questlevel == 14:
+		current_quest_title = "Keypad"
+		if Global.controller == false:
+			current_quest_desc = "Press 'D' to use the keypad"
+		if Global.controller == true:
+			current_quest_desc = "Press TRIANGLE to use the keypad"
+	elif questlevel == 15:
+		current_quest_title = "Keypad"
+		if Global.controller == false:
+			current_quest_desc = "ARROW KEYS to enter the code, ENTER to confirm"
+		if Global.controller == true:
+			current_quest_desc = "Press TRIANGLE to use the keypad, press X to confirm"
+	elif questlevel == 16:
+		current_quest_title = "Bossfight"
+		if Global.controller == false:
+			current_quest_desc = "When both lights are lit press 'D' to open the door"
+		if Global.controller == true:
+			current_quest_desc = "When both lights are lit press TRIANGLE to open the door"
+	elif questlevel == 17:
+		current_quest_title = "Switch"
+		if Global.controller == false:
+			current_quest_desc = "Press 'D' to flip the switch"
+		if Global.controller == true:
+			current_quest_desc = "Press TRIANGLE to flip the switch"
+		
 func questvis():
 	$QuestBox/QuestTitle.set_text(current_quest_title) 
 	$QuestBox/QuestDescription.set_text(current_quest_desc)

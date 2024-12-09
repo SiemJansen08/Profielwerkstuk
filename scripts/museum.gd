@@ -100,12 +100,21 @@ func _process(delta):
 	if keypad_toegang == true:
 		if Input.is_action_just_pressed("chat"):
 			$keypad_puzzle/keypad_puzzle_groot.visible = true
+			Global.questlevel = 15
 			keypad_voortgang = 0
 			keypad_invoer = 0
 			Global.able_to_move = false
 		if Input.is_action_just_pressed("ui_accept"):
 			Global.able_to_move = true
 			$keypad_puzzle/keypad_puzzle_groot.visible = false
+			if Global.acces_door_left == true and Global.acces_door_right == false:
+				Global.questlevel = 13.2
+			elif Global.acces_door_left == false and Global.acces_door_right == true:
+				Global.questlevel = 13.3
+			elif Global.acces_door_left == false and Global.acces_door_right == false:
+				Global.questlevel = 13
+			elif Global.acces_door_left == true and Global.acces_door_right == true:
+				Global.questlevel = 13.4
 	
 	if keypad_invoer == 4:
 				laser_puzzle_opgelost = true
@@ -239,7 +248,7 @@ func _on_hekje_2_acces_door_body_entered(body):
 			Global.questlevel = 9
 			acces_door_2 = true
 		elif Global.questlevel == 13 or Global.questlevel == 13.1 or Global.questlevel == 13.2 or Global.questlevel == 13.3:
-			Global.questlevel = 14
+			Global.questlevel = 16
 
 func _on_hekje_2_acces_door_body_exited(body):
 	if Global.acces_door_left == true and Global.acces_door_right == false:
@@ -332,12 +341,21 @@ func _on_timer_door_3_timeout():
 func _on_keypad_toegang_collision_body_entered(body):
 	if ready_play:
 		keypad_toegang = true
+		Global.questlevel = 14
 	
 	
 func _on_keypad_toegang_collision_body_exited(body):
 	if ready_play:
 		keypad_toegang = false
 		$keypad_puzzle/keypad_puzzle_groot.visible = false
+		if Global.acces_door_left == true and Global.acces_door_right == false:
+			Global.questlevel = 13.2
+		elif Global.acces_door_left == false and Global.acces_door_right == true:
+			Global.questlevel = 13.3
+		elif Global.acces_door_left == false and Global.acces_door_right == false:
+			Global.questlevel = 13
+		elif Global.acces_door_left == true and Global.acces_door_right == true:
+			Global.questlevel = 13.4
 
 
 
@@ -576,7 +594,16 @@ func _on_laser_deactivate_timeout():
 func _on_knop_toegang_body_entered(body):
 	if ready_play:
 		knop_toegang = true
+		Global.questlevel = 17
 
 func _on_knop_toegang_body_exited(body):
 	if ready_play:
 		knop_toegang = false
+		if Global.acces_door_left == true and Global.acces_door_right == false:
+			Global.questlevel = 13.2
+		elif Global.acces_door_left == false and Global.acces_door_right == true:
+			Global.questlevel = 13.3
+		elif Global.acces_door_left == false and Global.acces_door_right == false:
+			Global.questlevel = 13
+		elif Global.acces_door_left == true and Global.acces_door_right == true:
+			Global.questlevel = 13.4
