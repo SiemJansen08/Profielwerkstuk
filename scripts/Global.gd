@@ -175,7 +175,7 @@ Right artifact: v"""
 		if Global.controller == false:
 			current_quest_desc = "ARROW KEYS to enter the code, ENTER to confirm"
 		if Global.controller == true:
-			current_quest_desc = "Press TRIANGLE to use the keypad, press X to confirm"
+			current_quest_desc = "Press the D-PAD to enter the code, press X to confirm"
 	elif questlevel == 16:
 		current_quest_title = "Bossfight"
 		if Global.controller == false:

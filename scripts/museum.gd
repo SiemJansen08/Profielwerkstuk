@@ -238,9 +238,10 @@ func _process(delta):
 				invoer_mogelijk = false
 	
 	current_nodes = get_child_count()
-	if current_nodes == starting_nodes and Global.won1 == true:
+	if current_nodes == starting_nodes - 1 and Global.won1 == true:
 		Global.won2 = true
 		print("won2")
+		Global.player_health = 100
 	
 	
 	
@@ -669,8 +670,3 @@ func _on_eindbaas_wave_2():
 	inst(Vector2(151, -468))
 	inst(Vector2(126, -600))
 	inst(Vector2(119, -386))
-
-
-
-
-
