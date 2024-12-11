@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const speed = 70
 const speed_stealth = 60
+var able_to_sneak = true
 var current_dir = "none"
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
@@ -234,10 +235,12 @@ func stealth():
 		var dir = current_dir
 		var anim = $AnimatedSprite2D
 		if Input.is_action_just_pressed("stealth"):
-			Global.stealth_mode= true
-			if Global.sound == true:
-				$stealthsound.play()
-			$stealth_time.start()
+			if Global.stealth_mode == false and able_to_sneak == true:
+				Global.stealth_mode = true
+				able_to_sneak = false
+				if Global.sound == true:
+					$stealthsound.play()
+				$stealth_time.start()
 		
 		
 
@@ -247,6 +250,10 @@ func _on_stealth_time_timeout():
 	if Global.sound == true:
 		$stealthsound.play()
 	$stealth_time.stop()
+	$stealth_time_cooldown.start()
+
+func _on_stealth_time_cooldown_timeout():
+	able_to_sneak = true
 	
 	
 func current_camera():
@@ -278,7 +285,3 @@ func current_camera():
 			$world_camera.enabled = false
 			$cave_camera.enabled = false
 			$museum_camera.enabled = false
-			
-		
-		
-		
