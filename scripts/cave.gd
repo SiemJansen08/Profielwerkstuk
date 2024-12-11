@@ -24,7 +24,7 @@ func _process(delta):
 		position_to_next_wave()
 
 func _on_cave_exit_body_entered(body):
-	if body.has_method("player"):
+	if body.has_method("player") and Global.cave_win == true:
 		Global.player_health = 100
 		Global.transition_scene = true
 

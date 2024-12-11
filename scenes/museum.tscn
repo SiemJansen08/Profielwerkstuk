@@ -1322,7 +1322,7 @@ shape = SubResource("RectangleShape2D_2xmwp")
 [node name="player" parent="." instance=ExtResource("2_fd7la")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(125, -250)
+position = Vector2(37, 137)
 
 [node name="paintings" type="Node2D" parent="."]
 
