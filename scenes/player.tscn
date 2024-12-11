@@ -742,7 +742,6 @@ animations = [{
 radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f5aw2"]
-radius = 9.0
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 3
@@ -762,7 +761,7 @@ one_way_collision_margin = 0.0
 [node name="player_hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
-position = Vector2(0, -10)
+position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_f5aw2")
 
 [node name="attack_cooldown" type="Timer" parent="."]
