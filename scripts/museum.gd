@@ -102,6 +102,7 @@ func _process(delta):
 			$TileMap/hekje_2/Timer_door_2.start()
 			Global.museumcp = 2
 			Global.bossfight = true
+			starting_nodes = get_child_count()
 			Global.cloak = false
 			acces_door_2 = false
 	if Input.is_action_just_pressed("chat") and acces_door_3 == true:
@@ -236,7 +237,6 @@ func _process(delta):
 				keypad_voortgang = keypad_voortgang + 1
 				$keypad_puzzle/invoer_timer.start()
 				invoer_mogelijk = false
-	
 	current_nodes = get_child_count()
 	if current_nodes == starting_nodes - 1 and Global.won1 == true:
 		Global.won2 = true
