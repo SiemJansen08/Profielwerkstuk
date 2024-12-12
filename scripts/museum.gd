@@ -146,15 +146,20 @@ func _process(delta):
 		if Input.is_action_just_pressed("chat"):
 			$level_rechts/laser_3_lampje.set_frame(0)
 			$level_rechts/laser_3_aan.visible = false
+			$powerdown.play()
+			knop_toegang = false
 	
 	if laser_puzzle_opgelost == true:
 		$keypad_puzzle/keypad_puzzle_groot.set_frame(8)
 	if laser_puzzle_opgelost == false:
 		$keypad_puzzle/keypad_puzzle_groot.set_frame(keypad_voortgang)
 	
-	if laser_puzzle_opgelost == true:
+	if laser_puzzle_opgelost == true and keypad_invoer == 4:
 		$keypad_puzzle/laser_aan.visible = false
 		$keypad_puzzle/laser_uit.visible = true
+		$powerdown.play()
+		keypad_invoer = 0
+		
 	
 	if $keypad_puzzle/keypad_puzzle_groot.visible == true:
 		if keypad_voortgang == 0 and invoer_mogelijk == true and laser_puzzle_opgelost == false:
