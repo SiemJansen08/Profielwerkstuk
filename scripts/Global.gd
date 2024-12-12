@@ -5,6 +5,7 @@ var sound = true
 var controller = false
 var won1 = false
 var won2 = false
+var cs1 = false
 
 func _physics_process(delta):
 	questlevels()

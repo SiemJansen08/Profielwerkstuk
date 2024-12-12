@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://bwu8216omf0c0"]
+[gd_scene load_steps=138 format=3 uid="uid://bwu8216omf0c0"]
 
 [ext_resource type="Script" path="res://scripts/museum.gd" id="1_5u64n"]
 [ext_resource type="PackedScene" uid="uid://blfg10bysujfr" path="res://scenes/player.tscn" id="2_fd7la"]
@@ -1948,6 +1948,12 @@ _data = {
 "laser_4_lampje_knipperen": SubResource("Animation_jcrp1")
 }
 
+[sub_resource type="Curve2D" id="Curve2D_ag146"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 66, 121, 0, 0, 0, 0, -299, -195, 0, 0, 0, 0, 107, -248, 0, 0, 0, 0, 115, -482, 0, 0, 0, 0, 146, -246, 0, 0, 0, 0, 730, -182, 0, 0, 0, 0, 239, -105, 0, 0, 0, 0, 93, 117)
+}
+point_count = 8
+
 [node name="museum" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_5u64n")
@@ -2127,7 +2133,7 @@ shape = SubResource("RectangleShape2D_2xmwp")
 [node name="player" parent="." instance=ExtResource("2_fd7la")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(133, -240)
+position = Vector2(93, 129)
 
 [node name="paintings" type="Node2D" parent="."]
 
@@ -2787,6 +2793,17 @@ offset_right = 149.0
 offset_bottom = -436.0
 theme_override_fonts/font = ExtResource("60_2uwkk")
 text = "QUIT"
+
+[node name="Path2D" type="Path2D" parent="."]
+visible = false
+curve = SubResource("Curve2D_ag146")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(66, 121)
+rotation = -2.42802
+
+[node name="cscam" type="Camera2D" parent="Path2D/PathFollow2D"]
+position = Vector2(-1.88794, -1.19821)
 
 [connection signal="timeout" from="TileMap/hekje_1/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TileMap/hekje_2/Timer_door_2" to="." method="_on_timer_door_2_timeout"]

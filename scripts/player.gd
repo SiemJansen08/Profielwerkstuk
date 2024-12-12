@@ -272,6 +272,11 @@ func current_camera():
 		$cave_camera.enabled = true
 		$museum_camera.enabled = false
 	elif Global.current_scene == "res://scenes/museum.tscn":
+		if Global.cs1 == true:
+			$world_camera.enabled = false
+			$cave_camera.enabled = false
+			$museum_camera.enabled = false
+
 		if Global.chatting == true:
 			$world_camera.enabled = false
 			$cave_camera.enabled = false
@@ -285,3 +290,5 @@ func current_camera():
 			$world_camera.enabled = false
 			$cave_camera.enabled = false
 			$museum_camera.enabled = false
+			
+		

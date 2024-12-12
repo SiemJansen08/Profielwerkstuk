@@ -56,7 +56,8 @@ func _process(delta):
 		current_state = IDLE
 	if Global.won1 == true and Global.won2 == true:
 		$lip_camera.enabled = false
-
+	if Global.cs1 == true:
+		$lip_camera.enabled = false
 
 func choose(array):
 	array.shuffle()

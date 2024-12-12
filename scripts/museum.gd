@@ -38,6 +38,7 @@ func _ready():
 	$victory.hide()
 	$start_timer.start()
 	Global.questlevel = 6
+	Global.cs1 = true
 	
 	$TileMap/hekje_1/door_1/door_1_col.set_deferred("disabled", false)
 	healthbar.init_health(Global.player_health)
@@ -80,7 +81,15 @@ func _process(delta):
 		$victory.show()
 		$victory/victorycam.enabled = true
 		
-	
+	if Global.cs1 == false:
+		$Path2D/PathFollow2D/cscam.enabled = false
+
+	if Global.cs1 == true:
+		$Path2D/PathFollow2D.progress_ratio += 0.0005
+		if $Path2D/PathFollow2D.progress_ratio >= 0.99:
+			Global.cs1 = false
+		
+
 	if Input.is_action_just_pressed("chat") and player_pickup:
 		key_door_1 = true
 		if Global.sound == true:
