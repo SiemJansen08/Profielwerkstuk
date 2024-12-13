@@ -6,6 +6,7 @@ var controller = false
 var won1 = false
 var won2 = false
 var cs1 = false
+var cs1_bugfix_hardcode = true
 
 func _physics_process(delta):
 	questlevels()

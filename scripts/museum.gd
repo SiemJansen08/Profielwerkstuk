@@ -38,7 +38,8 @@ func _ready():
 	$victory.hide()
 	$start_timer.start()
 	Global.questlevel = 6
-	Global.cs1 = true
+	if Global.cs1_bugfix_hardcode == true:
+		Global.cs1 = true
 	
 	$TileMap/hekje_1/door_1/door_1_col.set_deferred("disabled", false)
 	healthbar.init_health(Global.player_health)
@@ -88,6 +89,7 @@ func _process(delta):
 		$Path2D/PathFollow2D.progress_ratio += 0.0005
 		if $Path2D/PathFollow2D.progress_ratio >= 0.99:
 			Global.cs1 = false
+			Global.cs1_bugfix_hardcode = false
 		
 
 	if Input.is_action_just_pressed("chat") and player_pickup:
