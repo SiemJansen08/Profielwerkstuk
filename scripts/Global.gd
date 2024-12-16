@@ -12,7 +12,7 @@ func _physics_process(delta):
 	questlevels()
 	questvis()
 	pause()
-	debug()
+	#debug()
 	if music == true and !$backingmusic.playing:
 		$backingmusic.play()
 	elif music == false and $backingmusic.playing:
@@ -212,7 +212,7 @@ func pause():
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 		menu = true
 
-func debug():
+#func debug():
 	if Input.is_action_just_pressed("debug1"):
 		get_tree().change_scene_to_file("res://scenes/world.tscn")
 		current_scene = "res://scenes/world.tscn"

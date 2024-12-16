@@ -26,6 +26,7 @@ func _physics_process(delta):
 	
 	if Global.player_health <= 0:
 		player_alive = false # terug naar menu of end screen.
+		Global.stealth_mode = false
 		Global.player_health = 0
 		print("player has died")
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
