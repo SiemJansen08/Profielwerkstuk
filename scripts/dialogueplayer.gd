@@ -77,6 +77,7 @@ func load_dialogue():
 		if Global.sound == true:
 			$gib.play()
 		return content
+		Global.player_health = 100
 	
 func _input(event):
 	if !d_active:
