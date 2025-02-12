@@ -78,13 +78,13 @@ func spawn_type(type, mob_spawn_rounds, mob_wait_time):
 				inkling3.global_position = $inkling_spawn_3.global_position
 				var inkling4 = inkling_scene.instantiate()
 				inkling4.global_position = $inkling_spawn_4.global_position
-				var inkling5 = inkling_scene.instantiate()
-				inkling5.global_position = $inkling_spawn_5.global_position
+				#var inkling5 = inkling_scene.instantiate()
+				#inkling5.global_position = $inkling_spawn_5.global_position
 				add_child(inkling1)
 				add_child(inkling2)
 				add_child(inkling3)
 				add_child(inkling4)
-				add_child(inkling5)
+				#add_child(inkling5)
 				mob_spawn_rounds -= 1
 				await get_tree().create_timer(mob_wait_time).timeout
 		wave_spawn_ended = true
