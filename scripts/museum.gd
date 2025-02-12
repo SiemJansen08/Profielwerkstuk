@@ -86,7 +86,7 @@ func _process(delta):
 		$Path2D/PathFollow2D/cscam.enabled = false
 
 	if Global.cs1 == true:
-		$Path2D/PathFollow2D.progress_ratio += 0.0005
+		$Path2D/PathFollow2D.progress_ratio += 0.0008
 		if $Path2D/PathFollow2D.progress_ratio >= 0.99:
 			Global.cs1 = false
 			Global.cs1_bugfix_hardcode = false
