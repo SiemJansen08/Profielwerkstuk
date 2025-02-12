@@ -213,7 +213,6 @@ func pause():
 		menu = true
 
 #func debug():
-"""
 	if Input.is_action_just_pressed("debug1"):
 		get_tree().change_scene_to_file("res://scenes/world.tscn")
 		current_scene = "res://scenes/world.tscn"
@@ -233,4 +232,3 @@ func pause():
 		sword = true
 		cloak = true
 		player_health = 100
-	"""
